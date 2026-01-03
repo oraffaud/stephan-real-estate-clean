@@ -1,0 +1,70 @@
+{
+  "langName": "Français",
+  "brand": {
+    "name": "Stephan",
+    "tagline": "Agent immobilier indépendant — Valbonne & biens d’exception"
+  },
+  "nav": {
+    "home": "Accueil",
+    "properties": "Biens",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Valbonne & Côte d’Azur — des biens sélectionnés pour une clientèle internationale",
+    "heroLead": "Mandats à Valbonne et sélection de biens d’exception dans les Alpes-Maritimes. Accompagnement bilingue français / anglais.",
+    "ctaBrowse": "Voir les biens",
+    "ctaContact": "Me contacter",
+    "highlightsTitle": "Une approche boutique",
+    "highlights": [
+      {
+        "title": "Clientèle internationale",
+        "text": "Un parcours clair pour acheteurs et vendeurs expatriés — accompagnement bilingue."
+      },
+      {
+        "title": "Expertise locale",
+        "text": "Valbonne, Mougins, Cannes, Antibes et l’arrière-pays — une sélection guidée par le style de vie."
+      },
+      {
+        "title": "Discrétion & service",
+        "text": "Une expérience premium avec une communication transparente et une sélection exigeante."
+      }
+    ]
+  },
+  "properties": {
+    "title": "Biens",
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher par secteur, mot-clé, style de vie…",
+    "type": "Type",
+    "bedsMin": "Chambres (min)",
+    "priceMax": "Prix max",
+    "sort": "Tri",
+    "sortFeatured": "Sélection",
+    "sortPriceAsc": "Prix croissant",
+    "sortPriceDesc": "Prix décroissant",
+    "empty": "Aucun bien ne correspond à vos critères. Essayez d’ajuster les filtres.",
+    "back": "Retour aux biens"
+  },
+  "property": {
+    "overview": "Aperçu",
+    "keyFacts": "Informations clés",
+    "highlights": "Points forts",
+    "enquire": "Demander des informations",
+    "ctaTitle": "Contact",
+    "ctaText": "Demandez des détails, planifiez une visite ou sollicitez une sélection privée.",
+    "ctaButton": "Contacter Stephan"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Décrivez votre recherche — je reviens vers vous rapidement.",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "sending": "Envoi…",
+    "sent": "Message envoyé. Merci !",
+    "error": "Une erreur est survenue. Merci de réessayer."
+  },
+  "footer": {
+    "disclaimer": "Modèle de site (démo). Remplacez le contenu, les biens et les mentions légales avant mise en ligne."
+  }
+}

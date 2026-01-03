@@ -1,0 +1,70 @@
+{
+  "langName": "English",
+  "brand": {
+    "name": "Stephan",
+    "tagline": "Independent real estate agent — Valbonne & exceptional properties"
+  },
+  "nav": {
+    "home": "Home",
+    "properties": "Properties",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Valbonne & the French Riviera — curated homes for an international clientele",
+    "heroLead": "Mandates in Valbonne plus a carefully selected set of exceptional properties across the Alpes-Maritimes. Bilingual service in English & French.",
+    "ctaBrowse": "Browse properties",
+    "ctaContact": "Get in touch",
+    "highlightsTitle": "A boutique approach",
+    "highlights": [
+      {
+        "title": "International focus",
+        "text": "Guidance tailored to buyers and sellers from abroad — clear process, bilingual support."
+      },
+      {
+        "title": "Local expertise",
+        "text": "Valbonne, Mougins, Cannes, Antibes and the hinterland — lifestyle-led recommendations."
+      },
+      {
+        "title": "Discretion & service",
+        "text": "A premium experience with transparent communication and careful selection."
+      }
+    ]
+  },
+  "properties": {
+    "title": "Properties",
+    "search": "Search",
+    "searchPlaceholder": "Search by area, keyword, lifestyle…",
+    "type": "Type",
+    "bedsMin": "Beds (min)",
+    "priceMax": "Max price",
+    "sort": "Sort",
+    "sortFeatured": "Featured",
+    "sortPriceAsc": "Price (low to high)",
+    "sortPriceDesc": "Price (high to low)",
+    "empty": "No properties match your criteria. Try adjusting filters.",
+    "back": "Back to properties"
+  },
+  "property": {
+    "overview": "Overview",
+    "keyFacts": "Key facts",
+    "highlights": "Highlights",
+    "enquire": "Enquire about this property",
+    "ctaTitle": "Get in touch",
+    "ctaText": "Request details, schedule a viewing, or ask for a private selection.",
+    "ctaButton": "Contact Stephan"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Tell me what you are looking for — I’ll come back to you quickly.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sent": "Message sent. Thank you!",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "disclaimer": "This is a demo site template. Replace text, properties and legal mentions before going live."
+  }
+}
