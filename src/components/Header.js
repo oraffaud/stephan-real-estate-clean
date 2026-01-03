@@ -12,7 +12,6 @@ export function Header({ lang, t }) {
 
         <nav className="flex items-center gap-5">
           <Link className="text-sm text-zinc-700 hover:text-zinc-900" href={`/${lang}`}>{t.nav.home}</Link>
-          <Link className="text-sm text-zinc-700 hover:text-zinc-900" href={`/${lang}/properties`}>{t.nav.properties}</Link>
           <Link className="text-sm text-zinc-700 hover:text-zinc-900" href={`/${lang}#contact`}>{t.nav.contact}</Link>
           <LanguageSwitcher currentLang={lang} />
         </nav>

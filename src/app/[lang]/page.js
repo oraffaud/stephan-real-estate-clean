@@ -1,17 +1,12 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { isLang, getDict } from '@/lib/i18n';
-import { PROPERTIES } from '@/lib/properties';
-import { PropertyCard } from '@/components/PropertyCard';
 import { ContactForm } from '@/components/ContactForm';
 
 export default async function HomePage({ params }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
   const t = await getDict(lang);
-
-  const featured = PROPERTIES.filter((p) => p.featured).slice(0, 3);
-
   return (
     <main>
       {/* HERO with photo background */}
@@ -42,12 +37,6 @@ export default async function HomePage({ params }) {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
-                    href={`/${lang}/properties`}
-                    className="rounded-full bg-white px-6 py-2 text-sm font-medium text-zinc-900 hover:bg-white/90"
-                  >
-                    {t.home.ctaBrowse}
-                  </Link>
-                  <Link
                     href={`/${lang}#contact`}
                     className="rounded-full border border-white/30 bg-white/10 px-6 py-2 text-sm font-medium text-white hover:bg-white/20 backdrop-blur"
                   >
@@ -71,34 +60,6 @@ export default async function HomePage({ params }) {
       </section>
 
       {/* Highlights */}
-      <section className="container py-14">
-        <h2 className="text-xl font-semibold tracking-tight">{t.home.highlightsTitle}</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {t.home.highlights.map((h) => (
-            <div key={h.title} className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold text-zinc-900">{h.title}</div>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-700">{h.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Featured */}
-      <section className="container py-14">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-semibold tracking-tight">{t.properties.sortFeatured}</h2>
-          <Link className="text-sm text-zinc-700 hover:text-zinc-900" href={`/${lang}/properties`}>
-            {t.home.ctaBrowse} →
-          </Link>
-        </div>
-
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {featured.map((p) => (
-            <PropertyCard key={p.id} lang={lang} property={p} />
-          ))}
-        </div>
-      </section>
-
       {/* Contact */}
       <section id="contact" className="container py-14">
         <div className="grid gap-6 md:grid-cols-2 md:items-start">
