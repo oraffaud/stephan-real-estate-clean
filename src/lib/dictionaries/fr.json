@@ -28,6 +28,34 @@
         "title": "Discrétion & service",
         "text": "Une expérience premium avec une communication transparente et une sélection exigeante."
       }
+    ],
+    "socialProofTitle": "Confiance, discrétion, exigence",
+    "socialProofLead": "Un service boutique pour une clientèle internationale — Valbonne et Côte d’Azur.",
+    "testimonialsTitle": "Ils en parlent",
+    "pressTitle": "Presse & partenaires",
+    "pressLead": "Une sélection de plateformes et partenaires — internationale et soignée.",
+    "testimonials": [
+      {
+        "quote": "Processus fluide, communication claire, et une vraie compréhension de nos critères.",
+        "name": "Acheteur international",
+        "meta": "Valbonne"
+      },
+      {
+        "quote": "Discret, réactif, très rigoureux — de la première visite à la signature.",
+        "name": "Vendeur",
+        "meta": "Alpes-Maritimes"
+      },
+      {
+        "quote": "Excellente connaissance locale avec une approche internationale. Recommandé.",
+        "name": "Client relocation",
+        "meta": "Côte d’Azur"
+      }
+    ],
+    "partners": [
+      "Relocation internationale",
+      "Notaires & réseau juridique",
+      "Crédit & banque privée",
+      "Gestion locative"
     ]
   },
   "properties": {
@@ -42,7 +70,15 @@
     "sortPriceAsc": "Prix croissant",
     "sortPriceDesc": "Prix décroissant",
     "empty": "Aucun bien ne correspond à vos critères. Essayez d’ajuster les filtres.",
-    "back": "Retour aux biens"
+    "back": "Retour aux biens",
+    "pageTitle": "Biens",
+    "pageLead": "Mandats à Valbonne et sélection de biens d’exception sur la Côte d’Azur.",
+    "filtersTitle": "Filtres",
+    "all": "Tous",
+    "filterArea": "Secteur",
+    "filterType": "Type",
+    "filterLifestyle": "Style de vie",
+    "noResults": "Aucun bien ne correspond à ces filtres."
   },
   "property": {
     "overview": "Aperçu",

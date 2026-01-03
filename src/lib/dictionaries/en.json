@@ -28,6 +28,34 @@
         "title": "Discretion & service",
         "text": "A premium experience with transparent communication and careful selection."
       }
+    ],
+    "socialProofTitle": "Trusted, discreet, results-driven",
+    "socialProofLead": "A boutique service for international buyers and sellers across Valbonne and the French Riviera.",
+    "testimonialsTitle": "Client words",
+    "pressTitle": "Press & partners",
+    "pressLead": "A selection of platforms and partners we align with — curated and international.",
+    "testimonials": [
+      {
+        "quote": "Smooth process, clear communication, and a great understanding of what we were looking for.",
+        "name": "International buyer",
+        "meta": "Valbonne"
+      },
+      {
+        "quote": "Discreet, responsive, and detail-oriented — from first visit to closing.",
+        "name": "Seller",
+        "meta": "Alpes-Maritimes"
+      },
+      {
+        "quote": "Strong local insight, with an international approach. Highly recommended.",
+        "name": "Relocation client",
+        "meta": "French Riviera"
+      }
+    ],
+    "partners": [
+      "International Relocation",
+      "Notaires & Legal Network",
+      "Mortgage & Private Banking",
+      "Property Management"
     ]
   },
   "properties": {
@@ -42,7 +70,15 @@
     "sortPriceAsc": "Price (low to high)",
     "sortPriceDesc": "Price (high to low)",
     "empty": "No properties match your criteria. Try adjusting filters.",
-    "back": "Back to properties"
+    "back": "Back to properties",
+    "pageTitle": "Properties",
+    "pageLead": "Valbonne mandates and a curated selection of exceptional properties across the French Riviera.",
+    "filtersTitle": "Filter",
+    "all": "All",
+    "filterArea": "Area",
+    "filterType": "Type",
+    "filterLifestyle": "Lifestyle",
+    "noResults": "No properties match these filters."
   },
   "property": {
     "overview": "Overview",
