@@ -7,7 +7,9 @@
   "nav": {
     "home": "Home",
     "properties": "Properties",
-    "contact": "Contact"
+    "contact": "Contact",
+    "services": "Services",
+    "about": "About"
   },
   "home": {
     "heroTitle": "Valbonne & the French Riviera — curated homes for an international clientele",
@@ -56,29 +58,9 @@
       "Notaires & Legal Network",
       "Mortgage & Private Banking",
       "Property Management"
-    ]
-  },
-  "properties": {
-    "title": "Properties",
-    "search": "Search",
-    "searchPlaceholder": "Search by area, keyword, lifestyle…",
-    "type": "Type",
-    "bedsMin": "Beds (min)",
-    "priceMax": "Max price",
-    "sort": "Sort",
-    "sortFeatured": "Featured",
-    "sortPriceAsc": "Price (low to high)",
-    "sortPriceDesc": "Price (high to low)",
-    "empty": "No properties match your criteria. Try adjusting filters.",
-    "back": "Back to properties",
-    "pageTitle": "Properties",
-    "pageLead": "Valbonne mandates and a curated selection of exceptional properties across the French Riviera.",
-    "filtersTitle": "Filter",
-    "all": "All",
-    "filterArea": "Area",
-    "filterType": "Type",
-    "filterLifestyle": "Lifestyle",
-    "noResults": "No properties match these filters."
+    ],
+    "ctaPrimary": "Explore services",
+    "ctaSecondary": "Get in touch"
   },
   "property": {
     "overview": "Overview",
@@ -91,16 +73,58 @@
   },
   "contact": {
     "title": "Contact",
-    "lead": "Tell me what you are looking for — I’ll come back to you quickly.",
+    "lead": "Tell me about your project. Fast reply (EN/FR).",
     "name": "Name",
     "email": "Email",
     "message": "Message",
     "send": "Send message",
     "sending": "Sending…",
     "sent": "Message sent. Thank you!",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "ctaEmail": "Send an email",
+    "ctaCall": "Request a call"
   },
   "footer": {
     "disclaimer": "This is a demo site template. Replace text, properties and legal mentions before going live."
+  },
+  "services": {
+    "title": "Services",
+    "lead": "A complete, premium service designed for international clients.",
+    "items": [
+      {
+        "title": "Sell with a strategy",
+        "text": "Positioning, preparation, staging and targeted exposure. Clear process, follow-up and discretion."
+      },
+      {
+        "title": "Valuation & pricing opinion",
+        "text": "Market analysis, comparables, upside potential, and a pricing range aligned with your goals."
+      },
+      {
+        "title": "Buyer advisory",
+        "text": "Briefing, curation, viewings, negotiation and coordination through to completion."
+      },
+      {
+        "title": "International — end-to-end",
+        "text": "Bilingual coordination with legal and partner network, adapted to distance and time constraints."
+      }
+    ]
+  },
+  "about": {
+    "title": "About Stephan",
+    "lead": "A personal, local-plus-international approach — with high standards, clarity and discretion.",
+    "blocks": [
+      {
+        "title": "Local expertise",
+        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins and across the Alpes-Maritimes."
+      },
+      {
+        "title": "International mindset",
+        "text": "Understanding expectations, habits and timelines of international buyers and sellers."
+      },
+      {
+        "title": "Discretion & quality",
+        "text": "A smooth process, clear communication, and attention to every detail."
+      }
+    ]
   }
 }

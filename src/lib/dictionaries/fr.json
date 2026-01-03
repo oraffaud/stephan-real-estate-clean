@@ -7,7 +7,9 @@
   "nav": {
     "home": "Accueil",
     "properties": "Biens",
-    "contact": "Contact"
+    "contact": "Contact",
+    "services": "Services",
+    "about": "À propos"
   },
   "home": {
     "heroTitle": "Valbonne & Côte d’Azur — des biens sélectionnés pour une clientèle internationale",
@@ -56,29 +58,9 @@
       "Notaires & réseau juridique",
       "Crédit & banque privée",
       "Gestion locative"
-    ]
-  },
-  "properties": {
-    "title": "Biens",
-    "search": "Rechercher",
-    "searchPlaceholder": "Rechercher par secteur, mot-clé, style de vie…",
-    "type": "Type",
-    "bedsMin": "Chambres (min)",
-    "priceMax": "Prix max",
-    "sort": "Tri",
-    "sortFeatured": "Sélection",
-    "sortPriceAsc": "Prix croissant",
-    "sortPriceDesc": "Prix décroissant",
-    "empty": "Aucun bien ne correspond à vos critères. Essayez d’ajuster les filtres.",
-    "back": "Retour aux biens",
-    "pageTitle": "Biens",
-    "pageLead": "Mandats à Valbonne et sélection de biens d’exception sur la Côte d’Azur.",
-    "filtersTitle": "Filtres",
-    "all": "Tous",
-    "filterArea": "Secteur",
-    "filterType": "Type",
-    "filterLifestyle": "Style de vie",
-    "noResults": "Aucun bien ne correspond à ces filtres."
+    ],
+    "ctaPrimary": "Découvrir les services",
+    "ctaSecondary": "Prendre contact"
   },
   "property": {
     "overview": "Aperçu",
@@ -91,16 +73,58 @@
   },
   "contact": {
     "title": "Contact",
-    "lead": "Décrivez votre recherche — je reviens vers vous rapidement.",
+    "lead": "Parlez-moi de votre projet. Réponse rapide (FR/EN).",
     "name": "Nom",
     "email": "Email",
     "message": "Message",
     "send": "Envoyer",
     "sending": "Envoi…",
     "sent": "Message envoyé. Merci !",
-    "error": "Une erreur est survenue. Merci de réessayer."
+    "error": "Une erreur est survenue. Merci de réessayer.",
+    "ctaEmail": "Envoyer un email",
+    "ctaCall": "Demander un appel"
   },
   "footer": {
     "disclaimer": "Modèle de site (démo). Remplacez le contenu, les biens et les mentions légales avant mise en ligne."
+  },
+  "services": {
+    "title": "Services",
+    "lead": "Un accompagnement complet et haut de gamme, pensé pour une clientèle internationale.",
+    "items": [
+      {
+        "title": "Vendre avec méthode",
+        "text": "Positionnement, préparation, valorisation et diffusion ciblée. Process clair, suivi et discrétion."
+      },
+      {
+        "title": "Estimation & avis de valeur",
+        "text": "Analyse de marché, comparables, potentiel, et fourchette cohérente avec vos objectifs."
+      },
+      {
+        "title": "Accompagnement acheteur",
+        "text": "Cadrage du besoin, sélection, visites, négociation, et coordination jusqu’à la signature."
+      },
+      {
+        "title": "International — clé en main",
+        "text": "Coordination bilingue, notaires, partenaires, gestion des contraintes distance/temps."
+      }
+    ]
+  },
+  "about": {
+    "title": "À propos de Stephan",
+    "lead": "Une approche personnalisée, locale et internationale — avec exigence, transparence et discrétion.",
+    "blocks": [
+      {
+        "title": "Une présence locale",
+        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins et l’ensemble des Alpes-Maritimes."
+      },
+      {
+        "title": "Une culture internationale",
+        "text": "Compréhension des attentes, usages et timings d’une clientèle internationale."
+      },
+      {
+        "title": "Discrétion & qualité",
+        "text": "Un process fluide, une communication claire, et une exigence sur chaque détail."
+      }
+    ]
   }
 }
