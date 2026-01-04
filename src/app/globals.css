@@ -30,14 +30,6 @@ body {
 .link {
   @apply underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-900;
 }
-
-/* Luxury serif heading */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
-
-.font-luxe {
-  font-family: 'Playfair Display', serif;
-}
-
 /* Soft fade-in */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
@@ -47,3 +39,6 @@ body {
 .fade-up {
   animation: fadeUp 0.8s ease-out both;
 }
+
+/* Luxury serif heading (Next font) */
+.font-luxe { font-family: var(--font-luxe), serif; }
