@@ -30,3 +30,10 @@ body {
 .link {
   @apply underline underline-offset-4 decoration-zinc-300 hover:decoration-zinc-900;
 }
+
+/* Luxury serif heading */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+.font-luxe {
+  font-family: 'Playfair Display', serif;
+}
