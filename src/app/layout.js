@@ -1,3 +1,7 @@
+import { Playfair_Display } from "next/font/google";
+
+const luxe = Playfair_Display({ subsets: ["latin"], variable: "--font-luxe", display: "swap" });
+
 import './globals.css';
 
 export const metadata = {
