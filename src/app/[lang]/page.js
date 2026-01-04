@@ -33,11 +33,11 @@ export default async function HomePage({ params }) {
                     : 'Valbonne · Alpes-Maritimes · Bilingual service (EN/FR)'}
                 </div>
 
-                <h1 className="mt-6 text-4xl font-semibold font-luxe tracking-tight text-white md:text-6xl">
+                <h1 className="fade-up" className="mt-6 text-4xl font-semibold font-luxe tracking-tight text-white md:text-6xl">
                   {t.home.heroTitle}
                 </h1>
 
-                <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/85">
+                <p className="mt-5 fade-up max-w-2xl text-base leading-relaxed text-white/85">
                   {t.home.heroLead}
                 </p>
 
