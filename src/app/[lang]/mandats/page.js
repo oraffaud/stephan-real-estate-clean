@@ -1,12 +1,23 @@
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { isLang } from "@/lib/i18n";
+
+function getBaseUrl() {
+  const h = headers();
+  const host = h.get("x-forwarded-host") || h.get("host");
+  const proto = h.get("x-forwarded-proto") || "http";
+  if (!host) return "http://localhost:3000";
+  return `${proto}://${host}`;
+}
 
 export default async function MandatsPage({ params }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
 
-  // URL relative => marche en local ET sur Vercel
-  const res = await fetch("/api/mandats?limit=50", { cache: "no-store" });
+  const baseUrl = getBaseUrl();
+  const url = `${baseUrl}/api/mandats?limit=50`;
+
+  const res = await fetch(url, { cache: "no-store" });
   const data = res.ok ? await res.json() : { count: 0, items: [] };
 
   return (
