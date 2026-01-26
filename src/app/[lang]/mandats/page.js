@@ -2,12 +2,32 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { isLang } from "@/lib/i18n";
 
+function headerValue(h, name) {
+  const key = String(name).toLowerCase();
+
+  // Next can return a real Headers OR a plain object depending on runtime/bundler
+  if (h && typeof h.get === "function") return h.get(name) || h.get(key);
+  if (h && typeof h === "object") {
+    // try exact, lowercase, and common Node shapes
+    return h[name] || h[key] || (h.get && h.get(name)) || null;
+  }
+  return null;
+}
+
 function getBaseUrl() {
   const h = headers();
-  const host = h.get("x-forwarded-host") || h.get("host");
-  const proto = h.get("x-forwarded-proto") || "http";
-  if (!host) return "http://localhost:3000";
-  return `${proto}://${host}`;
+  const host =
+    headerValue(h, "x-forwarded-host") ||
+    headerValue(h, "host") ||
+    process.env.VERCEL_URL ||
+    "localhost:3000";
+
+  const proto =
+    headerValue(h, "x-forwarded-proto") ||
+    (process.env.VERCEL ? "https" : "http");
+
+  const normalizedHost = host.startsWith("http") ? host.replace(/^https?:\/\//, "") : host;
+  return `${proto}://${normalizedHost}`;
 }
 
 export default async function MandatsPage({ params }) {
