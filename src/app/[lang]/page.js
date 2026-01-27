@@ -71,27 +71,43 @@ export default async function HomePage({ params }) {
                       : 'A premium, discreet, international service.'}
                   </p>
 
+
+                  <div className="mt-6 flex justify-end" data-brand-logo="cda">
+
+
+                    <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 backdrop-blur">
+
+
+                      <img
+
+
+                        src="/images/logos/cote-dazur-agency.png"
+
+
+                        alt="Côte d’Azur Agency"
+
+
+                        className="h-20 w-auto md:h-24 lg:h-28 opacity-95"
+
+
+                      />
+
+
+                    </div>
+
+
+                  </div>
+
+
+                  <div className="mt-4 h-px bg-white/10"></div>
+
+
                   <div className="mt-5 rounded-2xl bg-black/20 p-4 ring-1 ring-white/10">
                     <div className="text-xs text-white/75">
                       {lang === 'fr' ? 'Email' : 'Email'}
                     </div>
 
-          <div className="mt-5 flex justify-end">
-            <div className="rounded-2xl bg-white/10 p-3 ring-1 ring-white/15 backdrop-blur">
-              <div className="text-[11px] font-semibold uppercase tracking-wide text-white/70">
-                {lang === "fr" ? "En partenariat avec" : "In partnership with"}
-              </div>
-              <div className="mt-2 rounded-2xl bg-white/90 p-3 ring-1 ring-white/20">
-                <img
-                  src="/images/logos/cote-dazur-agency.png"
-                  alt="Côte d’Azur Agency"
-                  className="h-14 w-auto"
-                />
-              </div>
-            </div>
-          </div>
-
-                    <a className="mt-1 block text-sm font-semibold text-white hover:underline" href="mailto:stephan@stephanwsk.com">
+          <a className="mt-1 block text-sm font-semibold text-white hover:underline" href="mailto:stephan@stephanwsk.com">
                       stephan@stephanwsk.com
                     </a>
                   </div>
