@@ -56,6 +56,13 @@ export default async function HomePage({ params }) {
                     {t.home.ctaSecondary}
                   </Link>
                 </div>
+<div className="mt-6 flex items-center gap-3">
+  <span className="text-xs uppercase tracking-wide text-white/70">{lang === "fr" ? "Partenaire" : "Partner"}</span>
+  <div className="rounded-xl bg-white/90 p-2 ring-1 ring-white/20 backdrop-blur">
+    <img src="/images/logos/cote-dazur-agency.png" alt="Côte d’Azur Agency" className="h-8 w-auto" />
+  </div>
+</div>
+
 
                 {/* Small trust line */}
                 <div className="mt-10 grid gap-3 text-xs text-white/80 md:grid-cols-3">
