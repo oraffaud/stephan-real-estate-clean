@@ -84,7 +84,9 @@
     "ctaEmail": "Envoyer un email",
     "ctaCall": "Demander un appel"
   },
-  "footer": {},
+  "footer": {
+    "disclaimer": "Modèle de site (démo). Remplacez le contenu, les biens et les mentions légales avant mise en ligne."
+  },
   "services": {
     "title": "Services",
     "lead": "Un accompagnement complet et haut de gamme, pensé pour une clientèle internationale.",
