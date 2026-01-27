@@ -56,42 +56,7 @@ export default async function HomePage({ params }) {
                     {t.home.ctaSecondary}
                   </Link>
                 </div>
-<div className="mt-6 flex items-center gap-3">
-  <span className="text-xs uppercase tracking-wide text-white/70">{lang === "fr" ? "Partenaire" : "Partner"}</span>
-  <div className="rounded-xl bg-white/90 p-2 ring-1 ring-white/20 backdrop-blur">
-    <img src="/images/logos/cote-dazur-agency.png" alt="Côte d’Azur Agency" className="h-8 w-auto" />
-  </div>
 </div>
-
-
-                {/* Small trust line */}
-                <div className="mt-10 grid gap-3 text-xs text-white/80 md:grid-cols-3">
-                  <div className="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur">
-                    <div className="font-semibold text-white">
-                      {lang === 'fr' ? 'Discrétion' : 'Discretion'}
-                    </div>
-                    <div className="mt-1">
-                      {lang === 'fr' ? 'Un accompagnement boutique.' : 'A boutique-level experience.'}
-                    </div>
-                  </div>
-                  <div className="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur">
-                    <div className="font-semibold text-white">
-                      {lang === 'fr' ? 'Clarté' : 'Clarity'}
-                    </div>
-                    <div className="mt-1">
-                      {lang === 'fr' ? 'Méthode & suivi transparents.' : 'Method and clear follow-up.'}
-                    </div>
-                  </div>
-                  <div className="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur">
-                    <div className="font-semibold text-white">
-                      {lang === 'fr' ? 'International' : 'International'}
-                    </div>
-                    <div className="mt-1">
-                      {lang === 'fr' ? 'FR/EN — clients internationaux.' : 'EN/FR — global clients.'}
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               {/* Glass card */}
               <div className="md:col-span-4">
@@ -110,6 +75,22 @@ export default async function HomePage({ params }) {
                     <div className="text-xs text-white/75">
                       {lang === 'fr' ? 'Email' : 'Email'}
                     </div>
+
+          <div className="mt-5 flex justify-end">
+            <div className="rounded-2xl bg-white/10 p-3 ring-1 ring-white/15 backdrop-blur">
+              <div className="text-[11px] font-semibold uppercase tracking-wide text-white/70">
+                {lang === "fr" ? "En partenariat avec" : "In partnership with"}
+              </div>
+              <div className="mt-2 rounded-2xl bg-white/90 p-3 ring-1 ring-white/20">
+                <img
+                  src="/images/logos/cote-dazur-agency.png"
+                  alt="Côte d’Azur Agency"
+                  className="h-14 w-auto"
+                />
+              </div>
+            </div>
+          </div>
+
                     <a className="mt-1 block text-sm font-semibold text-white hover:underline" href="mailto:stephan@stephanwsk.com">
                       stephan@stephanwsk.com
                     </a>
