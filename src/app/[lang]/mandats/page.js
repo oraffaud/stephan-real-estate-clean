@@ -2,6 +2,13 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { isLang } from "@/lib/i18n";
 
+function getBaseUrl() {
+  const site = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL;
+  if (site) return site.replace(/\/$/, "");
+  return "http://localhost:3000";
+}
+
+
 function headerValue(h, name) {
   const key = String(name).toLowerCase();
 
@@ -14,27 +21,12 @@ function headerValue(h, name) {
   return null;
 }
 
-function getBaseUrl() {
-  const h = headers();
-  const host =
-    headerValue(h, "x-forwarded-host") ||
-    headerValue(h, "host") ||
-    process.env.VERCEL_URL ||
-    "localhost:3000";
-
-  const proto =
-    headerValue(h, "x-forwarded-proto") ||
-    (process.env.VERCEL ? "https" : "http");
-
-  const normalizedHost = host.startsWith("http") ? host.replace(/^https?:\/\//, "") : host;
-  return `${proto}://${normalizedHost}`;
-}
 
 export default async function MandatsPage({ params }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
 
-  const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000";
+  const baseUrl = getBaseUrl();
   const url = `${baseUrl}/api/mandats?limit=50`;
 
   const res = await fetch(url, { cache: "no-store" });
