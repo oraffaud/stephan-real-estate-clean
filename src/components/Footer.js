@@ -7,9 +7,7 @@ export function Footer({ t }) {
   <a className="underline" href="/fr/legal">Mentions légales</a>
   <a className="underline" href="/en/legal">Legal notice</a>
 </div>
-          <div className="font-medium text-zinc-900">Stephan Real Estate</div>
-          <div className="text-xs text-zinc-500">{t.footer.disclaimer}</div>
-        </div>
+          <div className="font-medium text-zinc-900">Stephan Real Estate</div></div>
       </div>
     </footer>
   );
