@@ -15,6 +15,7 @@ export function Header({ lang, t }) {
           <Link className="text-zinc-700 hover:text-white" href={`/${lang}/services`}>{t.nav.services}</Link>
           <Link className="text-zinc-700 hover:text-white" href={`/${lang}/about`}>{t.nav.about}</Link>
           <Link className="text-zinc-700 hover:text-white" href={`/${lang}/contact`}>{t.nav.contact}</Link>
+        <a className="text-zinc-700 hover:text-white" href={`/${lang}/legal#honoraires`}>{lang === "fr" ? "Honoraires" : "Fees"}</a>
         </nav>
 
         <div className="flex items-center gap-3">
