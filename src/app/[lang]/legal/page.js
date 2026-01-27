@@ -39,6 +39,36 @@ export default async function LegalPage({ params }) {
           </a>
         </div>
 
+        <h2 className="pt-4 text-lg font-semibold">{fr ? "Honoraires" : "Fees"}</h2>
+        <p className="text-sm opacity-80">
+          {fr
+            ? "Barème d’honoraires TTC (à la charge du vendeur sauf mention contraire)."
+            : "Schedule of fees incl. VAT (paid by the seller unless stated otherwise)."}
+        </p>
+
+        <div className="mt-4 overflow-x-auto rounded border">
+          <div className="px-4 py-3 text-3xl font-luxe text-[#b7a46d]">{fr ? "Nos commissions" : "Our fees"}</div>
+          <table className="w-full text-sm">
+            <thead className="bg-[#b7a46d] text-white">
+              <tr>
+                <th className="px-4 py-3 text-left font-semibold">{fr ? "Type de transaction" : "Transaction type"}</th>
+                <th className="px-4 py-3 text-left font-semibold">{fr ? "Prix" : "Price"}</th>
+                <th className="px-4 py-3 text-left font-semibold">{fr ? "Honoraires TTC" : "Fees incl. VAT"}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="bg-white">
+                <td className="px-4 py-3">{fr ? "Vente" : "Sale"}</td>
+                <td className="px-4 py-3">&gt;0€</td>
+                <td className="px-4 py-3">6.00% ({fr ? "Honoraires à la charge du vendeur" : "Fees paid by the seller"})</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="px-4 py-3 text-xs opacity-70">
+            {fr ? "Les honoraires sont exprimés toutes taxes comprises (TTC)." : "Fees are expressed including VAT."}
+          </div>
+        </div>
+
         <h2 className="pt-4 text-lg font-semibold">{fr ? "Hébergeur" : "Hosting"}</h2>
         <p>{fr ? "Le site est hébergé par Vercel." : "This website is hosted by Vercel."}</p>
 
