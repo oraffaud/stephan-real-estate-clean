@@ -34,7 +34,7 @@ export default async function MandatsPage({ params }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
 
-  const baseUrl = getBaseUrl();
+  const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000";
   const url = `${baseUrl}/api/mandats?limit=50`;
 
   const res = await fetch(url, { cache: "no-store" });
