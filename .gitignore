@@ -6,3 +6,5 @@ out
 .DS_Store
 
 *.bak.*
+src/**/*.bak.*
+src/**/.DS_Store
