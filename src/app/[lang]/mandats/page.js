@@ -58,7 +58,7 @@ export default async function MandatsPage({ params }) {
                 <div className="h-48 w-full bg-black/5" />
               )}
               <div className="p-4">
-                <div className="text-sm opacity-70">{it.city ?? ""} {it.zipcode ?? ""}</div>
+                <div className="text-sm opacity-70">{(typeof it.city === "object" ? (it.city?.name ?? "") : (it.city ?? ""))} {(typeof it.zipcode === "object" ? (it.zipcode?.name ?? "") : (it.zipcode ?? ""))}</div>
                 <div className="mt-1 font-medium">{it.title}</div>
                 <div className="mt-2 text-sm">
                   {it.price ? `${it.price.toLocaleString?.() ?? it.price} ${it.currency ?? ""}` : "Prix sur demande"}
