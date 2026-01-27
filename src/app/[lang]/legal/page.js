@@ -92,6 +92,29 @@ export default async function LegalPage({ params }) {
             : "Website content (texts, images, graphics) is protected. Any unauthorized reproduction is prohibited."}
         </p>
       </section>
+    
+      <section className="mt-10 rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
+        <h2 className="text-lg font-semibold tracking-tight">Assurance Responsabilité Civile Professionnelle (RC Pro)</h2>
+        <div className="mt-3 space-y-2 text-sm leading-relaxed text-zinc-700">
+          <p><span className="font-medium text-zinc-900">Assureur :</span> Allianz</p>
+          <p><span className="font-medium text-zinc-900">Contrat :</span> Allianz Actif Pro — n° 64366011</p>
+          <p><span className="font-medium text-zinc-900">Activité couverte :</span> Agence immobilière — transaction sur immeubles et fonds de commerce</p>
+          <p><span className="font-medium text-zinc-900">Garanties :</span> Responsabilité Civile Exploitation ; Responsabilité Civile Professionnelle ; Défense Pénale et Recours suite à accident</p>
+          <p><span className="font-medium text-zinc-900">Période de validité :</span> du 17/03/2025 au 17/03/2026 (sous réserve du paiement des cotisations)</p>
+        </div>
+
+        <div className="mt-8 border-t border-zinc-200 pt-6">
+          <h2 className="text-lg font-semibold tracking-tight">Professional liability insurance</h2>
+          <div className="mt-3 space-y-2 text-sm leading-relaxed text-zinc-700">
+            <p><span className="font-medium text-zinc-900">Insurer:</span> Allianz</p>
+            <p><span className="font-medium text-zinc-900">Policy:</span> Allianz Actif Pro — No. 64366011</p>
+            <p><span className="font-medium text-zinc-900">Covered activity:</span> Real estate agency — property and business sale transactions</p>
+            <p><span className="font-medium text-zinc-900">Cover:</span> Public liability; Professional liability; Legal defense and recovery following accident</p>
+            <p><span className="font-medium text-zinc-900">Validity:</span> 17/03/2025 to 17/03/2026 (subject to premium payment)</p>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }
