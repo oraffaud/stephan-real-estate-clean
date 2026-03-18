@@ -22,9 +22,7 @@ export default async function ContactPage({ params }) {
               <div className="text-sm font-semibold text-zinc-900">
                 {lang === 'fr' ? 'Coordonnées' : 'Details'}
               </div>
-              <div className="mt-4 text-sm text-zinc-700">
-                Email : 
-              </div>
+              
               <div className="mt-2 text-sm text-zinc-700">
                 {lang === 'fr' ? 'Zone : Valbonne · Alpes-Maritimes' : 'Area: Valbonne · Alpes-Maritimes'}
               </div>

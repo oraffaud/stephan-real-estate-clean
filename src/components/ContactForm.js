@@ -2,78 +2,128 @@
 
 import { useState } from 'react';
 
-export function ContactForm({ t, context }) {
-  const [status, setStatus] = useState('idle');
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+export function ContactForm({ t }) {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+  const [feedback, setFeedback] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  async function onSubmit(e) {
-    e.preventDefault();
-    setStatus('sending');
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
+
+  async function sendForm() {
+    if (!form.name || !form.email || !form.message) {
+      setFeedback(t?.contact?.error || 'Please complete the required fields.');
+      return;
+    }
+
+    setLoading(true);
+    setFeedback('');
+
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, context }),
+        body: JSON.stringify(form),
       });
-      if (!res.ok) throw new Error('bad_status');
-      setStatus('sent');
-      setForm({ name: '', email: '', message: '' });
-    } catch {
-      setStatus('error');
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.error || 'Request failed');
+      }
+
+      setFeedback(t?.contact?.success || 'Message sent successfully.');
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      });
+    } catch (err) {
+      setFeedback(t?.contact?.error || 'An error occurred.');
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
-      <div className="grid gap-4 md:grid-cols-2">
-        <label className="grid gap-2">
-          <span className="text-sm font-medium text-zinc-900">{t.contact.name}</span>
-          <input
-            required
-            value={form.name}
-            onChange={(e) => setForm((s) => ({ ...s, name: e.target.value }))}
-            className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm outline-none focus:border-zinc-400"
-          />
+    <div className="grid gap-4">
+      <div>
+        <label className="mb-2 block text-sm font-medium text-zinc-900">
+          {t?.contact?.name || 'Name'}
         </label>
-        <label className="grid gap-2">
-          <span className="text-sm font-medium text-zinc-900">{t.contact.email}</span>
-          <input
-            required
-            type="email"
-            value={form.email}
-            onChange={(e) => setForm((s) => ({ ...s, email: e.target.value }))}
-            className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm outline-none focus:border-zinc-400"
-          />
-        </label>
-      </div>
-
-      <label className="mt-4 grid gap-2">
-        <span className="text-sm font-medium text-zinc-900">{t.contact.message}</span>
-        <textarea
+        <input
+          name="name"
+          value={form.name}
+          onChange={handleChange}
           required
-          rows={5}
-          value={form.message}
-          onChange={(e) => setForm((s) => ({ ...s, message: e.target.value }))}
-          className="rounded-xl border border-zinc-200 bg-white px-4 py-2 text-sm outline-none focus:border-zinc-400"
+          className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm"
         />
-      </label>
-
-      <div className="mt-5 flex flex-wrap items-center gap-3">
-        <button
-          type="submit"
-          disabled={status === 'sending'}
-          className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-60"
-        >
-          {status === 'sending' ? t.contact.sending : t.contact.send}
-        </button>
-
-        {status === 'sent' && <p className="text-sm text-emerald-700">{t.contact.sent}</p>}
-        {status === 'error' && <p className="text-sm text-red-600">{t.contact.error}</p>}
       </div>
 
-      <p className="mt-4 text-xs text-zinc-500">
-        {context ? `Context: ${context}` : ''}
-      </p>
-    </form>
+      <div>
+        <label className="mb-2 block text-sm font-medium text-zinc-900">
+          {t?.contact?.email || 'Email'}
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+          required
+          className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm"
+        />
+      </div>
+
+      <div>
+        <label className="mb-2 block text-sm font-medium text-zinc-900">
+          {t?.contact?.phone || 'Phone'}
+        </label>
+        <input
+          name="phone"
+          value={form.phone}
+          onChange={handleChange}
+          className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm"
+        />
+      </div>
+
+      <div>
+        <label className="mb-2 block text-sm font-medium text-zinc-900">
+          {t?.contact?.message || 'Message'}
+        </label>
+        <textarea
+          name="message"
+          value={form.message}
+          onChange={handleChange}
+          rows={6}
+          required
+          className="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm"
+        />
+      </div>
+
+      <div>
+        <button
+          type="button"
+          onClick={sendForm}
+          disabled={loading}
+          className="btn-dark disabled:opacity-60"
+        >
+          {loading
+            ? (t?.contact?.sending || 'Sending...')
+            : (t?.contact?.submit || 'Send')}
+        </button>
+      </div>
+
+      {feedback ? (
+        <p className="text-sm text-zinc-700">{feedback}</p>
+      ) : null}
+    </div>
   );
 }
