@@ -61,6 +61,9 @@
     "email": "Email",
     "phone": "Phone",
     "message": "Message",
-    "submit": "Send"
+    "submit": "Send",
+    "sending": "Sending...",
+    "success": "Thank you. Your message has been sent.",
+    "error": "An error occurred. Please try again."
   }
 }

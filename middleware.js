@@ -1,47 +1,31 @@
 import { NextResponse } from 'next/server';
 
-const SUPPORTED = ['en', 'fr'];
+const PUBLIC_FILE = /\.(.*)$/;
 
-function detectLang(request) {
-  const header = request.headers.get('accept-language') || '';
-  const lower = header.toLowerCase();
-  if (lower.includes('fr')) return 'fr';
-  return 'en';
-}
+export function middleware(req) {
+  const { pathname } = req.nextUrl;
 
-export function middleware(request) {
-  const { pathname } = request.nextUrl;
-
-  // Skip Next internals and API.
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
-    pathname.startsWith('/favicon') ||
-    pathname.startsWith('/robots.txt') ||
-    pathname.startsWith('/sitemap.xml')
+    PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();
   }
 
-  // Root -> lang
-  if (pathname === '/') {
-    const lang = detectLang(request);
-    const url = request.nextUrl.clone();
-    url.pathname = `/${lang}`;
-    return NextResponse.redirect(url);
+  if (pathname === '/fr' || pathname.startsWith('/fr/')) {
+    return NextResponse.next();
   }
 
-  // Already language-prefixed?
-  const seg = pathname.split('/')[1];
-  if (SUPPORTED.includes(seg)) return NextResponse.next();
+  if (pathname === '/en' || pathname.startsWith('/en/')) {
+    return NextResponse.next();
+  }
 
-  // Otherwise prefix with detected lang.
-  const lang = detectLang(request);
-  const url = request.nextUrl.clone();
-  url.pathname = `/${lang}${pathname}`;
+  const url = req.nextUrl.clone();
+  url.pathname = `/fr${pathname === '/' ? '' : pathname}`;
   return NextResponse.redirect(url);
 }
 
 export const config = {
-  matcher: ['/((?!.*\\..*).*)'],
+  matcher: ['/((?!_next|api).*)'],
 };

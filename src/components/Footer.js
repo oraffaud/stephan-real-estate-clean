@@ -16,10 +16,10 @@ export function Footer({ lang, t }) {
           <div>
             <div className="text-sm font-semibold text-zinc-900">{lang === 'fr' ? 'Navigation' : 'Navigation'}</div>
             <div className="mt-3 grid gap-2 text-sm text-zinc-700">
-              <Link href={`/${lang}`}>{t.nav.home}</Link>
-              <Link href={`/${lang}/services`}>{t.nav.services}</Link>
-              <Link href={`/${lang}/about`}>{t.nav.about}</Link>
-              <Link href={`/${lang}/contact`}>{t.nav.contact}</Link>
+              <Link href={`/${lang || 'fr'}`}>{t.nav.home}</Link>
+              <Link href={`/${lang || 'fr'}/services`}>{t.nav.services}</Link>
+              <Link href={`/${lang || 'fr'}/about`}>{t.nav.about}</Link>
+              <Link href={`/${lang || 'fr'}/contact`}>{t.nav.contact}</Link>
             </div>
           </div>
 

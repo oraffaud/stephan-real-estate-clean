@@ -47,7 +47,7 @@ export default async function ServicesPage({ params }) {
                 : "A direct, qualitative approach aligned with your objectives."}
             </p>
             <div className="mt-6">
-              <Link href={`/${lang}/contact`} className="btn-primary">
+              <Link href={`/${lang || 'fr'}/contact`} className="btn-primary">
                 {t.nav.contact}
               </Link>
             </div>

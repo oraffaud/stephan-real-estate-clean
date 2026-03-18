@@ -1,27 +1,30 @@
-export async function POST(request) {
+export async function POST(req) {
   try {
-    const body = await request.json();
+    const body = await req.json();
+
     const name = String(body?.name || '').trim();
     const email = String(body?.email || '').trim();
+    const phone = String(body?.phone || '').trim();
     const message = String(body?.message || '').trim();
-    const context = String(body?.context || '').trim();
 
     if (!name || !email || !message) {
-      return Response.json({ ok: false, error: 'missing_fields' }, { status: 400 });
+      return Response.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
-    // In production, replace this with an email provider (Resend, SendGrid, etc.)
-    // For now, we log to serverless function logs.
-    console.log('[contact]', {
+    console.log('CONTACT_FORM', {
       name,
       email,
+      phone,
       message,
-      context,
       at: new Date().toISOString(),
     });
 
-    return Response.json({ ok: true }, { status: 200 });
-  } catch (err) {
-    return Response.json({ ok: false, error: 'server_error' }, { status: 500 });
+    return Response.json({ ok: true });
+  } catch (e) {
+    console.error('CONTACT_ROUTE_ERROR', e);
+    return Response.json({ error: 'Server error' }, { status: 500 });
   }
 }

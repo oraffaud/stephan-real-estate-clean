@@ -42,7 +42,7 @@ export default async function AboutPage({ params }) {
                   : "Local presence, international perspective, attention to detail and premium communication."}
               </p>
               <div className="mt-6">
-                <Link href={`/${lang}/contact`} className="btn-dark">
+                <Link href={`/${lang || 'fr'}/contact`} className="btn-dark">
                   {t.nav.contact}
                 </Link>
               </div>
