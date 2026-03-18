@@ -44,7 +44,7 @@ export default async function HomePage({ params }) {
                 <div className="mt-9 flex flex-wrap gap-3">
                   <Link
                     href={`/${lang}/services`}
-                    className="rounded-full bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 hover:bg-white/90"
+                    className="rounded-full btn-gold px-6 py-2.5 text-sm font-medium"
                   >
                     {t.home.ctaPrimary}
                   </Link>

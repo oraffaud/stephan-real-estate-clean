@@ -11,11 +11,11 @@ export function Header({ lang, t }) {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm md:flex">
-          <Link className="text-zinc-700 hover:text-white" href={`/${lang}`}>{t.nav.home}</Link>
-          <Link className="text-zinc-700 hover:text-white" href={`/${lang}/services`}>{t.nav.services}</Link>
-          <Link className="text-zinc-700 hover:text-white" href={`/${lang}/about`}>{t.nav.about}</Link>
-          <Link className="text-zinc-700 hover:text-white" href={`/${lang}/contact`}>{t.nav.contact}</Link>
-        <a className="text-zinc-700 hover:text-white" href={`/${lang}/legal#honoraires`}>{lang === "fr" ? "Honoraires" : "Fees"}</a>
+          <Link className="text-zinc-700 hover:text-gold" href={`/${lang}`}>{t.nav.home}</Link>
+          <Link className="text-zinc-700 hover:text-gold" href={`/${lang}/services`}>{t.nav.services}</Link>
+          <Link className="text-zinc-700 hover:text-gold" href={`/${lang}/about`}>{t.nav.about}</Link>
+          <Link className="text-zinc-700 hover:text-gold" href={`/${lang}/contact`}>{t.nav.contact}</Link>
+        <a className="text-zinc-700 hover:text-gold" href={`/${lang}/legal#honoraires`}>{lang === "fr" ? "Honoraires" : "Fees"}</a>
         </nav>
 
         <div className="flex items-center gap-3">

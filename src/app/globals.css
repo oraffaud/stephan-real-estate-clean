@@ -42,3 +42,44 @@ body {
 
 /* Luxury serif heading (Next font) */
 .font-luxe { font-family: var(--font-luxe), serif; }
+
+/* ===== Côte d’Azur Luxury Theme ===== */
+
+:root {
+  --gold: #C6A46C;
+  --gold-light: #E8D9C5;
+  --sand: #F5F2ED;
+  --dark: #111111;
+}
+
+body {
+  background-color: var(--sand);
+  color: var(--dark);
+}
+
+/* Buttons */
+.btn-gold {
+  background: var(--gold);
+  color: white;
+}
+.btn-gold:hover {
+  background: #b8955c;
+}
+
+/* Accent text */
+.text-gold {
+  color: var(--gold);
+}
+
+/* Card luxe */
+.card-luxe {
+  background: white;
+  border: 1px solid var(--gold-light);
+  border-radius: 20px;
+}
+
+/* Section spacing */
+.section-luxe {
+  padding: 80px 0;
+}
+
