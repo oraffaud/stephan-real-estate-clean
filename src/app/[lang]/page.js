@@ -17,23 +17,22 @@ export default async function HomePage({ params }) {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Overlay léger */}
       <div className="absolute inset-0 bg-black/10" />
 
-      {/* LOGO + TITRE */}
-      <div className="absolute top-10 left-10 z-20 max-w-[600px]">
+      {/* LOGO + TITLE */}
+      <div className="absolute top-10 left-12 z-20">
         <img
           src="/branding/logo-full.png"
           alt="Côte d’Azur Agency"
-          className="w-[380px]"
+          className="w-[420px]"
         />
 
-        <h2 className="mt-4 text-[34px] font-semibold text-[#C6A46C]">
+        <h2 className="mt-4 text-[32px] font-semibold text-[#C6A46C]">
           Real Estate on the French Riviera
         </h2>
       </div>
 
-      {/* COMING SOON CENTRE */}
+      {/* CENTER TEXT */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="text-center">
           <h1 className="text-[80px] font-semibold text-[#C6A46C]">
@@ -43,16 +42,16 @@ export default async function HomePage({ params }) {
         </div>
       </div>
 
-      {/* FORMULAIRE BAS GAUCHE */}
-      <div className="absolute bottom-10 left-10 z-20 w-[420px]">
+      {/* CONTACT BLOCK */}
+      <div className="absolute bottom-10 left-12 z-20 w-[360px]">
 
-        <div className="mb-4 text-[26px] font-semibold text-[#C6A46C]">
+        <div className="mb-3 text-[22px] font-semibold text-[#C6A46C]">
           Contact:
           <br />
           Stephan Morawski
         </div>
 
-        <div className="rounded-2xl bg-white/90 p-5 backdrop-blur shadow-xl">
+        <div className="rounded-2xl bg-white/80 p-4 backdrop-blur-md shadow-xl">
           <ContactForm t={t} />
         </div>
 
