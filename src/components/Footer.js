@@ -9,9 +9,7 @@ export function Footer({ lang, t }) {
             <div className="font-luxe text-2xl text-zinc-900">Stephan</div>
             <div className="mt-2 text-sm text-zinc-600">Valbonne · French Riviera</div>
             <div className="mt-4 text-sm text-zinc-700">
-              <a href="mailto:stephan@cotedazuragency.com" className="hover:underline">
-                stephan@cotedazuragency.com
-              </a>
+              
             </div>
           </div>
 

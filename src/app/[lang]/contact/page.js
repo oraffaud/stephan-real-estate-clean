@@ -23,7 +23,7 @@ export default async function ContactPage({ params }) {
                 {lang === 'fr' ? 'Coordonnées' : 'Details'}
               </div>
               <div className="mt-4 text-sm text-zinc-700">
-                Email : <a className="font-medium hover:underline" href="mailto:stephan@cotedazuragency.com">stephan@cotedazuragency.com</a>
+                Email : 
               </div>
               <div className="mt-2 text-sm text-zinc-700">
                 {lang === 'fr' ? 'Zone : Valbonne · Alpes-Maritimes' : 'Area: Valbonne · Alpes-Maritimes'}

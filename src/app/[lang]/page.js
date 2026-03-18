@@ -46,12 +46,7 @@ export default async function HomePage({ params }) {
               <div>Stephan Morawski</div>
             </div>
 
-            <a
-              href="mailto:stephan@cotedazuragency.com"
-              className="mt-4 block text-lg text-white/95 underline underline-offset-4"
-            >
-              stephan@cotedazuragency.com
-            </a>
+            
           </div>
         </div>
       </section>
