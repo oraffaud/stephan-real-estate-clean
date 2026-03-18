@@ -21,27 +21,26 @@ export function ContactForm({ t }) {
 
   return (
     <div className="grid gap-2 text-sm">
-
       <input
-        placeholder="Name"
+        placeholder={t?.contact?.name || 'Name'}
         onChange={(e) => setForm({ ...form, name: e.target.value })}
         className="rounded-xl border px-3 py-2"
       />
 
       <input
-        placeholder="Email"
+        placeholder={t?.contact?.email || 'Email'}
         onChange={(e) => setForm({ ...form, email: e.target.value })}
         className="rounded-xl border px-3 py-2"
       />
 
       <input
-        placeholder="Phone"
+        placeholder={t?.contact?.phone || 'Phone'}
         onChange={(e) => setForm({ ...form, phone: e.target.value })}
         className="rounded-xl border px-3 py-2"
       />
 
       <textarea
-        placeholder="Message"
+        placeholder={t?.contact?.message || 'Message'}
         rows={3}
         onChange={(e) => setForm({ ...form, message: e.target.value })}
         className="rounded-xl border px-3 py-2"
@@ -49,11 +48,10 @@ export function ContactForm({ t }) {
 
       <button
         onClick={sendForm}
-        className="mt-2 rounded-full bg-black text-white py-2"
+        className="mt-2 rounded-full bg-black px-4 py-2 text-white"
       >
-        Send
+        {t?.contact?.submit || 'Send'}
       </button>
-
     </div>
   );
 }
