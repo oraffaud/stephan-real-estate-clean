@@ -6,7 +6,7 @@ COMMIT_MSG="${COMMIT_MSG:-Home: detach brand logo from email and enlarge}"
 URL="${URL:-https://stephan-real-estate-hcoz.vercel.app/fr}"
 
 [[ -f "$HOMEFILE" ]] || { echo "ERR: file not found: $HOMEFILE" >&2; exit 1; }
-grep -q 'mailto:stephan@stephanwsk.com' "$HOMEFILE" || { echo "ERR: mailto missing in $HOMEFILE" >&2; exit 1; }
+grep -q 'mailto:stephan@cotedazuragency.com' "$HOMEFILE" || { echo "ERR: mailto missing in $HOMEFILE" >&2; exit 1; }
 
 node <<'NODE'
 const fs = require("fs");
@@ -55,7 +55,7 @@ if (s.includes("En partenariat avec") || s.includes("In partnership with")) {
   console.error("ERR: label still present");
   process.exit(5);
 }
-if (!s.includes("mailto:stephan@stephanwsk.com")) {
+if (!s.includes("mailto:stephan@cotedazuragency.com")) {
   console.error("ERR: mailto disappeared");
   process.exit(6);
 }
@@ -69,7 +69,7 @@ console.log("OK: patched", homeFile);
 NODE
 
 grep -q 'data-brand-logo="cda"' "$HOMEFILE" || { echo "ERR: brand marker missing" >&2; exit 1; }
-grep -q 'mailto:stephan@stephanwsk.com' "$HOMEFILE" || { echo "ERR: mailto missing" >&2; exit 1; }
+grep -q 'mailto:stephan@cotedazuragency.com' "$HOMEFILE" || { echo "ERR: mailto missing" >&2; exit 1; }
 if grep -qE 'En partenariat avec|In partnership with' "$HOMEFILE"; then echo "ERR: label still present" >&2; exit 1; fi
 
 npm run build
@@ -79,5 +79,5 @@ git commit -m "$COMMIT_MSG" || true
 git push
 
 curl -sH "cache-control: no-cache" "${URL}?ts=$(date +%s)" \
-| grep -nE 'En partenariat avec|In partnership with|data-brand-logo="cda"|mailto:stephan@stephanwsk.com|cote-dazur-agency' \
+| grep -nE 'En partenariat avec|In partnership with|data-brand-logo="cda"|mailto:stephan@cotedazuragency.com|cote-dazur-agency' \
 | head -n 120

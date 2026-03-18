@@ -1,130 +1,66 @@
 {
-  "langName": "English",
   "brand": {
-    "name": "Stephan",
-    "tagline": "Independent real estate agent — Valbonne & exceptional properties"
+    "tagline": "Independent real estate agent — Valbonne & French Riviera"
   },
   "nav": {
     "home": "Home",
-    "properties": "Properties",
-    "contact": "Contact",
     "services": "Services",
-    "about": "About"
+    "about": "About",
+    "contact": "Contact"
   },
   "home": {
-    "heroTitle": "Find the villa that fits you — with a clear process and transparent fees.",
-    "heroLead": "I guide you personally from brief to closing: curated shortlist, efficient viewings, negotiation, and end-to-end coordination (notary, surveys, financing). Fees are disclosed upfront and explained clearly.",
-    "ctaBrowse": "Browse properties",
-    "ctaContact": "Get in touch",
-    "highlightsTitle": "A boutique approach",
-    "highlights": [
-      {
-        "title": "International focus",
-        "text": "Guidance tailored to buyers and sellers from abroad — clear process, bilingual support."
-      },
-      {
-        "title": "Local expertise",
-        "text": "Valbonne, Mougins, Cannes, Antibes and the hinterland — lifestyle-led recommendations."
-      },
-      {
-        "title": "Discretion & service",
-        "text": "A premium experience with transparent communication and careful selection."
-      }
-    ],
-    "socialProofTitle": "Trusted, discreet, results-driven",
-    "socialProofLead": "A boutique service for international buyers and sellers across Valbonne and the French Riviera.",
-    "testimonialsTitle": "Client words",
-    "pressTitle": "Press & partners",
-    "pressLead": "A selection of platforms and partners we align with — curated and international.",
-    "testimonials": [
-      {
-        "quote": "Smooth process, clear communication, and a great understanding of what we were looking for.",
-        "name": "International buyer",
-        "meta": "Valbonne"
-      },
-      {
-        "quote": "Discreet, responsive, and detail-oriented — from first visit to closing.",
-        "name": "Seller",
-        "meta": "Alpes-Maritimes"
-      },
-      {
-        "quote": "Strong local insight, with an international approach. Highly recommended.",
-        "name": "Relocation client",
-        "meta": "French Riviera"
-      }
-    ],
-    "partners": [
-      "International Relocation",
-      "Notaires & Legal Network",
-      "Mortgage & Private Banking",
-      "Property Management"
-    ],
+    "heroTitle": "Luxury real estate advisory on the French Riviera",
+    "heroLead": "A refined, discreet and international approach based in Valbonne, designed for clients who expect clarity, quality and a premium level of service.",
     "ctaPrimary": "Explore services",
     "ctaSecondary": "Get in touch"
   },
-  "property": {
-    "overview": "Overview",
-    "keyFacts": "Key facts",
-    "highlights": "Highlights",
-    "enquire": "Enquire about this property",
-    "ctaTitle": "Get in touch",
-    "ctaText": "Request details, schedule a viewing, or ask for a private selection.",
-    "ctaButton": "Contact Stephan"
-  },
-  "contact": {
-    "title": "Contact",
-    "lead": "Tell me about your project. Fast reply (EN/FR).",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "send": "Send message",
-    "sending": "Sending…",
-    "sent": "Message sent. Thank you!",
-    "error": "Something went wrong. Please try again.",
-    "ctaEmail": "Send an email",
-    "ctaCall": "Request a call"
-  },
-  "footer": {
-    "disclaimer": "This is a demo site template. Replace text, properties and legal mentions before going live."
-  },
   "services": {
     "title": "Services",
-    "lead": "A complete, premium service designed for international clients.",
+    "lead": "Tailored advisory for sellers, buyers and international clients seeking a high-end, well-managed experience.",
     "items": [
       {
         "title": "Sell with a strategy",
-        "text": "Positioning, preparation, staging and targeted exposure. Clear process, follow-up and discretion."
+        "text": "Positioning, pricing guidance, visual presentation, targeted exposure and a polished process from start to finish."
       },
       {
-        "title": "Valuation & pricing opinion",
-        "text": "Market analysis, comparables, upside potential, and a pricing range aligned with your goals."
+        "title": "Valuation & market advice",
+        "text": "Thoughtful pricing opinion based on market comparables, timing, property strengths and target audience."
       },
       {
         "title": "Buyer advisory",
-        "text": "Briefing, curation, viewings, negotiation and coordination through to completion."
+        "text": "Needs analysis, curated opportunities, visits, negotiation support and smooth coordination through completion."
       },
       {
-        "title": "International — end-to-end",
-        "text": "Bilingual coordination with legal and partner network, adapted to distance and time constraints."
+        "title": "International coordination",
+        "text": "Bilingual support, local partner network and a clear process adapted to remote and international clients."
       }
     ]
   },
   "about": {
     "title": "About Stephan",
-    "lead": "A personal, local-plus-international approach — with high standards, clarity and discretion.",
+    "lead": "A boutique, relationship-led approach combining local expertise, international standards and attention to detail.",
     "blocks": [
       {
         "title": "Local expertise",
-        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins and across the Alpes-Maritimes."
+        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins and the wider Alpes-Maritimes — with a strong understanding of lifestyle, positioning and buyer expectations."
       },
       {
         "title": "International mindset",
-        "text": "Understanding expectations, habits and timelines of international buyers and sellers."
+        "text": "Fluent, structured communication for international clients seeking clarity, discretion and quality of execution."
       },
       {
-        "title": "Discretion & quality",
-        "text": "A smooth process, clear communication, and attention to every detail."
+        "title": "Premium standards",
+        "text": "A selective approach, elegant presentation, transparent process and curated recommendations at every step."
       }
     ]
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Tell me about your project and receive a fast, thoughtful reply in English or French.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Send"
   }
 }

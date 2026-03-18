@@ -1,13 +1,39 @@
-export function Footer({ t }) {
+import Link from 'next/link';
+
+export function Footer({ lang, t }) {
   return (
-    <footer className="mt-16 border-t border-zinc-200/70 bg-white">
-      <div className="container py-10 text-sm text-zinc-600">
-        <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-<div className="mt-3 flex gap-4 text-xs">
-  <a className="underline" href="/fr/legal">Mentions légales</a>
-  <a className="underline" href="/en/legal">Legal notice</a>
-</div>
-          <div className="font-medium text-zinc-900">Stephan Real Estate</div></div>
+    <footer className="border-t border-gold-light bg-white">
+      <div className="container py-10">
+        <div className="grid gap-8 md:grid-cols-3">
+          <div>
+            <div className="font-luxe text-2xl text-zinc-900">Stephan</div>
+            <div className="mt-2 text-sm text-zinc-600">Valbonne · French Riviera</div>
+            <div className="mt-4 text-sm text-zinc-700">
+              <a href="mailto:stephan@cotedazuragency.com" className="hover:underline">
+                stephan@cotedazuragency.com
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-sm font-semibold text-zinc-900">{lang === 'fr' ? 'Navigation' : 'Navigation'}</div>
+            <div className="mt-3 grid gap-2 text-sm text-zinc-700">
+              <Link href={`/${lang}`}>{t.nav.home}</Link>
+              <Link href={`/${lang}/services`}>{t.nav.services}</Link>
+              <Link href={`/${lang}/about`}>{t.nav.about}</Link>
+              <Link href={`/${lang}/contact`}>{t.nav.contact}</Link>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-sm font-semibold text-zinc-900">{lang === 'fr' ? 'Positionnement' : 'Positioning'}</div>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-700">
+              {lang === 'fr'
+                ? "Immobilier résidentiel haut de gamme, accompagnement sur mesure, clientèle internationale."
+                : "High-end residential real estate, tailored advisory, international clientele."}
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   );

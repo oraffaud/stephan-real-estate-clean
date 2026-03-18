@@ -1,128 +1,66 @@
 {
-  "langName": "Français",
   "brand": {
-    "name": "Stephan",
-    "tagline": "Agent immobilier indépendant — Valbonne & biens d’exception"
+    "tagline": "Agent immobilier indépendant — Valbonne & Côte d’Azur"
   },
   "nav": {
     "home": "Accueil",
-    "properties": "Biens",
-    "contact": "Contact",
     "services": "Services",
-    "about": "À propos"
+    "about": "À propos",
+    "contact": "Contact"
   },
   "home": {
-    "heroTitle": "Trouvez la villa qui vous ressemble — avec une méthode claire et des honoraires transparents.",
-    "heroLead": "Je vous accompagne personnellement, de la définition du besoin à la signature : sélection ciblée, visites efficaces, négociation et coordination (notaire, diagnostics, financement). Honoraires annoncés à l’avance et expliqués clairement.",
-    "ctaBrowse": "Voir les biens",
-    "ctaContact": "Me contacter",
-    "highlightsTitle": "Une approche boutique",
-    "highlights": [
-      {
-        "title": "Clientèle internationale",
-        "text": "Un parcours clair pour acheteurs et vendeurs expatriés — accompagnement bilingue."
-      },
-      {
-        "title": "Expertise locale",
-        "text": "Valbonne, Mougins, Cannes, Antibes et l’arrière-pays — une sélection guidée par le style de vie."
-      },
-      {
-        "title": "Discrétion & service",
-        "text": "Une expérience premium avec une communication transparente et une sélection exigeante."
-      }
-    ],
-    "socialProofTitle": "Confiance, discrétion, exigence",
-    "socialProofLead": "Un service boutique pour une clientèle internationale — Valbonne et Côte d’Azur.",
-    "testimonialsTitle": "Ils en parlent",
-    "pressTitle": "Presse & partenaires",
-    "pressLead": "Une sélection de plateformes et partenaires — internationale et soignée.",
-    "testimonials": [
-      {
-        "quote": "Processus fluide, communication claire, et une vraie compréhension de nos critères.",
-        "name": "Acheteur international",
-        "meta": "Valbonne"
-      },
-      {
-        "quote": "Discret, réactif, très rigoureux — de la première visite à la signature.",
-        "name": "Vendeur",
-        "meta": "Alpes-Maritimes"
-      },
-      {
-        "quote": "Excellente connaissance locale avec une approche internationale. Recommandé.",
-        "name": "Client relocation",
-        "meta": "Côte d’Azur"
-      }
-    ],
-    "partners": [
-      "Relocation internationale",
-      "Notaires & réseau juridique",
-      "Crédit & banque privée",
-      "Gestion locative"
-    ],
+    "heroTitle": "Conseil en immobilier de prestige sur la Côte d’Azur",
+    "heroLead": "Une approche raffinée, discrète et internationale, basée à Valbonne, pensée pour une clientèle exigeante en recherche de clarté, de qualité et d’un service premium.",
     "ctaPrimary": "Découvrir les services",
     "ctaSecondary": "Prendre contact"
   },
-  "property": {
-    "overview": "Aperçu",
-    "keyFacts": "Informations clés",
-    "highlights": "Points forts",
-    "enquire": "Demander des informations",
-    "ctaTitle": "Contact",
-    "ctaText": "Demandez des détails, planifiez une visite ou sollicitez une sélection privée.",
-    "ctaButton": "Contacter Stephan"
-  },
-  "contact": {
-    "title": "Contact",
-    "lead": "Parlez-moi de votre projet. Réponse rapide (FR/EN).",
-    "name": "Nom",
-    "email": "Email",
-    "message": "Message",
-    "send": "Envoyer",
-    "sending": "Envoi…",
-    "sent": "Message envoyé. Merci !",
-    "error": "Une erreur est survenue. Merci de réessayer.",
-    "ctaEmail": "Envoyer un email",
-    "ctaCall": "Demander un appel"
-  },
-  "footer": {},
   "services": {
     "title": "Services",
-    "lead": "Un accompagnement complet et haut de gamme, pensé pour une clientèle internationale.",
+    "lead": "Un accompagnement sur mesure pour vendeurs, acquéreurs et clientèle internationale recherchant une expérience haut de gamme et parfaitement orchestrée.",
     "items": [
       {
         "title": "Vendre avec méthode",
-        "text": "Positionnement, préparation, valorisation et diffusion ciblée. Process clair, suivi et discrétion."
+        "text": "Positionnement, conseil prix, présentation visuelle, diffusion ciblée et process soigné de bout en bout."
       },
       {
-        "title": "Estimation & avis de valeur",
-        "text": "Analyse de marché, comparables, potentiel, et fourchette cohérente avec vos objectifs."
+        "title": "Estimation & conseil marché",
+        "text": "Avis de valeur construit sur les comparables, le timing, les atouts du bien et le profil de clientèle visé."
       },
       {
-        "title": "Accompagnement acheteur",
-        "text": "Cadrage du besoin, sélection, visites, négociation, et coordination jusqu’à la signature."
+        "title": "Accompagnement acquéreur",
+        "text": "Analyse du besoin, sélection d’opportunités, visites, négociation et coordination fluide jusqu’à la signature."
       },
       {
-        "title": "International — clé en main",
-        "text": "Coordination bilingue, notaires, partenaires, gestion des contraintes distance/temps."
+        "title": "Coordination internationale",
+        "text": "Accompagnement bilingue, réseau de partenaires locaux et process clair adapté aux clients à distance."
       }
     ]
   },
   "about": {
     "title": "À propos de Stephan",
-    "lead": "Une approche personnalisée, locale et internationale — avec exigence, transparence et discrétion.",
+    "lead": "Une approche boutique, directe et qualitative, mêlant expertise locale, standards internationaux et sens du détail.",
     "blocks": [
       {
-        "title": "Une présence locale",
-        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins et l’ensemble des Alpes-Maritimes."
+        "title": "Expertise locale",
+        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins et plus largement les Alpes-Maritimes, avec une lecture fine du lifestyle et du marché."
       },
       {
-        "title": "Une culture internationale",
-        "text": "Compréhension des attentes, usages et timings d’une clientèle internationale."
+        "title": "Culture internationale",
+        "text": "Une communication fluide et structurée pour une clientèle internationale en recherche de clarté, de discrétion et d’efficacité."
       },
       {
-        "title": "Discrétion & qualité",
-        "text": "Un process fluide, une communication claire, et une exigence sur chaque détail."
+        "title": "Standards premium",
+        "text": "Une approche sélective, une présentation élégante, un process transparent et des recommandations soignées à chaque étape."
       }
     ]
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Décrivez votre projet et recevez un retour rapide, structuré et personnalisé en français ou en anglais.",
+    "name": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "message": "Message",
+    "submit": "Envoyer"
   }
 }

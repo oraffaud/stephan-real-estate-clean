@@ -9,36 +9,44 @@ export default async function AboutPage({ params }) {
 
   return (
     <main>
-      <section className="container py-14">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl font-semibold tracking-tight">{t.about.title}</h1>
-          <p className="mt-4 text-sm leading-relaxed text-zinc-700">{t.about.lead}</p>
-        </div>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {t.about.blocks.map((b) => (
-            <div key={b.title} className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold text-zinc-900">{b.title}</div>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-700">{b.text}</p>
+      <section className="container py-20">
+        <div className="grid gap-10 md:grid-cols-12 md:items-start">
+          <div className="md:col-span-5">
+            <div className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+              {lang === 'fr' ? 'À propos' : 'About'}
             </div>
-          ))}
-        </div>
+            <h1 className="mt-4 font-luxe text-5xl text-zinc-900">{t.about.title}</h1>
+            <p className="mt-5 text-sm leading-relaxed text-zinc-700">{t.about.lead}</p>
 
-        <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
-          <div className="text-sm font-semibold text-zinc-900">
-            {lang === 'fr' ? "Méthode de travail" : "How we work"}
+            <div className="mt-8 rounded-[24px] overflow-hidden shadow-soft">
+              <img src="/images/villa-modern-1.jpg" alt="About" className="h-full w-full object-cover" />
+            </div>
           </div>
-          <ul className="mt-3 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
-            <li>• {lang === 'fr' ? "Écoute & cadrage" : "Listening & briefing"}</li>
-            <li>• {lang === 'fr' ? "Conseil & stratégie" : "Advice & strategy"}</li>
-            <li>• {lang === 'fr' ? "Sélection & coordination" : "Curation & coordination"}</li>
-            <li>• {lang === 'fr' ? "Transparence & suivi" : "Clarity & follow-up"}</li>
-          </ul>
 
-          <div className="mt-5">
-            <Link href={`/${lang}/contact`} className="inline-flex rounded-full bg-zinc-900 px-5 py-2 text-sm font-medium text-white hover:bg-zinc-800">
-              {t.nav.contact}
-            </Link>
+          <div className="md:col-span-7 grid gap-6">
+            {t.about.blocks.map((block) => (
+              <div key={block.title} className="card-luxe p-8">
+                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+                  {lang === 'fr' ? 'Vision' : 'Vision'}
+                </div>
+                <h2 className="mt-3 font-luxe text-3xl text-zinc-900">{block.title}</h2>
+                <p className="mt-4 text-sm leading-relaxed text-zinc-700">{block.text}</p>
+              </div>
+            ))}
+
+            <div className="rounded-[28px] bg-white p-8 shadow-soft border border-gold-light">
+              <h3 className="font-luxe text-3xl text-zinc-900">{lang === 'fr' ? 'Un service signature' : 'A signature service'}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-zinc-700">
+                {lang === 'fr'
+                  ? "Présence locale, regard international, sens du détail et communication premium."
+                  : "Local presence, international perspective, attention to detail and premium communication."}
+              </p>
+              <div className="mt-6">
+                <Link href={`/${lang}/contact`} className="btn-dark">
+                  {t.nav.contact}
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

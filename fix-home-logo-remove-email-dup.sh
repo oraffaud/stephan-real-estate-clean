@@ -12,7 +12,7 @@ if (!homeFile) { console.error("ERR: HOMEFILE missing"); process.exit(2); }
 
 let s = fs.readFileSync(homeFile, "utf8");
 
-const mailtoNeedle = "mailto:stephan@stephanwsk.com";
+const mailtoNeedle = "mailto:stephan@cotedazuragency.com";
 const brandNeedle  = 'data-brand-logo="cda"';
 const logoNeedle   = "/images/logos/cote-dazur-agency.png";
 
@@ -64,5 +64,5 @@ curl -sH "cache-control: no-cache" "${URL}?ts=$(date +%s)" \
 | tr -d '\n' | grep -o 'cote-dazur-agency\.png' | wc -l | awk '{print "HTML logo occurrences:", $1}'
 
 curl -sH "cache-control: no-cache" "${URL}?ts=$(date +%s)" \
-| grep -nE 'En partenariat avec|In partnership with|data-brand-logo="cda"|mailto:stephan@stephanwsk.com|cote-dazur-agency' \
+| grep -nE 'En partenariat avec|In partnership with|data-brand-logo="cda"|mailto:stephan@cotedazuragency.com|cote-dazur-agency' \
 | head -n 120 || true

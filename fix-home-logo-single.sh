@@ -10,7 +10,7 @@ const fs = require("fs");
 const homeFile = process.env.HOMEFILE || "src/app/[lang]/page.js";
 let s = fs.readFileSync(homeFile, "utf8");
 
-const mailtoLine = `<a className="mt-1 block text-sm font-semibold text-white hover:underline" href="mailto:stephan@stephanwsk.com">`;
+const mailtoLine = `<a className="mt-1 block text-sm font-semibold text-white hover:underline" href="mailto:stephan@cotedazuragency.com">`;
 const emailContainer = `<div className="mt-5 rounded-2xl bg-black/20 p-4 ring-1 ring-white/10">`;
 
 function removeBrandBlocks(str) {
@@ -54,7 +54,7 @@ if (logoCount !== 1) {
   process.exit(4);
 }
 
-if (!s.includes('mailto:stephan@stephanwsk.com')) {
+if (!s.includes('mailto:stephan@cotedazuragency.com')) {
   console.error("ERR: mailto missing");
   process.exit(5);
 }
@@ -73,5 +73,5 @@ curl -sH "cache-control: no-cache" "${URL}?ts=$(date +%s)" | tr -d '\n' \
 | grep -o 'cote-dazur-agency\.png' | wc -l | awk '{print "HTML logo occurrences:", $1}'
 
 curl -sH "cache-control: no-cache" "${URL}?ts=$(date +%s)" \
-| grep -nE 'En partenariat avec|In partnership with|data-brand-logo="cda"|mailto:stephan@stephanwsk.com|cote-dazur-agency' \
+| grep -nE 'En partenariat avec|In partnership with|data-brand-logo="cda"|mailto:stephan@cotedazuragency.com|cote-dazur-agency' \
 | head -n 80 || true

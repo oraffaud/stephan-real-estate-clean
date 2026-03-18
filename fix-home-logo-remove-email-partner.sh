@@ -12,7 +12,7 @@ if (!homeFile) { console.error("ERR: HOMEFILE missing"); process.exit(2); }
 
 let s = fs.readFileSync(homeFile, "utf8");
 
-if (!s.includes('mailto:stephan@stephanwsk.com')) {
+if (!s.includes('mailto:stephan@cotedazuragency.com')) {
   console.error("ERR: mailto missing");
   process.exit(3);
 }
@@ -56,5 +56,5 @@ curl -sH "cache-control: no-cache" "${URL}?ts=$(date +%s)" \
 | tr -d '\n' | grep -o 'cote-dazur-agency\.png' | wc -l | awk '{print "HTML logo occurrences:", $1}'
 
 curl -sH "cache-control: no-cache" "${URL}?ts=$(date +%s)" \
-| grep -nE 'En partenariat avec|In partnership with|mailto:stephan@stephanwsk.com|cote-dazur-agency' \
+| grep -nE 'En partenariat avec|In partnership with|mailto:stephan@cotedazuragency.com|cote-dazur-agency' \
 | head -n 80 || true

@@ -19,7 +19,7 @@ if (before !== 2) {
   process.exit(2);
 }
 
-const mailNeedle = 'href="mailto:stephan@stephanwsk.com"';
+const mailNeedle = 'href="mailto:stephan@cotedazuragency.com"';
 const mailIdx = s.indexOf(mailNeedle);
 if (mailIdx < 0) {
   console.error("ERR: mailto anchor not found (email block changed?)");

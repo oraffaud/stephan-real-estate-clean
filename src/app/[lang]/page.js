@@ -47,10 +47,10 @@ export default async function HomePage({ params }) {
             </div>
 
             <a
-              href="mailto:stephan@stephanwsk.com"
+              href="mailto:stephan@cotedazuragency.com"
               className="mt-4 block text-lg text-white/95 underline underline-offset-4"
             >
-              stephan@stephanwsk.com
+              stephan@cotedazuragency.com
             </a>
           </div>
         </div>

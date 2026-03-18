@@ -53,7 +53,7 @@ export default function HonorairesPage({ params }) {
             <p className="mt-3 text-sm leading-relaxed text-zinc-700">{t.ctaLead}</p>
             <a
               className="mt-5 inline-flex rounded-full bg-zinc-900 px-5 py-2 text-sm font-medium text-white hover:bg-zinc-800"
-              href="mailto:stephan@stephanwsk.com?subject=Honoraires%20-%20Demande%20de%20bar%C3%A8me"
+              href="mailto:stephan@cotedazuragency.com?subject=Honoraires%20-%20Demande%20de%20bar%C3%A8me"
             >
               {t.ctaEmail}
             </a>

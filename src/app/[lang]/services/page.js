@@ -9,34 +9,48 @@ export default async function ServicesPage({ params }) {
 
   return (
     <main>
-      <section className="container py-14">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl font-semibold tracking-tight">{t.services.title}</h1>
-          <p className="mt-4 text-sm leading-relaxed text-zinc-700">{t.services.lead}</p>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/images/cannes-aerial.jpg" alt="Services" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-black/35" />
         </div>
+        <div className="relative">
+          <div className="container py-28">
+            <div className="max-w-2xl">
+              <div className="kicker">{lang === 'fr' ? 'Services' : 'Services'}</div>
+              <h1 className="mt-6 font-luxe text-5xl text-white md:text-6xl">{t.services.title}</h1>
+              <p className="mt-4 text-lg text-white/85">{t.services.lead}</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {t.services.items.map((x) => (
-            <div key={x.title} className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold text-zinc-900">{x.title}</div>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-700">{x.text}</p>
+      <section className="container py-16">
+        <div className="grid gap-6 md:grid-cols-2">
+          {t.services.items.map((item) => (
+            <div key={item.title} className="card-luxe p-8">
+              <div className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+                {lang === 'fr' ? 'Expertise' : 'Expertise'}
+              </div>
+              <h2 className="mt-3 font-luxe text-3xl text-zinc-900">{item.title}</h2>
+              <p className="mt-4 text-sm leading-relaxed text-zinc-700">{item.text}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
-          <div className="text-sm font-semibold text-zinc-900">
-            {lang === 'fr' ? "Prêt à démarrer ?" : "Ready to start?"}
-          </div>
-          <p className="mt-2 text-sm text-zinc-700">
-            {lang === 'fr'
-              ? "Décrivez votre projet (vente, estimation, achat, international)."
-              : "Share your project (selling, valuation, buying, international)."}
-          </p>
-          <div className="mt-4">
-            <Link href={`/${lang}/contact`} className="inline-flex rounded-full bg-zinc-900 px-5 py-2 text-sm font-medium text-white hover:bg-zinc-800">
-              {t.nav.contact}
-            </Link>
+        <div className="mt-10 rounded-[28px] bg-[var(--dark)] p-8 text-white shadow-soft">
+          <div className="max-w-2xl">
+            <h3 className="font-luxe text-3xl">{lang === 'fr' ? 'Échangeons sur votre projet' : 'Let’s discuss your project'}</h3>
+            <p className="mt-3 text-sm text-white/80">
+              {lang === 'fr'
+                ? "Une approche qualitative, directe et adaptée à vos objectifs."
+                : "A direct, qualitative approach aligned with your objectives."}
+            </p>
+            <div className="mt-6">
+              <Link href={`/${lang}/contact`} className="btn-primary">
+                {t.nav.contact}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
