@@ -14,7 +14,7 @@ export default async function LangLayout({ children, params }) {
 
   return (
     <div className="min-h-screen">
-      <Header lang={lang} t={t} />
+      
       {children}
       <Footer t={t} />
     </div>

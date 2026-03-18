@@ -8,43 +8,47 @@ export default async function HomePage({ params }) {
   return (
     <main className="min-h-screen bg-black">
       <section className="relative min-h-screen overflow-hidden">
+        {/* Keep the current background already used */}
         <div className="absolute inset-0">
           <img
             src="/images/hero-pool.jpg"
             alt="French Riviera luxury"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/12" />
+          <div className="absolute inset-0 bg-black/8" />
         </div>
 
         <div className="relative min-h-screen">
-          <div className="px-6 pt-6 md:px-10 md:pt-8 bg-gradient-to-b from-black/40 to-transparent inline-block p-4 rounded-xl">
+          {/* Top-left logo block */}
+          <div className="absolute left-6 top-6 z-20 md:left-8 md:top-8">
             <img
-              src="/branding/logo-cotedazur.svg"
+              src="/branding/logo-full.png"
               alt="Côte d’Azur Agency"
-              className="w-[260px] md:w-[340px]"
+              className="w-[300px] md:w-[420px]"
             />
-
-            <p className="mt-3 text-[26px] font-semibold text-[#C6A46C] md:text-[34px]">
+            <p className="mt-3 text-[24px] font-semibold leading-tight text-[#C6A46C] md:text-[34px]">
               Real Estate on the French Riviera
             </p>
           </div>
 
-          <div className="absolute inset-x-0 top-[58%] text-center">
-            <h1 className="font-luxe text-[54px] font-semibold leading-none text-[#C6A46C] md:text-[74px]">
+          {/* Center title */}
+          <div className="absolute inset-x-0 top-[66%] z-20 -translate-y-1/2 text-center">
+            <h1 className="font-luxe text-[56px] font-semibold leading-none text-[#C6A46C] md:text-[82px]">
               Coming soon
             </h1>
-            <div className="mx-auto mt-2 h-[3px] w-[220px] bg-red-500 md:w-[300px]" />
+            <div className="mx-auto mt-3 h-[3px] w-[220px] bg-red-500 md:w-[320px]" />
           </div>
 
-          <div className="absolute bottom-8 left-8 md:bottom-10 md:left-12">
-            <div className="text-[22px] font-semibold leading-tight text-[#C6A46C] md:text-[28px]">
+          {/* Bottom-left contact */}
+          <div className="absolute bottom-8 left-8 z-20 md:bottom-10 md:left-12">
+            <div className="text-[24px] font-semibold leading-tight text-[#C6A46C] md:text-[32px]">
               <div>Contact:</div>
               <div>Stephan Morawski</div>
             </div>
+
             <a
               href="mailto:stephan@stephanwsk.com"
-              className="mt-3 block text-base text-white/90 underline underline-offset-4"
+              className="mt-4 block text-lg text-white/95 underline underline-offset-4"
             >
               stephan@stephanwsk.com
             </a>
