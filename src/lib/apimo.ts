@@ -72,7 +72,15 @@ function pick(v: any, lang: string): string {
   if (!v) return '';
   if (typeof v === 'string') return v;
   if (typeof v === 'object') {
-    return String(v[lang] || v.fr || v.en || Object.values(v)[0] || '');
+    return String(
+      v[lang] ||
+      v.fr ||
+      v.en ||
+      v.name ||
+      v.label ||
+      Object.values(v)[0] ||
+      ''
+    );
   }
   return '';
 }
@@ -118,32 +126,17 @@ function scalarNumber(v: any): number | null {
   return null;
 }
 
-function pickFirstText(lang: string, ...values: any[]): string {
-  for (const v of values) {
-    const s = cleanText(pick(v, lang) || v);
-    if (s) return s;
-  }
-  return '';
-}
-
 function buildLocationLabel(city: string, district: string, addressName: string, postalCode: string, lang: string): string {
   const safeCity = cleanText(city);
   const safeDistrict = cleanText(district);
   const safeAddress = cleanText(addressName);
-  const safePostal = cleanText(postalCode);
 
   if (safeCity && safeDistrict && safeDistrict.toLowerCase() !== safeCity.toLowerCase()) {
     return `${safeCity} — ${safeDistrict}`;
   }
-
-  if (safeCity && safePostal) {
-    return `${safeCity}`;
-  }
-
   if (safeCity) return safeCity;
   if (safeDistrict) return safeDistrict;
   if (safeAddress) return safeAddress;
-
   return lang === 'fr' ? 'Localisation sur demande' : 'Location on request';
 }
 
@@ -151,58 +144,42 @@ function normalizeMandat(item: any, lang = 'fr'): Mandat {
   const id = String(item?.id || item?.Id || item?.property_id || item?.PropertyId || '');
   const ref = String(item?.reference || item?.Reference || '');
 
-  // APIMO location extraction priority
-  const city = pickFirstText(
-    lang,
-    item?.publication_place,
-    item?.PublicationPlace,
-    item?.city,
-    item?.City,
-    item?.city_name,
-    item?.CityName,
-    item?.address?.city,
-    item?.Address?.city,
-    item?.location?.city,
-    item?.Location?.city
-  );
+  const cityObj = item?.city || item?.City || null;
+  const city =
+    cleanText(cityObj?.name) ||
+    cleanText(pick(cityObj, lang)) ||
+    cleanText(item?.city_name) ||
+    cleanText(item?.CityName) ||
+    '';
 
-  const district = pickFirstText(
-    lang,
-    item?.district,
-    item?.District,
-    item?.sub_locality,
-    item?.SubLocality,
-    item?.subLocality,
-    item?.location?.district,
-    item?.Address?.district
-  );
+  const postalCode =
+    cleanText(cityObj?.zipcode) ||
+    cleanText(item?.postal_code) ||
+    cleanText(item?.PostalCode) ||
+    cleanText(item?.zip_code) ||
+    cleanText(item?.ZipCode) ||
+    '';
 
-  const addressName = pickFirstText(
-    lang,
-    item?.address,
-    item?.Address,
-    item?.address_name,
-    item?.AddressName,
-    item?.address_label,
-    item?.AddressLabel,
-    item?.location?.address
-  );
+  const district =
+    cleanText(pick(item?.district || item?.District, lang)) ||
+    cleanText(pick(item?.sub_locality || item?.SubLocality, lang)) ||
+    cleanText(pick(item?.subLocality, lang)) ||
+    '';
 
-  const postalCode = pickFirstText(
-    lang,
-    item?.postal_code,
-    item?.PostalCode,
-    item?.zip_code,
-    item?.ZipCode,
-    item?.address?.postal_code,
-    item?.Address?.postal_code
-  );
+  const addressName =
+    cleanText(item?.address_name) ||
+    cleanText(item?.AddressName) ||
+    cleanText(item?.address_label) ||
+    cleanText(item?.AddressLabel) ||
+    '';
+
+  const locationLabel = buildLocationLabel(city, district, addressName, postalCode, lang);
 
   const title =
     cleanText(pick(item?.title || item?.Title, lang)) ||
     cleanText(pick(item?.name || item?.Name, lang)) ||
     cleanText(ref) ||
-    buildLocationLabel(city, district, addressName, postalCode, lang);
+    locationLabel;
 
   const description =
     pick(item?.comment || item?.Comment || item?.description || item?.Description, lang) || '';
@@ -217,7 +194,7 @@ function normalizeMandat(item: any, lang = 'fr'): Mandat {
     district,
     addressName,
     postalCode,
-    locationLabel: buildLocationLabel(city, district, addressName, postalCode, lang),
+    locationLabel,
     price: scalarNumber(item?.price || item?.Price),
     area: scalarNumber(item?.area || item?.Area),
     rooms: scalarNumber(item?.rooms || item?.Rooms),
