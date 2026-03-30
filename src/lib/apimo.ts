@@ -6,6 +6,8 @@ type Mandat = {
   description: string;
   city: string;
   district: string;
+  addressName: string;
+  postalCode: string;
   locationLabel: string;
   price: number | null;
   area: number | null;
@@ -69,8 +71,18 @@ function asArray<T = any>(v: any): T[] {
 function pick(v: any, lang: string): string {
   if (!v) return '';
   if (typeof v === 'string') return v;
-  if (typeof v === 'object') return String(v[lang] || v.fr || v.en || Object.values(v)[0] || '');
+  if (typeof v === 'object') {
+    return String(v[lang] || v.fr || v.en || Object.values(v)[0] || '');
+  }
   return '';
+}
+
+function cleanText(v: any): string {
+  const s = String(v || '').trim();
+  if (!s) return '';
+  if (/^\d+$/.test(s)) return '';
+  if (s.toLowerCase() === 'null' || s.toLowerCase() === 'undefined') return '';
+  return s;
 }
 
 function slugify(s: string): string {
@@ -106,43 +118,91 @@ function scalarNumber(v: any): number | null {
   return null;
 }
 
-function cleanText(v: any): string {
-  const s = String(v || '').trim();
-  if (!s) return '';
-  if (/^\d+$/.test(s)) return '';
-  return s;
+function pickFirstText(lang: string, ...values: any[]): string {
+  for (const v of values) {
+    const s = cleanText(pick(v, lang) || v);
+    if (s) return s;
+  }
+  return '';
 }
 
-function buildLocationLabel(city: string, district: string, lang: string): string {
+function buildLocationLabel(city: string, district: string, addressName: string, postalCode: string, lang: string): string {
   const safeCity = cleanText(city);
   const safeDistrict = cleanText(district);
+  const safeAddress = cleanText(addressName);
+  const safePostal = cleanText(postalCode);
 
   if (safeCity && safeDistrict && safeDistrict.toLowerCase() !== safeCity.toLowerCase()) {
     return `${safeCity} — ${safeDistrict}`;
   }
+
+  if (safeCity && safePostal) {
+    return `${safeCity}`;
+  }
+
   if (safeCity) return safeCity;
   if (safeDistrict) return safeDistrict;
-  return lang === 'fr' ? 'Côte d’Azur' : 'French Riviera';
+  if (safeAddress) return safeAddress;
+
+  return lang === 'fr' ? 'Localisation sur demande' : 'Location on request';
 }
 
 function normalizeMandat(item: any, lang = 'fr'): Mandat {
   const id = String(item?.id || item?.Id || item?.property_id || item?.PropertyId || '');
   const ref = String(item?.reference || item?.Reference || '');
 
-  let city = pick(item?.city || item?.City, lang) || item?.city || item?.City || '';
-  let district =
-    pick(item?.district || item?.District, lang) ||
-    pick(item?.sub_locality || item?.SubLocality, lang) ||
-    pick(item?.subLocality || item?.SubLocality, lang) ||
-    '';
+  // APIMO location extraction priority
+  const city = pickFirstText(
+    lang,
+    item?.publication_place,
+    item?.PublicationPlace,
+    item?.city,
+    item?.City,
+    item?.city_name,
+    item?.CityName,
+    item?.address?.city,
+    item?.Address?.city,
+    item?.location?.city,
+    item?.Location?.city
+  );
 
-  city = cleanText(city);
-  district = cleanText(district);
+  const district = pickFirstText(
+    lang,
+    item?.district,
+    item?.District,
+    item?.sub_locality,
+    item?.SubLocality,
+    item?.subLocality,
+    item?.location?.district,
+    item?.Address?.district
+  );
+
+  const addressName = pickFirstText(
+    lang,
+    item?.address,
+    item?.Address,
+    item?.address_name,
+    item?.AddressName,
+    item?.address_label,
+    item?.AddressLabel,
+    item?.location?.address
+  );
+
+  const postalCode = pickFirstText(
+    lang,
+    item?.postal_code,
+    item?.PostalCode,
+    item?.zip_code,
+    item?.ZipCode,
+    item?.address?.postal_code,
+    item?.Address?.postal_code
+  );
 
   const title =
     cleanText(pick(item?.title || item?.Title, lang)) ||
     cleanText(pick(item?.name || item?.Name, lang)) ||
-    buildLocationLabel(city, district, lang);
+    cleanText(ref) ||
+    buildLocationLabel(city, district, addressName, postalCode, lang);
 
   const description =
     pick(item?.comment || item?.Comment || item?.description || item?.Description, lang) || '';
@@ -150,12 +210,14 @@ function normalizeMandat(item: any, lang = 'fr'): Mandat {
   return {
     id,
     ref,
-    slug: slugify(`${city || district || 'property'}-${title}-${id || ref}`),
+    slug: slugify(`${city || district || addressName || 'property'}-${title}-${id || ref}`),
     title,
     description,
     city,
     district,
-    locationLabel: buildLocationLabel(city, district, lang),
+    addressName,
+    postalCode,
+    locationLabel: buildLocationLabel(city, district, addressName, postalCode, lang),
     price: scalarNumber(item?.price || item?.Price),
     area: scalarNumber(item?.area || item?.Area),
     rooms: scalarNumber(item?.rooms || item?.Rooms),

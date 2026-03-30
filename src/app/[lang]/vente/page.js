@@ -75,12 +75,6 @@ export default async function VentePage({ params }) {
                 </div>
               ) : null}
 
-              {m.description ? (
-                <p className="mt-8 line-clamp-5 text-base leading-relaxed text-zinc-700">
-                  {m.description}
-                </p>
-              ) : null}
-
               <div className="mt-8">
                 <span className="inline-flex rounded-full border border-zinc-900 px-6 py-3 text-sm font-medium text-zinc-900">
                   {lang === 'fr' ? 'Découvrir ce bien' : 'Discover this property'}
