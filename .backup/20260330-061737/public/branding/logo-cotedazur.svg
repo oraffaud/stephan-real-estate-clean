@@ -1,0 +1,21 @@
+<svg width="520" height="180" viewBox="0 0 520 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .gold { fill: #C6A46C; stroke: #C6A46C; }
+      .black { fill: #111111; }
+      .agency { fill: #111111; letter-spacing: 0.42em; font-family: Georgia, 'Times New Roman', serif; }
+      .title { fill: #111111; font-family: Georgia, 'Times New Roman', serif; }
+    </style>
+  </defs>
+
+  <!-- emblem -->
+  <path d="M92 18C115 18 135 27 149 41" class="gold" stroke-width="6" stroke-linecap="round"/>
+  <path d="M93 19C74 19 58 30 49 47" class="gold" stroke-width="6" stroke-linecap="round"/>
+  <path d="M41 52C74 49 106 49 138 53" class="gold" stroke-width="4" stroke-linecap="round"/>
+  <path d="M53 66C78 61 105 61 129 66" class="gold" stroke-width="3" stroke-linecap="round"/>
+  <path d="M88 18V83" class="gold" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- wordmark -->
+  <text x="0" y="118" class="title" font-size="38">CÔTE D’AZUR</text>
+  <text x="26" y="148" class="agency" font-size="14">AGENCY</text>
+</svg>

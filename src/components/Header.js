@@ -1,29 +1,22 @@
 import Link from 'next/link';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 export function Header({ lang, t }) {
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/90 backdrop-blur">
       <div className="container flex h-20 items-center justify-between">
-        <Link href={`/${lang || 'fr'}`} className="text-white">
-          <div className="font-luxe text-3xl leading-none">Stephan</div>
-          <div className="mt-1 text-[11px] uppercase tracking-[0.35em] text-white/80">
-            Real Estate
-          </div>
+        <Link href={`/${lang}`} className="font-luxe text-2xl text-zinc-900">
+          Côte d’Azur Agency
         </Link>
-
-        <nav className="hidden items-center gap-8 md:flex">
-          <Link className="text-sm text-white/90 hover:text-white" href={`/${lang || 'fr'}`}>{t.nav.home}</Link>
-          <Link className="text-sm text-white/90 hover:text-white" href={`/${lang || 'fr'}/services`}>{t.nav.services}</Link>
-          <Link className="text-sm text-white/90 hover:text-white" href={`/${lang || 'fr'}/about`}>{t.nav.about}</Link>
-          <Link className="text-sm text-white/90 hover:text-white" href={`/${lang || 'fr'}/contact`}>{t.nav.contact}</Link>
+        <nav className="hidden gap-6 md:flex text-sm text-zinc-800">
+          <Link href={`/${lang}`}>{t.nav.home}</Link>
+          <Link href={`/${lang}/vente`}>{t.nav.sale}</Link>
+          <Link href={`/${lang}/services`}>{t.nav.services}</Link>
+          <Link href={`/${lang}/agence`}>{t.nav.agency}</Link>
+          <Link href={`/${lang}/contact`}>{t.nav.contact}</Link>
         </nav>
-
-        <div className="flex items-center gap-3">
-          <Link href={`/${lang || 'fr'}/contact`} className="hidden rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur md:inline-flex">
-            {t.nav.contact}
-          </Link>
-          <LanguageSwitcher lang={lang} />
+        <div className="flex gap-2 text-sm">
+          <Link href="/fr" className="rounded-full border px-3 py-1.5">FR</Link>
+          <Link href="/en" className="rounded-full border px-3 py-1.5">EN</Link>
         </div>
       </div>
     </header>

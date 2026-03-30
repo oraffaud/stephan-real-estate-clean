@@ -1,26 +1,22 @@
-import { Playfair_Display } from "next/font/google";
-
-const luxe = Playfair_Display({ subsets: ["latin"], variable: "--font-luxe", display: "swap" });
-
 import './globals.css';
+import { Playfair_Display } from 'next/font/google';
+
+const luxe = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-luxe',
+  display: 'swap'
+});
 
 export const metadata = {
-  title: {
-    default: 'Stephan Real Estate',
-    template: '%s · Stephan Real Estate',
-  },
-  description: 'Independent real estate agent — Valbonne & exceptional properties in the Alpes-Maritimes.',
-  icons: {
-    icon: '/favicon.ico',
-  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com'),
+  title: 'Côte d’Azur Agency',
+  description: 'Real Estate on the French Riviera'
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen">
-        {children}
-      </body>
+    <html lang="fr" className={luxe.variable}>
+      <body>{children}</body>
     </html>
   );
 }

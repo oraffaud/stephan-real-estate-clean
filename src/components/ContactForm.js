@@ -3,55 +3,63 @@
 import { useState } from 'react';
 
 export function ContactForm({ t }) {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [feedback, setFeedback] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  async function sendForm() {
-    await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    });
-    alert('Message sent');
+  function onChange(e) {
+    const { name, value } = e.target;
+    setForm((p) => ({ ...p, [name]: value }));
+  }
+
+  async function onSubmit() {
+    if (!form.name || !form.email || !form.message) {
+      setFeedback(t.contact.error);
+      return;
+    }
+
+    setLoading(true);
+    setFeedback('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || 'Request failed');
+      setFeedback(t.contact.success);
+      setForm({ name: '', email: '', phone: '', message: '' });
+    } catch {
+      setFeedback(t.contact.error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
-    <div className="grid gap-2 text-sm">
-      <input
-        placeholder={t?.contact?.name || 'Name'}
-        onChange={(e) => setForm({ ...form, name: e.target.value })}
-        className="rounded-xl border px-3 py-2"
-      />
-
-      <input
-        placeholder={t?.contact?.email || 'Email'}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-        className="rounded-xl border px-3 py-2"
-      />
-
-      <input
-        placeholder={t?.contact?.phone || 'Phone'}
-        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-        className="rounded-xl border px-3 py-2"
-      />
-
-      <textarea
-        placeholder={t?.contact?.message || 'Message'}
-        rows={3}
-        onChange={(e) => setForm({ ...form, message: e.target.value })}
-        className="rounded-xl border px-3 py-2"
-      />
-
-      <button
-        onClick={sendForm}
-        className="mt-2 rounded-full bg-black px-4 py-2 text-white"
-      >
-        {t?.contact?.submit || 'Send'}
+    <div className="grid gap-4">
+      <div>
+        <label className="mb-2 block text-sm font-medium">{t.contact.name}</label>
+        <input name="name" value={form.name} onChange={onChange} />
+      </div>
+      <div>
+        <label className="mb-2 block text-sm font-medium">{t.contact.email}</label>
+        <input type="email" name="email" value={form.email} onChange={onChange} />
+      </div>
+      <div>
+        <label className="mb-2 block text-sm font-medium">{t.contact.phone}</label>
+        <input name="phone" value={form.phone} onChange={onChange} />
+      </div>
+      <div>
+        <label className="mb-2 block text-sm font-medium">{t.contact.message}</label>
+        <textarea rows="5" name="message" value={form.message} onChange={onChange} />
+      </div>
+      <button type="button" onClick={onSubmit} disabled={loading} className="btn-dark">
+        {loading ? t.contact.sending : t.contact.submit}
       </button>
+      {feedback ? <p className="text-sm">{feedback}</p> : null}
     </div>
   );
 }

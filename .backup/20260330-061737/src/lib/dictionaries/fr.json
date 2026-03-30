@@ -1,0 +1,69 @@
+{
+  "brand": {
+    "tagline": "Agent immobilier indépendant — Valbonne & Côte d’Azur"
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Conseil en immobilier de prestige sur la Côte d’Azur",
+    "heroLead": "Une approche raffinée, discrète et internationale, basée à Valbonne, pensée pour une clientèle exigeante en recherche de clarté, de qualité et d’un service premium.",
+    "ctaPrimary": "Découvrir les services",
+    "ctaSecondary": "Prendre contact"
+  },
+  "services": {
+    "title": "Services",
+    "lead": "Un accompagnement sur mesure pour vendeurs, acquéreurs et clientèle internationale recherchant une expérience haut de gamme et parfaitement orchestrée.",
+    "items": [
+      {
+        "title": "Vendre avec méthode",
+        "text": "Positionnement, conseil prix, présentation visuelle, diffusion ciblée et process soigné de bout en bout."
+      },
+      {
+        "title": "Estimation & conseil marché",
+        "text": "Avis de valeur construit sur les comparables, le timing, les atouts du bien et le profil de clientèle visé."
+      },
+      {
+        "title": "Accompagnement acquéreur",
+        "text": "Analyse du besoin, sélection d’opportunités, visites, négociation et coordination fluide jusqu’à la signature."
+      },
+      {
+        "title": "Coordination internationale",
+        "text": "Accompagnement bilingue, réseau de partenaires locaux et process clair adapté aux clients à distance."
+      }
+    ]
+  },
+  "about": {
+    "title": "À propos de Stephan",
+    "lead": "Une approche boutique, directe et qualitative, mêlant expertise locale, standards internationaux et sens du détail.",
+    "blocks": [
+      {
+        "title": "Expertise locale",
+        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins et plus largement les Alpes-Maritimes, avec une lecture fine du lifestyle et du marché."
+      },
+      {
+        "title": "Culture internationale",
+        "text": "Une communication fluide et structurée pour une clientèle internationale en recherche de clarté, de discrétion et d’efficacité."
+      },
+      {
+        "title": "Standards premium",
+        "text": "Une approche sélective, une présentation élégante, un process transparent et des recommandations soignées à chaque étape."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Décrivez votre projet et recevez un retour rapide, structuré et personnalisé en français ou en anglais.",
+    "name": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "message": "Message",
+    "submit": "Envoyer",
+    "sending": "Envoi en cours...",
+    "success": "Merci. Votre message a bien été envoyé.",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  }
+}

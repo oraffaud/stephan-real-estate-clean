@@ -1,69 +1,54 @@
 {
-  "brand": {
-    "tagline": "Agent immobilier indépendant — Valbonne & Côte d’Azur"
-  },
+  "siteName": "Côte d’Azur Agency",
   "nav": {
     "home": "Accueil",
+    "sale": "Vente",
     "services": "Services",
-    "about": "À propos",
-    "contact": "Contact"
+    "agency": "L’agence",
+    "contact": "Contact",
+    "legal": "Mentions légales"
   },
   "home": {
-    "heroTitle": "Conseil en immobilier de prestige sur la Côte d’Azur",
-    "heroLead": "Une approche raffinée, discrète et internationale, basée à Valbonne, pensée pour une clientèle exigeante en recherche de clarté, de qualité et d’un service premium.",
-    "ctaPrimary": "Découvrir les services",
-    "ctaSecondary": "Prendre contact"
+    "heroTitle": "Démarrer votre projet d’exception",
+    "heroLead": "Real Estate on the French Riviera",
+    "ctaPrimary": "Prendre contact",
+    "ctaSecondary": "Voir les mandats",
+    "introTitle": "L’excellence commence par une rencontre",
+    "introText": "Sur la Côte d’Azur, chaque propriété raconte une histoire. La vôtre mérite une attention unique."
+  },
+  "sale": {
+    "title": "Vente",
+    "lead": "Une sélection de mandats d’exception sur la Côte d’Azur.",
+    "empty": "Aucun mandat disponible pour le moment."
   },
   "services": {
     "title": "Services",
-    "lead": "Un accompagnement sur mesure pour vendeurs, acquéreurs et clientèle internationale recherchant une expérience haut de gamme et parfaitement orchestrée.",
+    "lead": "Un accompagnement premium, discret et bilingue.",
     "items": [
-      {
-        "title": "Vendre avec méthode",
-        "text": "Positionnement, conseil prix, présentation visuelle, diffusion ciblée et process soigné de bout en bout."
-      },
-      {
-        "title": "Estimation & conseil marché",
-        "text": "Avis de valeur construit sur les comparables, le timing, les atouts du bien et le profil de clientèle visé."
-      },
-      {
-        "title": "Accompagnement acquéreur",
-        "text": "Analyse du besoin, sélection d’opportunités, visites, négociation et coordination fluide jusqu’à la signature."
-      },
-      {
-        "title": "Coordination internationale",
-        "text": "Accompagnement bilingue, réseau de partenaires locaux et process clair adapté aux clients à distance."
-      }
+      "Vente",
+      "Accompagnement achat villa",
+      "Chasseur immobilier Côte d’Azur",
+      "Estimation"
     ]
   },
-  "about": {
-    "title": "À propos de Stephan",
-    "lead": "Une approche boutique, directe et qualitative, mêlant expertise locale, standards internationaux et sens du détail.",
-    "blocks": [
-      {
-        "title": "Expertise locale",
-        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins et plus largement les Alpes-Maritimes, avec une lecture fine du lifestyle et du marché."
-      },
-      {
-        "title": "Culture internationale",
-        "text": "Une communication fluide et structurée pour une clientèle internationale en recherche de clarté, de discrétion et d’efficacité."
-      },
-      {
-        "title": "Standards premium",
-        "text": "Une approche sélective, une présentation élégante, un process transparent et des recommandations soignées à chaque étape."
-      }
-    ]
+  "agency": {
+    "title": "L’agence",
+    "lead": "Founder · Expertise · Honoraires",
+    "body": "Chez Côte d’Azur Agency, nous ne nous contentons pas d’accompagner des transactions, nous créons des expériences immobilières d’exception, où confiance, discrétion et excellence se rencontrent."
   },
   "contact": {
     "title": "Contact",
-    "lead": "Décrivez votre projet et recevez un retour rapide, structuré et personnalisé en français ou en anglais.",
+    "lead": "Parlez-nous de votre projet.",
     "name": "Nom",
     "email": "Email",
     "phone": "Téléphone",
     "message": "Message",
     "submit": "Envoyer",
-    "sending": "Envoi en cours...",
+    "sending": "Envoi...",
     "success": "Merci. Votre message a bien été envoyé.",
     "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "legal": {
+    "title": "Mentions légales"
   }
 }

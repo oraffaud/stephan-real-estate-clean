@@ -13,8 +13,13 @@ export function middleware(req) {
     return NextResponse.next();
   }
 
-  if (pathname === '/fr' || pathname.startsWith('/fr/')) return NextResponse.next();
-  if (pathname === '/en' || pathname.startsWith('/en/')) return NextResponse.next();
+  if (pathname === '/fr' || pathname.startsWith('/fr/')) {
+    return NextResponse.next();
+  }
+
+  if (pathname === '/en' || pathname.startsWith('/en/')) {
+    return NextResponse.next();
+  }
 
   const url = req.nextUrl.clone();
   url.pathname = `/fr${pathname === '/' ? '' : pathname}`;
@@ -22,5 +27,5 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|api).*)']
+  matcher: ['/((?!_next|api).*)'],
 };

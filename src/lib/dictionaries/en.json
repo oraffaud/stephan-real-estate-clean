@@ -1,62 +1,44 @@
 {
-  "brand": {
-    "tagline": "Independent real estate agent — Valbonne & French Riviera"
-  },
+  "siteName": "Côte d’Azur Agency",
   "nav": {
     "home": "Home",
+    "sale": "Sale",
     "services": "Services",
-    "about": "About",
-    "contact": "Contact"
+    "agency": "Agency",
+    "contact": "Contact",
+    "legal": "Legal notice"
   },
   "home": {
-    "heroTitle": "Luxury real estate advisory on the French Riviera",
-    "heroLead": "A refined, discreet and international approach based in Valbonne, designed for clients who expect clarity, quality and a premium level of service.",
-    "ctaPrimary": "Explore services",
-    "ctaSecondary": "Get in touch"
+    "heroTitle": "Start your exceptional property journey",
+    "heroLead": "Real Estate on the French Riviera",
+    "ctaPrimary": "Get in touch",
+    "ctaSecondary": "View listings",
+    "introTitle": "Excellence starts with a meeting",
+    "introText": "On the French Riviera, every property tells a story. Yours deserves singular attention."
+  },
+  "sale": {
+    "title": "Sale",
+    "lead": "A curated selection of exceptional listings on the French Riviera.",
+    "empty": "No listings available at the moment."
   },
   "services": {
     "title": "Services",
-    "lead": "Tailored advisory for sellers, buyers and international clients seeking a high-end, well-managed experience.",
+    "lead": "Premium, discreet and bilingual advisory.",
     "items": [
-      {
-        "title": "Sell with a strategy",
-        "text": "Positioning, pricing guidance, visual presentation, targeted exposure and a polished process from start to finish."
-      },
-      {
-        "title": "Valuation & market advice",
-        "text": "Thoughtful pricing opinion based on market comparables, timing, property strengths and target audience."
-      },
-      {
-        "title": "Buyer advisory",
-        "text": "Needs analysis, curated opportunities, visits, negotiation support and smooth coordination through completion."
-      },
-      {
-        "title": "International coordination",
-        "text": "Bilingual support, local partner network and a clear process adapted to remote and international clients."
-      }
+      "Sales advisory",
+      "Villa buying support",
+      "French Riviera property finder",
+      "Valuation"
     ]
   },
-  "about": {
-    "title": "About Stephan",
-    "lead": "A boutique, relationship-led approach combining local expertise, international standards and attention to detail.",
-    "blocks": [
-      {
-        "title": "Local expertise",
-        "text": "Valbonne, Mougins, Opio, Roquefort-les-Pins and the wider Alpes-Maritimes — with a strong understanding of lifestyle, positioning and buyer expectations."
-      },
-      {
-        "title": "International mindset",
-        "text": "Fluent, structured communication for international clients seeking clarity, discretion and quality of execution."
-      },
-      {
-        "title": "Premium standards",
-        "text": "A selective approach, elegant presentation, transparent process and curated recommendations at every step."
-      }
-    ]
+  "agency": {
+    "title": "The Agency",
+    "lead": "Founder · Expertise · Fees",
+    "body": "At Côte d’Azur Agency, we do more than support transactions. We craft exceptional real estate experiences where trust, discretion and excellence meet."
   },
   "contact": {
     "title": "Contact",
-    "lead": "Tell me about your project and receive a fast, thoughtful reply in English or French.",
+    "lead": "Tell us about your project.",
     "name": "Name",
     "email": "Email",
     "phone": "Phone",
@@ -65,5 +47,8 @@
     "sending": "Sending...",
     "success": "Thank you. Your message has been sent.",
     "error": "An error occurred. Please try again."
+  },
+  "legal": {
+    "title": "Legal notice"
   }
 }
