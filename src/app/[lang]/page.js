@@ -22,10 +22,23 @@ export default async function HomePage({ params }) {
       <section className="relative overflow-hidden bg-black text-white">
         <img src="/images/hero-pool.jpg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-80" />
         <div className="absolute inset-0 bg-black/35" />
-        <div className="relative container py-24 md:py-36">
+
+        <div className="relative container py-16 md:py-24">
           <div className="max-w-3xl">
-            <p className="text-gold text-sm uppercase tracking-[0.25em]">{t.home.heroLead}</p>
-            <h1 className="mt-6 font-luxe text-5xl md:text-7xl">{t.home.heroTitle}</h1>
+            <img
+              src="/branding/logo-full.png"
+              alt="Côte d’Azur Agency"
+              className="mb-8 w-[220px] sm:w-[280px] md:w-[360px]"
+            />
+
+            <p className="text-gold text-sm uppercase tracking-[0.25em]">
+              {t.home.heroLead}
+            </p>
+
+            <h1 className="mt-6 font-luxe text-5xl leading-tight md:text-7xl">
+              {t.home.heroTitle}
+            </h1>
+
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href={`/${lang}/contact`} className="btn-gold">{t.home.ctaPrimary}</Link>
               <Link href={`/${lang}/vente`} className="btn-dark">{t.home.ctaSecondary}</Link>
