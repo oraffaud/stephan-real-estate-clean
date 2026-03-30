@@ -2,22 +2,36 @@ import Link from 'next/link';
 
 export function Header({ lang, t }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/90 backdrop-blur">
-      <div className="container flex h-20 items-center justify-between">
-        <Link href={`/${lang}`} className="font-luxe text-2xl text-zinc-900">
-          Côte d’Azur Agency
-        </Link>
-        <nav className="hidden gap-6 md:flex text-sm text-zinc-800">
+    <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/95 backdrop-blur">
+      <div className="container">
+        <div className="flex min-h-[80px] items-center justify-between gap-4 py-3">
+          <Link href={`/${lang}`} className="font-luxe text-2xl leading-tight text-zinc-900 sm:text-3xl">
+            Côte d’Azur Agency
+          </Link>
+
+          <div className="flex shrink-0 gap-2 text-sm">
+            <Link href="/fr" className="rounded-full border px-3 py-1.5">FR</Link>
+            <Link href="/en" className="rounded-full border px-3 py-1.5">EN</Link>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <nav className="flex gap-4 overflow-x-auto pb-3 text-sm text-zinc-800 md:hidden">
+          <Link href={`/${lang}`} className="whitespace-nowrap">{t.nav.home}</Link>
+          <Link href={`/${lang}/vente`} className="whitespace-nowrap">{t.nav.sale}</Link>
+          <Link href={`/${lang}/services`} className="whitespace-nowrap">{t.nav.services}</Link>
+          <Link href={`/${lang}/agence`} className="whitespace-nowrap">{t.nav.agency}</Link>
+          <Link href={`/${lang}/contact`} className="whitespace-nowrap">{t.nav.contact}</Link>
+        </nav>
+
+        {/* Desktop menu */}
+        <nav className="hidden items-center justify-center gap-8 pb-4 text-sm text-zinc-800 md:flex">
           <Link href={`/${lang}`}>{t.nav.home}</Link>
           <Link href={`/${lang}/vente`}>{t.nav.sale}</Link>
           <Link href={`/${lang}/services`}>{t.nav.services}</Link>
           <Link href={`/${lang}/agence`}>{t.nav.agency}</Link>
           <Link href={`/${lang}/contact`}>{t.nav.contact}</Link>
         </nav>
-        <div className="flex gap-2 text-sm">
-          <Link href="/fr" className="rounded-full border px-3 py-1.5">FR</Link>
-          <Link href="/en" className="rounded-full border px-3 py-1.5">EN</Link>
-        </div>
       </div>
     </header>
   );
