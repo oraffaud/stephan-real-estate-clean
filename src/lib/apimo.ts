@@ -5,6 +5,8 @@ type Mandat = {
   title: string;
   description: string;
   city: string;
+  district: string;
+  locationLabel: string;
   price: number | null;
   area: number | null;
   rooms: number | null;
@@ -67,7 +69,7 @@ function asArray<T = any>(v: any): T[] {
 function pick(v: any, lang: string): string {
   if (!v) return '';
   if (typeof v === 'string') return v;
-  if (typeof v === 'object') return v[lang] || v.fr || v.en || Object.values(v)[0] || '';
+  if (typeof v === 'object') return String(v[lang] || v.fr || v.en || Object.values(v)[0] || '');
   return '';
 }
 
@@ -104,18 +106,43 @@ function scalarNumber(v: any): number | null {
   return null;
 }
 
+function cleanText(v: any): string {
+  const s = String(v || '').trim();
+  if (!s) return '';
+  if (/^\d+$/.test(s)) return '';
+  return s;
+}
+
+function buildLocationLabel(city: string, district: string, lang: string): string {
+  const safeCity = cleanText(city);
+  const safeDistrict = cleanText(district);
+
+  if (safeCity && safeDistrict && safeDistrict.toLowerCase() !== safeCity.toLowerCase()) {
+    return `${safeCity} — ${safeDistrict}`;
+  }
+  if (safeCity) return safeCity;
+  if (safeDistrict) return safeDistrict;
+  return lang === 'fr' ? 'Côte d’Azur' : 'French Riviera';
+}
+
 function normalizeMandat(item: any, lang = 'fr'): Mandat {
   const id = String(item?.id || item?.Id || item?.property_id || item?.PropertyId || '');
   const ref = String(item?.reference || item?.Reference || '');
+
   let city = pick(item?.city || item?.City, lang) || item?.city || item?.City || '';
-  if (typeof city !== 'string') city = String(city || '');
-  if (/^\d+$/.test(city.trim())) city = '';
-  const district = pick(item?.district || item?.District, lang);
+  let district =
+    pick(item?.district || item?.District, lang) ||
+    pick(item?.sub_locality || item?.SubLocality, lang) ||
+    pick(item?.subLocality || item?.SubLocality, lang) ||
+    '';
+
+  city = cleanText(city);
+  district = cleanText(district);
+
   const title =
-    pick(item?.title || item?.Title, lang) ||
-    [city, district].filter(Boolean).join(' — ') ||
-    ref ||
-    'Mandat';
+    cleanText(pick(item?.title || item?.Title, lang)) ||
+    cleanText(pick(item?.name || item?.Name, lang)) ||
+    buildLocationLabel(city, district, lang);
 
   const description =
     pick(item?.comment || item?.Comment || item?.description || item?.Description, lang) || '';
@@ -123,10 +150,12 @@ function normalizeMandat(item: any, lang = 'fr'): Mandat {
   return {
     id,
     ref,
-    slug: slugify(`${city}-${title}-${id || ref}`),
+    slug: slugify(`${city || district || 'property'}-${title}-${id || ref}`),
     title,
     description,
     city,
+    district,
+    locationLabel: buildLocationLabel(city, district, lang),
     price: scalarNumber(item?.price || item?.Price),
     area: scalarNumber(item?.area || item?.Area),
     rooms: scalarNumber(item?.rooms || item?.Rooms),

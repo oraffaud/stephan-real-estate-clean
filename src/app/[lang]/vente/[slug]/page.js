@@ -39,49 +39,43 @@ export default async function VenteDetailPage({ params }) {
 
   if (!mandat) notFound();
 
-  const cityLabel =
-    mandat.city && !/^\d+$/.test(String(mandat.city).trim())
-      ? mandat.city
-      : (lang === 'fr' ? 'Côte d’Azur' : 'French Riviera');
-
-  const titleLabel =
-    mandat.title && !/^\d+$/.test(String(mandat.title).trim())
-      ? mandat.title
-      : cityLabel;
-
   return (
     <main className="container py-16">
-      <div className="grid gap-8 lg:grid-cols-[1.2fr_.8fr]">
-        <div className="card-luxe overflow-hidden">
-          <div className="aspect-[16/10] bg-zinc-100">
+      <div className="grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
+        <div className="overflow-hidden rounded-[28px] bg-zinc-100">
+          <div className="aspect-[16/10]">
             {mandat.pictures?.[0] ? (
-              <img src={mandat.pictures[0]} alt={titleLabel} className="h-full w-full object-cover" />
+              <img src={mandat.pictures[0]} alt={mandat.title} className="h-full w-full object-cover" />
             ) : null}
           </div>
         </div>
 
-        <div className="card-luxe p-8">
-          <p className="text-xs uppercase tracking-[0.2em] text-gold">
-            {cityLabel}
-          </p>
-
-          <h1 className="mt-3 font-luxe text-4xl">
-            {titleLabel}
+        <div className="rounded-[28px] bg-white p-8 shadow-soft ring-1 ring-[var(--gold-light)]">
+          <h1 className="font-luxe text-4xl leading-tight text-zinc-900 md:text-6xl">
+            {mandat.title}
           </h1>
 
-          <div className="mt-6 grid gap-3 text-sm text-zinc-700">
-            {mandat.ref ? <div>Réf. {mandat.ref}</div> : null}
-            {mandat.price ? <div>{formatPrice(mandat.price, lang)}</div> : null}
-            {mandat.area ? <div>{mandat.area} m²</div> : null}
-            {mandat.rooms ? <div>{mandat.rooms} pièces</div> : null}
-            {mandat.bedrooms ? <div>{mandat.bedrooms} chambres</div> : null}
-          </div>
+          <p className="mt-4 text-sm font-medium uppercase tracking-[0.22em] text-gold">
+            {mandat.locationLabel}
+          </p>
+
+          {mandat.price ? (
+            <div className="mt-3 text-3xl text-zinc-900">
+              {formatPrice(mandat.price, lang)}
+            </div>
+          ) : null}
 
           {mandat.description ? (
-            <div className="mt-8 text-sm leading-relaxed text-zinc-700">
+            <div className="mt-8 whitespace-pre-line text-lg leading-relaxed text-zinc-700">
               {mandat.description}
             </div>
           ) : null}
+
+          <div className="mt-10 flex flex-wrap gap-6 text-sm uppercase tracking-[0.16em] text-zinc-700">
+            {mandat.area ? <span>{mandat.area} m²</span> : null}
+            {mandat.rooms ? <span>{mandat.rooms} {lang === 'fr' ? 'pièces' : 'rooms'}</span> : null}
+            {mandat.bedrooms ? <span>{mandat.bedrooms} {lang === 'fr' ? 'chambres' : 'bedrooms'}</span> : null}
+          </div>
         </div>
       </div>
     </main>
