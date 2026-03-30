@@ -5,7 +5,7 @@ import { ContactForm } from '@/components/ContactForm';
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-  const title = lang === 'en' ? 'Contact | Côte d’Azur Agency' : 'Contact | Côte d’Azur Agency';
+  const title = 'Contact | Côte d’Azur Agency';
   const description = lang === 'en' ? 'Contact Côte d’Azur Agency.' : 'Contactez Côte d’Azur Agency.';
   return buildPageMetadata({ title, description, lang, pathname: `/${lang}/contact` });
 }

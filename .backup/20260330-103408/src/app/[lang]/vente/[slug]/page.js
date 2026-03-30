@@ -20,9 +20,7 @@ export default async function VenteDetailPage({ params }) {
     <main className="container py-16">
       <div className="card-luxe p-8">
         <h1 className="font-luxe text-4xl">{slug}</h1>
-        <p className="mt-4 text-zinc-700">
-          Données APIMO à raccorder ici.
-        </p>
+        <p className="mt-4 text-zinc-700">Données APIMO à raccorder ici.</p>
       </div>
     </main>
   );

@@ -5,9 +5,7 @@ import { buildPageMetadata } from '@/lib/seo';
 export async function generateMetadata({ params }) {
   const { lang } = await params;
   const title = lang === 'en' ? 'Agency | Côte d’Azur Agency' : 'L’agence | Côte d’Azur Agency';
-  const description = lang === 'en'
-    ? 'Founder, expertise and fees.'
-    : 'Founder, expertise, honoraires.';
+  const description = lang === 'en' ? 'Founder, expertise and fees.' : 'Founder, expertise, honoraires.';
   return buildPageMetadata({ title, description, lang, pathname: `/${lang}/agence` });
 }
 

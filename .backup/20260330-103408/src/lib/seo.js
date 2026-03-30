@@ -1,8 +1,8 @@
 export function buildPageMetadata({ title, description, lang, pathname }) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
   const url = `${baseUrl}${pathname}`;
-  const alternate = lang === 'fr' ? 'en' : 'fr';
-  const alternateUrl = `${baseUrl}/${alternate}${pathname.replace(/^\/(fr|en)/, '')}`;
+  const alt = lang === 'fr' ? 'en' : 'fr';
+  const altUrl = `${baseUrl}/${alt}${pathname.replace(/^\/(fr|en)/, '')}`;
 
   return {
     title,
@@ -10,8 +10,8 @@ export function buildPageMetadata({ title, description, lang, pathname }) {
     alternates: {
       canonical: url,
       languages: {
-        fr: lang === 'fr' ? url : alternateUrl,
-        en: lang === 'en' ? url : alternateUrl,
+        fr: lang === 'fr' ? url : altUrl,
+        en: lang === 'en' ? url : altUrl,
         'x-default': `${baseUrl}/fr`
       }
     },

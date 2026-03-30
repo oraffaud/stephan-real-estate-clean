@@ -13,14 +13,11 @@ html { scroll-behavior: smooth; }
 body { background: var(--sand); color: var(--dark); }
 
 .container { @apply mx-auto max-w-7xl px-5 sm:px-6 lg:px-8; }
-.font-luxe { font-family: Georgia, "Times New Roman", serif; }
+.font-luxe { font-family: var(--font-luxe), Georgia, "Times New Roman", serif; }
 .text-gold { color: var(--gold); }
 .shadow-soft { box-shadow: 0 12px 40px rgba(0,0,0,.08); }
 .card-luxe { @apply rounded-[24px] border bg-white shadow-soft; border-color: var(--gold-light); }
 .btn-dark { @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white bg-black transition hover:bg-zinc-800; }
 .btn-gold { @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-white transition; background: var(--gold); }
 .btn-gold:hover { background: #b79257; }
-
-input, textarea {
-  @apply w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm;
-}
+input, textarea { @apply w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3 text-sm; }

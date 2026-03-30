@@ -4,7 +4,7 @@ import { buildPageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-  const title = lang === 'en' ? 'Services | Côte d’Azur Agency' : 'Services | Côte d’Azur Agency';
+  const title = 'Services | Côte d’Azur Agency';
   const description = lang === 'en'
     ? 'Sales advisory, villa buying support, property finder and valuation.'
     : 'Vente, accompagnement achat villa, chasseur immobilier et estimation.';

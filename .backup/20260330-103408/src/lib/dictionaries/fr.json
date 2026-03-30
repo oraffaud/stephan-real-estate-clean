@@ -1,0 +1,54 @@
+{
+  "siteName": "Côte d’Azur Agency",
+  "nav": {
+    "home": "Accueil",
+    "sale": "Vente",
+    "services": "Services",
+    "agency": "L’agence",
+    "contact": "Contact",
+    "legal": "Mentions légales"
+  },
+  "home": {
+    "heroTitle": "Démarrer votre projet d’exception",
+    "heroLead": "Real Estate on the French Riviera",
+    "ctaPrimary": "Prendre contact",
+    "ctaSecondary": "Voir les mandats",
+    "introTitle": "L’excellence commence par une rencontre",
+    "introText": "Sur la Côte d’Azur, chaque propriété raconte une histoire. La vôtre mérite une attention unique."
+  },
+  "sale": {
+    "title": "Vente",
+    "lead": "Une sélection de mandats d’exception sur la Côte d’Azur.",
+    "empty": "Aucun mandat disponible pour le moment."
+  },
+  "services": {
+    "title": "Services",
+    "lead": "Un accompagnement premium, discret et bilingue.",
+    "items": [
+      "Vente",
+      "Accompagnement achat villa",
+      "Chasseur immobilier Côte d’Azur",
+      "Estimation"
+    ]
+  },
+  "agency": {
+    "title": "L’agence",
+    "lead": "Founder · Expertise · Honoraires",
+    "body": "Chez Côte d’Azur Agency, nous ne nous contentons pas d’accompagner des transactions, nous créons des expériences immobilières d’exception, où confiance, discrétion et excellence se rencontrent."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Parlez-nous de votre projet.",
+    "name": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "message": "Message",
+    "submit": "Envoyer",
+    "sending": "Envoi...",
+    "success": "Merci. Votre message a bien été envoyé.",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "legal": {
+    "title": "Mentions légales"
+  }
+}
