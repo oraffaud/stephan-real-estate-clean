@@ -39,18 +39,35 @@ export default async function VenteDetailPage({ params }) {
 
   if (!mandat) notFound();
 
+  const cityLabel =
+    mandat.city && !/^\d+$/.test(String(mandat.city).trim())
+      ? mandat.city
+      : (lang === 'fr' ? 'Côte d’Azur' : 'French Riviera');
+
+  const titleLabel =
+    mandat.title && !/^\d+$/.test(String(mandat.title).trim())
+      ? mandat.title
+      : cityLabel;
+
   return (
     <main className="container py-16">
       <div className="grid gap-8 lg:grid-cols-[1.2fr_.8fr]">
         <div className="card-luxe overflow-hidden">
           <div className="aspect-[16/10] bg-zinc-100">
-            {mandat.pictures?.[0] ? <img src={mandat.pictures[0]} alt={mandat.title} className="h-full w-full object-cover" /> : null}
+            {mandat.pictures?.[0] ? (
+              <img src={mandat.pictures[0]} alt={titleLabel} className="h-full w-full object-cover" />
+            ) : null}
           </div>
         </div>
 
         <div className="card-luxe p-8">
-          <p className="text-xs uppercase tracking-[0.2em] text-gold">{mandat.city || 'French Riviera'}</p>
-          <h1 className="mt-3 font-luxe text-4xl">{mandat.title}</h1>
+          <p className="text-xs uppercase tracking-[0.2em] text-gold">
+            {cityLabel}
+          </p>
+
+          <h1 className="mt-3 font-luxe text-4xl">
+            {titleLabel}
+          </h1>
 
           <div className="mt-6 grid gap-3 text-sm text-zinc-700">
             {mandat.ref ? <div>Réf. {mandat.ref}</div> : null}
@@ -61,7 +78,9 @@ export default async function VenteDetailPage({ params }) {
           </div>
 
           {mandat.description ? (
-            <div className="mt-8 text-sm leading-relaxed text-zinc-700">{mandat.description}</div>
+            <div className="mt-8 text-sm leading-relaxed text-zinc-700">
+              {mandat.description}
+            </div>
           ) : null}
         </div>
       </div>

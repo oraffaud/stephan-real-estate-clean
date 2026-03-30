@@ -107,7 +107,9 @@ function scalarNumber(v: any): number | null {
 function normalizeMandat(item: any, lang = 'fr'): Mandat {
   const id = String(item?.id || item?.Id || item?.property_id || item?.PropertyId || '');
   const ref = String(item?.reference || item?.Reference || '');
-  const city = pick(item?.city || item?.City, lang) || item?.city || item?.City || '';
+  let city = pick(item?.city || item?.City, lang) || item?.city || item?.City || '';
+  if (typeof city !== 'string') city = String(city || '');
+  if (/^\d+$/.test(city.trim())) city = '';
   const district = pick(item?.district || item?.District, lang);
   const title =
     pick(item?.title || item?.Title, lang) ||
