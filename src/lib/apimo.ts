@@ -68,23 +68,6 @@ function asArray<T = any>(v: any): T[] {
   return Array.isArray(v) ? v : [];
 }
 
-function pick(v: any, lang: string): string {
-  if (!v) return '';
-  if (typeof v === 'string') return v;
-  if (typeof v === 'object') {
-    return String(
-      v[lang] ||
-      v.fr ||
-      v.en ||
-      v.name ||
-      v.label ||
-      Object.values(v)[0] ||
-      ''
-    );
-  }
-  return '';
-}
-
 function cleanText(v: any): string {
   const s = String(v || '').trim();
   if (!s) return '';
@@ -126,6 +109,17 @@ function scalarNumber(v: any): number | null {
   return null;
 }
 
+function pickCommentByLang(item: any, lang: string) {
+  const comments = asArray(item?.comments || item?.Comments);
+  const exact = comments.find((c: any) => String(c?.language || '').toLowerCase() === lang.toLowerCase());
+  if (exact) return exact;
+  const fr = comments.find((c: any) => String(c?.language || '').toLowerCase() === 'fr');
+  if (fr) return fr;
+  const en = comments.find((c: any) => String(c?.language || '').toLowerCase() === 'en');
+  if (en) return en;
+  return comments[0] || null;
+}
+
 function buildLocationLabel(city: string, district: string, addressName: string, postalCode: string, lang: string): string {
   const safeCity = cleanText(city);
   const safeDistrict = cleanText(district);
@@ -147,9 +141,6 @@ function normalizeMandat(item: any, lang = 'fr'): Mandat {
   const cityObj = item?.city || item?.City || null;
   const city =
     cleanText(cityObj?.name) ||
-    cleanText(pick(cityObj, lang)) ||
-    cleanText(item?.city_name) ||
-    cleanText(item?.CityName) ||
     '';
 
   const postalCode =
@@ -161,9 +152,10 @@ function normalizeMandat(item: any, lang = 'fr'): Mandat {
     '';
 
   const district =
-    cleanText(pick(item?.district || item?.District, lang)) ||
-    cleanText(pick(item?.sub_locality || item?.SubLocality, lang)) ||
-    cleanText(pick(item?.subLocality, lang)) ||
+    cleanText(item?.district?.name) ||
+    cleanText(item?.District?.name) ||
+    cleanText(item?.district) ||
+    cleanText(item?.District) ||
     '';
 
   const addressName =
@@ -173,16 +165,19 @@ function normalizeMandat(item: any, lang = 'fr'): Mandat {
     cleanText(item?.AddressLabel) ||
     '';
 
+  const localizedComment = pickCommentByLang(item, lang);
+
   const locationLabel = buildLocationLabel(city, district, addressName, postalCode, lang);
 
   const title =
-    cleanText(pick(item?.title || item?.Title, lang)) ||
-    cleanText(pick(item?.name || item?.Name, lang)) ||
+    cleanText(localizedComment?.title) ||
     cleanText(ref) ||
     locationLabel;
 
   const description =
-    pick(item?.comment || item?.Comment || item?.description || item?.Description, lang) || '';
+    cleanText(localizedComment?.comment) ||
+    cleanText(localizedComment?.comment_full) ||
+    '';
 
   return {
     id,
