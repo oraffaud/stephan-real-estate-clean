@@ -4,12 +4,12 @@ export function Header({ lang, t }) {
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/95 backdrop-blur">
       <div className="container">
-        <div className="flex min-h-[80px] items-center justify-between gap-4 py-3">
+        <div className="flex min-h-[96px] items-center justify-between gap-4 py-4">
           <Link href={`/${lang}`} className="flex items-center">
             <img
               src="/branding/logo-full.png"
               alt="Côte d’Azur Agency"
-              className="h-12 w-auto sm:h-14 md:h-16"
+              className="h-20 w-auto sm:h-24 md:h-28"
             />
           </Link>
 

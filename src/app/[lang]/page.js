@@ -5,17 +5,11 @@ import { buildPageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-
-  return buildPageMetadata({
-    title: lang === 'fr'
-      ? 'Immobilier de prestige sur la Côte d’Azur | Côte d’Azur Agency'
-      : 'Luxury Real Estate on the French Riviera | Côte d’Azur Agency',
-    description: lang === 'fr'
-      ? 'Agence immobilière indépendante à Valbonne, spécialisée dans les biens de prestige sur la Côte d’Azur.'
-      : 'Independent real estate agency in Valbonne, specialising in luxury properties on the French Riviera.',
-    lang,
-    pathname: `/${lang}`
-  });
+  const title = lang === 'en' ? 'Home | Côte d’Azur Agency' : 'Accueil | Côte d’Azur Agency';
+  const description = lang === 'en'
+    ? 'Luxury real estate on the French Riviera.'
+    : 'Immobilier de prestige sur la Côte d’Azur.';
+  return buildPageMetadata({ title, description, lang, pathname: `/${lang}` });
 }
 
 export default async function HomePage({ params }) {
@@ -31,11 +25,7 @@ export default async function HomePage({ params }) {
 
         <div className="relative container py-16 md:py-24">
           <div className="max-w-3xl">
-            <p className="text-gold text-sm uppercase tracking-[0.25em]">
-              {t.home.heroLead}
-            </p>
-
-            <h1 className="mt-6 font-luxe text-5xl leading-tight md:text-7xl">
+            <h1 className="font-luxe text-5xl leading-tight md:text-7xl">
               {t.home.heroTitle}
             </h1>
 
