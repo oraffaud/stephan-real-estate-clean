@@ -25,7 +25,7 @@ export default async function HomePage({ params }) {
 
         <div className="relative container py-16 md:py-24">
           <div className="max-w-3xl">
-            <h1 className="font-luxe text-5xl leading-tight md:text-7xl">
+            <h1 className="font-luxe text-4xl leading-tight md:text-6xl lg:text-[64px]">
               {t.home.heroTitle}
             </h1>
 
