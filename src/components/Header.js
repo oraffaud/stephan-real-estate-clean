@@ -4,14 +4,17 @@ export function Header({ lang, t }) {
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/95 backdrop-blur">
       <div className="container">
-        <div className="flex min-h-[96px] items-center justify-between gap-4 py-4">
-          <Link href={`/${lang}`} className="flex flex-col items-center text-center">
+        <div className="flex min-h-[96px] items-center justify-between gap-6 py-4">
+          <Link
+            href={`/${lang}`}
+            className="ml-2 flex flex-col items-center text-center sm:ml-4"
+          >
             <img
               src="/branding/logo-full.png"
               alt="Côte d’Azur Agency"
-              className="h-20 w-auto sm:h-24 md:h-28"
+              className="h-[78px] w-auto sm:h-[88px] md:h-[96px]"
             />
-            <span className="mt-2 text-[14px] font-semibold tracking-tight text-[#C6A46C] sm:text-[16px]">
+            <span className="mt-2 text-[13px] font-semibold leading-none tracking-tight text-[#C6A46C] sm:text-[15px]">
               Real Estate on the French Riviera
             </span>
           </Link>
