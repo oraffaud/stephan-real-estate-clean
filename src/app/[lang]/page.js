@@ -25,12 +25,6 @@ export default async function HomePage({ params }) {
 
         <div className="relative container py-16 md:py-24">
           <div className="max-w-3xl">
-            <img
-              src="/branding/logo-full.png"
-              alt="Côte d’Azur Agency"
-              className="mb-8 w-[220px] sm:w-[280px] md:w-[360px]"
-            />
-
             <p className="text-gold text-sm uppercase tracking-[0.25em]">
               {t.home.heroLead}
             </p>

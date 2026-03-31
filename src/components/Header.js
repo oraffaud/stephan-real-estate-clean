@@ -5,8 +5,12 @@ export function Header({ lang, t }) {
     <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/95 backdrop-blur">
       <div className="container">
         <div className="flex min-h-[80px] items-center justify-between gap-4 py-3">
-          <Link href={`/${lang}`} className="font-luxe text-2xl leading-tight text-zinc-900 sm:text-3xl">
-            Côte d’Azur Agency
+          <Link href={`/${lang}`} className="flex items-center">
+            <img
+              src="/branding/logo-full.png"
+              alt="Côte d’Azur Agency"
+              className="h-12 w-auto sm:h-14 md:h-16"
+            />
           </Link>
 
           <div className="flex shrink-0 gap-2 text-sm">
@@ -15,7 +19,6 @@ export function Header({ lang, t }) {
           </div>
         </div>
 
-        {/* Mobile menu */}
         <nav className="flex gap-4 overflow-x-auto pb-3 text-sm text-zinc-800 md:hidden">
           <Link href={`/${lang}`} className="whitespace-nowrap">{t.nav.home}</Link>
           <Link href={`/${lang}/vente`} className="whitespace-nowrap">{t.nav.sale}</Link>
@@ -24,7 +27,6 @@ export function Header({ lang, t }) {
           <Link href={`/${lang}/contact`} className="whitespace-nowrap">{t.nav.contact}</Link>
         </nav>
 
-        {/* Desktop menu */}
         <nav className="hidden items-center justify-center gap-8 pb-4 text-sm text-zinc-800 md:flex">
           <Link href={`/${lang}`}>{t.nav.home}</Link>
           <Link href={`/${lang}/vente`}>{t.nav.sale}</Link>
