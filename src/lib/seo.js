@@ -1,3 +1,10 @@
+export function truncateText(value, max = 160) {
+  const input = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!input) return '';
+  if (input.length <= max) return input;
+  return `${input.slice(0, max - 1).trim()}…`;
+}
+
 export function buildPageMetadata({ title, description, lang, pathname, image = '/images/hero-pool.jpg' }) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
   const url = `${baseUrl}${pathname}`;

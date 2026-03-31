@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { isLang } from '@/lib/i18n';
-import { buildPageMetadata } from '@/lib/seo';
+import { buildPageMetadata, truncateText } from '@/lib/seo';
 import { getMandatBySlug } from '@/lib/apimo';
 
 function formatPrice(value, lang) {
@@ -31,13 +31,90 @@ function LocationLine({ label }) {
   );
 }
 
+function SaleJsonLd({ mandat, lang }) {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
+  const url = `${baseUrl}/${lang}/vente/${mandat.slug}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Offer',
+    name: mandat.title,
+    description: truncateText(mandat.description, 300),
+    priceCurrency: 'EUR',
+    ...(mandat.price ? { price: mandat.price } : {}),
+    url,
+    availability: 'https://schema.org/InStock',
+    itemOffered: {
+      '@type': 'Residence',
+      name: mandat.title,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: mandat.city || mandat.locationLabel,
+        postalCode: mandat.postalCode || undefined,
+        addressCountry: 'FR'
+      },
+      ...(mandat.area ? { floorSize: { '@type': 'QuantitativeValue', value: mandat.area, unitCode: 'MTK' } } : {}),
+      ...(mandat.rooms ? { numberOfRooms: mandat.rooms } : {}),
+      ...(mandat.bedrooms ? { numberOfBedrooms: mandat.bedrooms } : {})
+    },
+    seller: {
+      '@type': 'RealEstateAgent',
+      name: 'Côte d’Azur Agency',
+      url: baseUrl
+    },
+    ...(mandat.pictures?.length ? { image: mandat.pictures } : {})
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export async function generateMetadata({ params }) {
   const { lang, slug } = await params;
+  if (!isLang(lang)) {
+    return buildPageMetadata({
+      title: 'Côte d’Azur Agency',
+      description: 'Real estate on the French Riviera',
+      lang: 'fr',
+      pathname: '/fr'
+    });
+  }
+
+  let mandat = null;
+  try {
+    mandat = await getMandatBySlug(slug, lang);
+  } catch (e) {
+    console.error('SALE_METADATA_APIMO_ERROR', e);
+  }
+
+  if (!mandat) {
+    return buildPageMetadata({
+      title: lang === 'fr' ? 'Bien immobilier | Côte d’Azur Agency' : 'Property | Côte d’Azur Agency',
+      description: lang === 'fr' ? 'Bien à la vente sur la Côte d’Azur.' : 'Property for sale on the French Riviera.',
+      lang,
+      pathname: `/${lang}/vente/${slug}`
+    });
+  }
+
+  const title = `${mandat.title}${mandat.locationLabel ? ` à ${mandat.locationLabel}` : ''} | Côte d’Azur Agency`;
+  const description = truncateText(
+    mandat.description ||
+      (lang === 'fr'
+        ? `Découvrez ce bien à la vente à ${mandat.locationLabel || 'sur la Côte d’Azur'}.`
+        : `Discover this property for sale in ${mandat.locationLabel || 'the French Riviera'}.`),
+    160
+  );
+
   return buildPageMetadata({
-    title: `${slug} | Côte d’Azur Agency`,
-    description: slug,
+    title,
+    description,
     lang,
-    pathname: `/${lang}/vente/${slug}`
+    pathname: `/${lang}/vente/${slug}`,
+    image: mandat.pictures?.[0] || '/images/hero-pool.jpg'
   });
 }
 
@@ -56,6 +133,8 @@ export default async function VenteDetailPage({ params }) {
 
   return (
     <main className="container py-16">
+      <SaleJsonLd mandat={mandat} lang={lang} />
+
       <div className="grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
         <div className="overflow-hidden rounded-[28px] bg-zinc-100">
           <div className="aspect-[16/10]">
