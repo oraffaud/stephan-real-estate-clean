@@ -5,11 +5,17 @@ import { buildPageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-  const title = lang === 'en' ? 'Home | Côte d’Azur Agency' : 'Accueil | Côte d’Azur Agency';
-  const description = lang === 'en'
-    ? 'Luxury real estate on the French Riviera.'
-    : 'Immobilier de prestige sur la Côte d’Azur.';
-  return buildPageMetadata({ title, description, lang, pathname: `/${lang}` });
+
+  return buildPageMetadata({
+    title: lang === 'fr'
+      ? 'Immobilier de prestige sur la Côte d’Azur | Côte d’Azur Agency'
+      : 'Luxury Real Estate on the French Riviera | Côte d’Azur Agency',
+    description: lang === 'fr'
+      ? 'Agence immobilière indépendante à Valbonne, spécialisée dans les biens de prestige sur la Côte d’Azur.'
+      : 'Independent real estate agency in Valbonne, specialising in luxury properties on the French Riviera.',
+    lang,
+    pathname: `/${lang}`
+  });
 }
 
 export default async function HomePage({ params }) {

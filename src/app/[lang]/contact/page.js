@@ -5,9 +5,17 @@ import { ContactForm } from '@/components/ContactForm';
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-  const title = lang === 'en' ? 'Contact | Côte d’Azur Agency' : 'Contact | Côte d’Azur Agency';
-  const description = lang === 'en' ? 'Contact Côte d’Azur Agency.' : 'Contactez Côte d’Azur Agency.';
-  return buildPageMetadata({ title, description, lang, pathname: `/${lang}/contact` });
+
+  return buildPageMetadata({
+    title: lang === 'fr'
+      ? 'Contact immobilier Côte d’Azur | Côte d’Azur Agency'
+      : 'Contact French Riviera Real Estate | Côte d’Azur Agency',
+    description: lang === 'fr'
+      ? 'Contactez Côte d’Azur Agency pour votre projet immobilier à Valbonne et sur la Côte d’Azur.'
+      : 'Contact Côte d’Azur Agency for your property project in Valbonne and on the French Riviera.',
+    lang,
+    pathname: `/${lang}/contact`
+  });
 }
 
 export default async function ContactPage({ params }) {

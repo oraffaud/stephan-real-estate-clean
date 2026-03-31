@@ -1,8 +1,9 @@
-export function buildPageMetadata({ title, description, lang, pathname }) {
+export function buildPageMetadata({ title, description, lang, pathname, image = '/images/hero-pool.jpg' }) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
   const url = `${baseUrl}${pathname}`;
   const alternate = lang === 'fr' ? 'en' : 'fr';
-  const alternateUrl = `${baseUrl}/${alternate}${pathname.replace(/^\/(fr|en)/, '')}`;
+  const altPath = pathname.replace(/^\/(fr|en)/, '');
+  const alternateUrl = `${baseUrl}/${alternate}${altPath}`;
 
   return {
     title,
@@ -19,7 +20,27 @@ export function buildPageMetadata({ title, description, lang, pathname }) {
       title,
       description,
       url,
-      type: 'website'
+      siteName: 'Côte d’Azur Agency',
+      type: 'website',
+      locale: lang === 'fr' ? 'fr_FR' : 'en_GB',
+      images: [
+        {
+          url: `${baseUrl}${image}`,
+          width: 1200,
+          height: 630,
+          alt: title
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${baseUrl}${image}`]
+    },
+    robots: {
+      index: true,
+      follow: true
     }
   };
 }
