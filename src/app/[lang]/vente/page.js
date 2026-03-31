@@ -62,18 +62,20 @@ export default async function VentePage({ params }) {
         {mandats.length === 0 ? (
           <div className="card-luxe p-6">{t.sale.empty}</div>
         ) : mandats.map((m) => (
-          <Link
+          <article
             key={m.slug}
-            href={`/${lang}/vente/${m.slug}`}
             className="grid gap-6 lg:grid-cols-[1.15fr_.85fr] lg:items-stretch"
           >
-            <div className="overflow-hidden rounded-[28px] bg-zinc-100">
+            <Link
+              href={`/${lang}/vente/${m.slug}`}
+              className="overflow-hidden rounded-[28px] bg-zinc-100"
+            >
               <div className="aspect-[16/10]">
                 {m.pictures?.[0] ? (
                   <img src={m.pictures[0]} alt={m.title} className="h-full w-full object-cover" />
                 ) : null}
               </div>
-            </div>
+            </Link>
 
             <div className="flex flex-col justify-center rounded-[28px] bg-white p-8 shadow-soft ring-1 ring-[var(--gold-light)] md:p-12">
               <h2 className="text-4xl font-light leading-[1.05] text-zinc-900 md:text-6xl">
@@ -95,12 +97,15 @@ export default async function VentePage({ params }) {
               ) : null}
 
               <div className="mt-10">
-                <span className="inline-flex rounded-full border border-zinc-900 px-8 py-4 text-sm font-medium uppercase tracking-[0.16em] text-zinc-900">
+                <Link
+                  href={`/${lang}/vente/${m.slug}`}
+                  className="inline-flex rounded-full border border-zinc-900 px-8 py-4 text-sm font-medium uppercase tracking-[0.16em] text-zinc-900"
+                >
                   {lang === 'fr' ? 'Découvrir ce bien' : 'Discover this property'}
-                </span>
+                </Link>
               </div>
             </div>
-          </Link>
+          </article>
         ))}
       </div>
     </main>
