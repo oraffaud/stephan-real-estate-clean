@@ -35,16 +35,6 @@ function FR() {
       </section>
 
       <section className="mt-10">
-        <h2 className="font-luxe text-2xl">Hébergement</h2>
-        <div className="mt-4 space-y-2 text-zinc-700">
-          <p>[Nom de l’hébergeur]</p>
-          <p>[Adresse de l’hébergeur]</p>
-          <p>[Téléphone]</p>
-          <p>[Site internet]</p>
-        </div>
-      </section>
-
-      <section className="mt-10">
         <h2 className="font-luxe text-2xl">Activité immobilière réglementée</h2>
         <div className="mt-4 space-y-2 text-zinc-700">
           <p>Carte professionnelle n° CPI 0605 2025 000 000 063</p>
@@ -143,16 +133,6 @@ function EN() {
       <section className="mt-10">
         <h2 className="font-luxe text-2xl">Publication Director</h2>
         <p className="mt-4 text-zinc-700">Mr. MORAWSKI Stephan Nadia Danitza</p>
-      </section>
-
-      <section className="mt-10">
-        <h2 className="font-luxe text-2xl">Hosting</h2>
-        <div className="mt-4 space-y-2 text-zinc-700">
-          <p>[Hosting provider name]</p>
-          <p>[Hosting provider address]</p>
-          <p>[Hosting provider phone number]</p>
-          <p>[Hosting provider website]</p>
-        </div>
       </section>
 
       <section className="mt-10">
