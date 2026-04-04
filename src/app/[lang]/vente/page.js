@@ -61,52 +61,60 @@ export default async function VentePage({ params }) {
       <div className="mt-10 grid gap-10">
         {mandats.length === 0 ? (
           <div className="card-luxe p-6">{t.sale.empty}</div>
-        ) : mandats.map((m) => (
-          <article
-            key={m.slug}
-            className="grid gap-6 lg:grid-cols-[1.15fr_.85fr] lg:items-stretch"
-          >
-            <Link
-              href={`/${lang}/vente/${m.slug}`}
-              className="overflow-hidden rounded-[28px] bg-zinc-100"
+        ) : mandats.map((m) => {
+          const href = `/${lang}/vente/${m.slug}`;
+
+          return (
+            <article
+              key={m.slug}
+              className="grid gap-6 lg:grid-cols-[1.15fr_.85fr] lg:items-stretch"
             >
-              <div className="aspect-[16/10]">
-                {m.pictures?.[0] ? (
-                  <img src={m.pictures[0]} alt={m.title} className="h-full w-full object-cover" />
-                ) : null}
-              </div>
-            </Link>
-
-            <div className="flex flex-col justify-center rounded-[28px] bg-white p-8 shadow-soft ring-1 ring-[var(--gold-light)] md:p-12">
-              <h2 className="text-4xl font-light leading-[1.05] text-zinc-900 md:text-6xl">
-                {m.title}
-              </h2>
-
-              <LocationLine label={m.locationLabel} />
-
-              {m.price ? (
-                <div className="mt-4 text-2xl text-zinc-900 md:text-3xl">
-                  {formatPrice(m.price, lang)}
+              <Link
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="overflow-hidden rounded-[28px] bg-zinc-100"
+              >
+                <div className="aspect-[16/10]">
+                  {m.pictures?.[0] ? (
+                    <img src={m.pictures[0]} alt={m.title} className="h-full w-full object-cover" />
+                  ) : null}
                 </div>
-              ) : null}
+              </Link>
 
-              {m.description ? (
-                <p className="mt-8 line-clamp-6 text-lg leading-relaxed text-zinc-700">
-                  {m.description}
-                </p>
-              ) : null}
+              <div className="flex flex-col justify-center rounded-[28px] bg-white p-8 shadow-soft ring-1 ring-[var(--gold-light)] md:p-12">
+                <h2 className="text-4xl font-light leading-[1.05] text-zinc-900 md:text-6xl">
+                  {m.title}
+                </h2>
 
-              <div className="mt-10">
-                <Link
-                  href={`/${lang}/vente/${m.slug}`}
-                  className="inline-flex rounded-full border border-zinc-900 px-8 py-4 text-sm font-medium uppercase tracking-[0.16em] text-zinc-900"
-                >
-                  {lang === 'fr' ? 'Découvrir ce bien' : 'Discover this property'}
-                </Link>
+                <LocationLine label={m.locationLabel} />
+
+                {m.price ? (
+                  <div className="mt-4 text-2xl text-zinc-900 md:text-3xl">
+                    {formatPrice(m.price, lang)}
+                  </div>
+                ) : null}
+
+                {m.description ? (
+                  <p className="mt-8 line-clamp-6 text-lg leading-relaxed text-zinc-700">
+                    {m.description}
+                  </p>
+                ) : null}
+
+                <div className="mt-10">
+                  <Link
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex rounded-full border border-zinc-900 px-8 py-4 text-sm font-medium uppercase tracking-[0.16em] text-zinc-900"
+                  >
+                    {lang === 'fr' ? 'Découvrir ce bien' : 'Discover this property'}
+                  </Link>
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </main>
   );
