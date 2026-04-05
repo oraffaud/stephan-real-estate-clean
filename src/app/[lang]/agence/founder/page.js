@@ -22,6 +22,9 @@ function FRText() {
       <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C6A46C]">
         Founder
       </div>
+      <div className="mt-3 text-xl font-medium tracking-[0.02em] text-zinc-900 md:text-2xl">
+        Stephan Morawski
+      </div>
 
       <h1 className="mt-4 font-luxe text-4xl leading-tight text-zinc-900 md:text-6xl">
         Une vision exigeante de l’immobilier sur la Côte d’Azur
@@ -69,6 +72,9 @@ function ENText() {
     <>
       <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C6A46C]">
         Founder
+      </div>
+      <div className="mt-3 text-xl font-medium tracking-[0.02em] text-zinc-900 md:text-2xl">
+        Stephan Morawski
       </div>
 
       <h1 className="mt-4 font-luxe text-4xl leading-tight text-zinc-900 md:text-6xl">
