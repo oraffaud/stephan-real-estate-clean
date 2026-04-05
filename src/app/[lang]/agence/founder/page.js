@@ -16,15 +16,23 @@ export async function generateMetadata({ params }) {
   });
 }
 
-function FRText() {
+function Heading() {
   return (
-    <>
+    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
       <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C6A46C]">
         Founder
       </div>
-      <div className="mt-3 text-xl font-medium tracking-[0.02em] text-zinc-900 md:text-2xl">
+      <div className="text-xl font-medium tracking-[0.02em] text-zinc-900 md:text-2xl">
         Stephan Morawski
       </div>
+    </div>
+  );
+}
+
+function FRText() {
+  return (
+    <>
+      <Heading />
 
       <h1 className="mt-4 font-luxe text-4xl leading-tight text-zinc-900 md:text-6xl">
         Une vision exigeante de l’immobilier sur la Côte d’Azur
@@ -41,23 +49,19 @@ function FRText() {
           Depuis plus de dix ans, j’évolue dans l’immobilier sur la Côte d’Azur avec une conviction forte :
           l’excellence ne se revendique pas, elle se démontre.
         </p>
-
         <p>
           Avant de me consacrer pleinement à l’immobilier de prestige, j’ai occupé pendant dix ans le poste de
           directrice administrative et financière. Cette expérience m’a apporté une maîtrise exigeante du
           management, de la négociation, de la gestion de projet et de la relation client.
         </p>
-
         <p>
           Mon parcours dans l’hôtellerie de luxe a également renforcé mon sens du service, du détail et des attentes
           d’une clientèle haut de gamme.
         </p>
-
         <p>
           Après dix années au sein de grandes enseignes de l’immobilier de prestige, j’ai choisi de créer une
           structure à mon image : <span className="font-semibold text-zinc-900">CÔTE D’AZUR AGENCY</span>.
         </p>
-
         <p>
           Une agence pensée pour une clientèle exigeante, en quête de discrétion, de précision et d’un accompagnement
           irréprochable.
@@ -70,12 +74,7 @@ function FRText() {
 function ENText() {
   return (
     <>
-      <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C6A46C]">
-        Founder
-      </div>
-      <div className="mt-3 text-xl font-medium tracking-[0.02em] text-zinc-900 md:text-2xl">
-        Stephan Morawski
-      </div>
+      <Heading />
 
       <h1 className="mt-4 font-luxe text-4xl leading-tight text-zinc-900 md:text-6xl">
         A demanding vision of real estate on the French Riviera
@@ -92,23 +91,19 @@ function ENText() {
           For more than ten years, I have evolved in real estate on the French Riviera with one strong conviction:
           excellence is not claimed, it is demonstrated.
         </p>
-
         <p>
           Before fully dedicating myself to luxury real estate, I spent ten years as an administrative and finance
           director. This experience gave me a demanding command of management, negotiation, project leadership and
           client relations.
         </p>
-
         <p>
           My background in luxury hospitality also strengthened my sense of service, detail and the expectations of a
           premium clientele.
         </p>
-
         <p>
           After ten years within major luxury real estate brands, I chose to create a structure that reflects my own
           standards: <span className="font-semibold text-zinc-900">CÔTE D’AZUR AGENCY</span>.
         </p>
-
         <p>
           An agency designed for a demanding clientele seeking discretion, precision and impeccable support.
         </p>
