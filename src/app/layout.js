@@ -1,24 +1,25 @@
-import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
-import { Playfair_Display } from 'next/font/google';
-
-const luxe = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-luxe',
-  display: 'swap'
-});
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com'),
   title: 'Côte d’Azur Agency',
-  description: 'Real Estate on the French Riviera'
+  description: 'Luxury real estate on the French Riviera.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png' }
+    ],
+    shortcut: ['/favicon.ico'],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ]
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={luxe.variable}>
-      <body>{children}        <Analytics />
-      </body>
+    <html lang="fr">
+      <body>{children}</body>
     </html>
   );
 }
