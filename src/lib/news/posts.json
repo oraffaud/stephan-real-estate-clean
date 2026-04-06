@@ -1,0 +1,54 @@
+[
+  {
+    "id": "linkedin-001",
+    "slug": "vision-immobiliere-cote-dazur",
+    "publishedAt": "2026-04-06",
+    "source": "linkedin",
+    "linkedinUrl": "https://www.linkedin.com/in/stephan-morawski/",
+    "image": "/images/hero-pool.jpg",
+    "fr": {
+      "title": "Une vision exigeante de l’immobilier sur la Côte d’Azur",
+      "excerpt": "Une approche indépendante, précise et adaptée à une clientèle exigeante et internationale.",
+      "content": [
+        "Le marché immobilier évolue vite, et la manière de chercher, d’analyser et de décider évolue avec lui.",
+        "Côte d’Azur Agency défend une approche indépendante, précise et contemporaine, fondée sur la qualité du conseil, la lecture du marché local et l’attention portée à chaque projet.",
+        "L’objectif est simple : offrir une sélection plus pertinente, une lecture plus claire des opportunités et un accompagnement à la hauteur d’une clientèle exigeante."
+      ]
+    },
+    "en": {
+      "title": "A demanding vision of real estate on the French Riviera",
+      "excerpt": "An independent and precise approach tailored to a demanding international clientele.",
+      "content": [
+        "The real estate market is evolving quickly, and the way people search, analyse and decide is evolving with it.",
+        "Côte d’Azur Agency promotes an independent, precise and contemporary approach based on quality advice, local market understanding and close attention to each project.",
+        "The objective is simple: deliver a more relevant selection, a clearer reading of opportunities and a level of support suited to a demanding clientele."
+      ]
+    }
+  },
+  {
+    "id": "linkedin-002",
+    "slug": "immobilier-prestige-valbonne",
+    "publishedAt": "2026-04-05",
+    "source": "linkedin",
+    "linkedinUrl": "https://www.linkedin.com/in/stephan-morawski/",
+    "image": "/images/villa-modern-1.jpg",
+    "fr": {
+      "title": "Immobilier de prestige à Valbonne : discrétion, précision, exigence",
+      "excerpt": "L’excellence d’un accompagnement immobilier se mesure dans le détail, la méthode et la constance.",
+      "content": [
+        "Dans l’immobilier haut de gamme, la qualité de l’accompagnement fait souvent toute la différence.",
+        "Chaque projet mérite une attention particulière, une vraie écoute et un niveau d’exigence constant.",
+        "À Valbonne et sur la Côte d’Azur, cette approche permet de construire des relations de confiance durables."
+      ]
+    },
+    "en": {
+      "title": "Luxury real estate in Valbonne: discretion, precision, high standards",
+      "excerpt": "The excellence of real estate support is measured through detail, method and consistency.",
+      "content": [
+        "In luxury real estate, the quality of support often makes all the difference.",
+        "Each project deserves genuine attention, close listening and consistently high standards.",
+        "In Valbonne and across the French Riviera, this approach helps build lasting trust."
+      ]
+    }
+  }
+]
