@@ -48,7 +48,7 @@ export default async function VentePage({ params }) {
 
   let mandats = [];
   try {
-    mandats = await getMandats(lang);
+    mandats = (await getMandats(lang)).reverse();
   } catch (e) {
     console.error('VENTE_APIMO_ERROR', e);
   }
