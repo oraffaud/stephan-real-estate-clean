@@ -26,7 +26,7 @@ async function getSaleUrls(baseUrl: string) {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com'
+  const baseUrl = 'https://www.cotedazuragency.com'
 
   const staticUrls = [
     '',

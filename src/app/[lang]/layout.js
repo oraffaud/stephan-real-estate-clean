@@ -4,7 +4,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
 function AgencySchema() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
+  const baseUrl = 'https://www.cotedazuragency.com';
 
   const jsonLd = {
     '@context': 'https://schema.org',

@@ -6,7 +6,7 @@ export function truncateText(value, max = 160) {
 }
 
 export function buildPageMetadata({ title, description, lang, pathname, image = '/images/hero-pool.jpg' }) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
+  const baseUrl = 'https://www.cotedazuragency.com';
   const url = `${baseUrl}${pathname}`;
   const alternate = lang === 'fr' ? 'en' : 'fr';
   const altPath = pathname.replace(/^\/(fr|en)/, '');
