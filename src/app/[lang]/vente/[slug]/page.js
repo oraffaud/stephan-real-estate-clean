@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { isLang } from '@/lib/i18n';
 import { buildPageMetadata, truncateText } from '@/lib/seo';
+import { getAllNewsSlugs, getNewsBySlug } from '@/lib/news';
 import { getMandatBySlug } from '@/lib/apimo';
 
 function formatPrice(value, lang) {
@@ -131,17 +133,39 @@ export default async function VenteDetailPage({ params }) {
 
   if (!mandat) notFound();
 
+  const pictures = Array.isArray(mandat.pictures) ? mandat.pictures.filter(Boolean) : [];
+  const mainPicture = pictures[0] || null;
+  const extraPictures = pictures.slice(1);
+
   return (
     <main className="container py-16">
       <SaleJsonLd mandat={mandat} lang={lang} />
 
       <div className="grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
-        <div className="overflow-hidden rounded-[28px] bg-zinc-100">
-          <div className="aspect-[16/10]">
-            {mandat.pictures?.[0] ? (
-              <img src={mandat.pictures[0]} alt={mandat.title} className="h-full w-full object-cover" />
-            ) : null}
+        <div className="space-y-6">
+          <div className="overflow-hidden rounded-[28px] bg-zinc-100">
+            <div className="aspect-[16/10]">
+              {mainPicture ? (
+                <img src={mainPicture} alt={mandat.title} className="h-full w-full object-cover" />
+              ) : null}
+            </div>
           </div>
+
+          {extraPictures.length > 0 ? (
+            <div className="grid gap-4 sm:grid-cols-2">
+              {extraPictures.map((picture, index) => (
+                <div key={`${picture}-${index}`} className="overflow-hidden rounded-[24px] bg-zinc-100">
+                  <div className="aspect-[4/3]">
+                    <img
+                      src={picture}
+                      alt={`${mandat.title} ${index + 2}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
 
         <div className="rounded-[28px] bg-white p-8 shadow-soft ring-1 ring-[var(--gold-light)] md:p-12">
@@ -170,9 +194,12 @@ export default async function VenteDetailPage({ params }) {
           </div>
 
           <div className="mt-12">
-            <span className="inline-flex rounded-full border border-zinc-900 px-8 py-4 text-sm font-medium uppercase tracking-[0.16em] text-zinc-900">
-              {lang === 'fr' ? 'Découvrir ce bien' : 'Discover this property'}
-            </span>
+            <Link
+              href={`/${lang}/contact`}
+              className="inline-flex rounded-full border border-zinc-900 px-8 py-4 text-sm font-medium uppercase tracking-[0.16em] text-zinc-900"
+            >
+              {lang === 'fr' ? 'Demander plus d’information' : 'Request more information'}
+            </Link>
           </div>
         </div>
       </div>
