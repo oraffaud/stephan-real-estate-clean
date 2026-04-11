@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer';
 function AgencySchema() {
   const baseUrl = 'https://www.cotedazuragency.com';
 
-  const jsonLd = {
+  const realEstateAgentJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     name: 'Côte d’Azur Agency',
@@ -25,11 +25,25 @@ function AgencySchema() {
     sameAs: [baseUrl]
   };
 
+  const webSiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: `${baseUrl}/`,
+    name: "Côte d'Azur Agency",
+    alternateName: 'Stephan Real Estate'
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
+      />
+    </>
   );
 }
 
