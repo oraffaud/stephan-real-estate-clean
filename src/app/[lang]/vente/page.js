@@ -49,6 +49,23 @@ export default async function VentePage({ params }) {
   let mandats = [];
   try {
     mandats = (await getMandats(lang)).reverse();
+
+    mandats.sort((a, b) => {
+      const aLabel = `${a.title || a.name || ''} ${a.locationLabel || ''}`.toLowerCase();
+      const bLabel = `${b.title || b.name || ''} ${b.locationLabel || ''}`.toLowerCase();
+
+      const aIsBergerie =
+        aLabel.includes('bergerie') &&
+        aLabel.includes('tourrettes');
+
+      const bIsBergerie =
+        bLabel.includes('bergerie') &&
+        bLabel.includes('tourrettes');
+
+      if (aIsBergerie && !bIsBergerie) return 1;
+      if (!aIsBergerie && bIsBergerie) return -1;
+      return 0;
+    });
   } catch (e) {
     console.error('VENTE_APIMO_ERROR', e);
   }
