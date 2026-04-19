@@ -1,5 +1,35 @@
 [
   {
+    "id": "linkedin-003",
+    "slug": "marche-luxe-french-riviera-rebond-2026",
+    "publishedAt": "2026-02-19",
+    "source": "linkedin",
+    "linkedinUrl": "https://www.linkedin.com/posts/stephan-morawski_luxury-real-estate-on-the-french-riviera-activity-7424361040257187840-_u8k",
+    "image": "/images/hero-pool.jpg",
+    "fr": {
+      "title": "Immobilier de luxe sur la Côte d’Azur : un marché qui rebondit",
+      "excerpt": "Le segment premium de la Côte d’Azur montre des signes clairs de reprise, en particulier sur les villas de prestige entre 1 M€ et 5 M€.",
+      "content": [
+        "Contrairement aux anticipations d’un ralentissement durable, le marché de l’immobilier de prestige sur la Côte d’Azur continue d’évoluer avec résilience.",
+        "Les villas haut de gamme positionnées entre 1 M€ et 5 M€ enregistrent un rebond visible des transactions, confirmant que le luxe répond à des dynamiques spécifiques.",
+        "Pour les propriétaires, cela renforce l’importance d’un positionnement précis de l’actif, d’une mise en valeur rigoureuse de la localisation, des vues et de la qualité architecturale.",
+        "Pour les investisseurs, cette séquence rappelle qu’un actif exceptionnel conserve une forte capacité de protection patrimoniale, même dans un contexte plus volatil.",
+        "Sur la French Riviera, les biens rares conservent donc un rôle central dans une stratégie immobilière haut de gamme."
+      ]
+    },
+    "en": {
+      "title": "Luxury real estate on the French Riviera: a market regaining momentum",
+      "excerpt": "The premium segment on the French Riviera is showing clear signs of recovery, especially for prestige villas priced between €1M and €5M.",
+      "content": [
+        "Contrary to expectations of a prolonged slowdown, the luxury property market on the French Riviera continues to show resilience.",
+        "High-end villas priced between €1M and €5M are seeing a visible rebound in transactions, confirming that luxury follows its own market dynamics.",
+        "For sellers, this highlights the importance of accurate asset positioning and a strong presentation of location, views and architectural quality.",
+        "For investors, the current environment confirms that exceptional assets continue to play a strong wealth-preservation role, even in more volatile conditions.",
+        "On the Côte d’Azur, rare properties therefore remain central to any premium real estate strategy."
+      ]
+    }
+  },
+  {
     "id": "linkedin-001",
     "slug": "vision-immobiliere-cote-dazur",
     "publishedAt": "2026-04-06",
