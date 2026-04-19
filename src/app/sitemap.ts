@@ -33,6 +33,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/vente',
     '/services',
     '/agence',
+    '/agence-cote-dazur',
+    '/agence-immobiliere-cote-d-azur',
+    '/agent-immobilier-cote-d-azur',
+    '/cote-d-azur-real-estate',
     '/contact',
     '/mentions-legales',
   ]
@@ -45,7 +49,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${baseUrl}/${lang}${path}`,
         lastModified: new Date(),
         changeFrequency: path === '' ? 'weekly' : 'monthly',
-        priority: path === '' ? 1.0 : 0.7,
+        priority:
+          path === ''
+            ? 1.0
+            : (
+                path === '/agence-cote-dazur' ||
+                path === '/agence-immobiliere-cote-d-azur' ||
+                path === '/agent-immobilier-cote-d-azur' ||
+                path === '/cote-d-azur-real-estate'
+              )
+            ? 0.9
+            : 0.7,
       })
     }
   }
