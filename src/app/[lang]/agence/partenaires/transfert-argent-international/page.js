@@ -1,6 +1,9 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { isLang } from '@/lib/i18n';
 import { buildPageMetadata } from '@/lib/seo';
+
+const partnerUrl = 'https://www.currenciesdirect.com/partner/0201110000931505';
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
@@ -9,8 +12,8 @@ export async function generateMetadata({ params }) {
       ? 'Transfert d’argent international | Côte d’Azur Agency'
       : 'International Money Transfer | Côte d’Azur Agency',
     description: lang === 'fr'
-      ? 'Une solution de transfert d’argent international sécurisée et adaptée aux projets immobiliers.'
-      : 'A secure international money transfer solution tailored to real estate projects.',
+      ? 'Découvrez notre partenaire Currencies Direct pour les transferts d’argent internationaux liés à votre projet immobilier.'
+      : 'Discover our partner Currencies Direct for international money transfers related to your property project.',
     lang,
     pathname: `/${lang}/agence/partenaires/transfert-argent-international`
   });
@@ -28,41 +31,26 @@ export default async function InternationalMoneyTransferPage({ params }) {
         </div>
 
         <h1 className="mt-4 font-luxe text-4xl leading-tight text-zinc-900 md:text-6xl">
-          {lang === 'fr' ? 'Transfert d’argent international' : 'International money transfer'}
+          Currencies Direct
         </h1>
 
         <div className="mt-10 card-luxe p-8 md:p-10">
-          {lang === 'fr' ? (
-            <div className="space-y-6 text-lg leading-relaxed text-zinc-700">
-              <p>
-                Dans le cadre d’un projet immobilier international, la sécurisation et la fluidité des transferts
-                financiers constituent un enjeu essentiel.
-              </p>
-              <p>
-                Côte d’Azur Agency peut orienter ses clients vers des partenaires spécialisés capables
-                d’accompagner les opérations de transfert d’argent international avec méthode, confidentialité
-                et réactivité.
-              </p>
-              <p>
-                Cette mise en relation vise à faciliter certaines étapes sensibles d’un projet transfrontalier,
-                en particulier lorsqu’une coordination rapide et rigoureuse est requise.
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-6 text-lg leading-relaxed text-zinc-700">
-              <p>
-                Within an international real estate project, secure and efficient fund transfers are a key issue.
-              </p>
-              <p>
-                Côte d’Azur Agency can direct its clients to specialised partners able to support international
-                money transfers with method, confidentiality and responsiveness.
-              </p>
-              <p>
-                This introduction is intended to facilitate sensitive steps within cross-border projects,
-                especially when fast and rigorous coordination is required.
-              </p>
-            </div>
-          )}
+          <p className="text-xl text-zinc-900">
+            {lang === 'fr'
+              ? 'Transfert d’argent international.'
+              : 'International money transfer.'}
+          </p>
+
+          <div className="mt-8">
+            <Link
+              href={partnerUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="break-all text-lg text-sky-700 underline underline-offset-4"
+            >
+              {partnerUrl}
+            </Link>
+          </div>
         </div>
       </div>
     </main>
