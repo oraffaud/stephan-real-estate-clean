@@ -19,7 +19,6 @@ export function Header({ lang, t }) {
           </Link>
 
           <nav className="flex items-center justify-center gap-8 text-sm text-zinc-800">
-            <Link href={`/${lang}`}>{t.nav.home}</Link>
             <Link href={`/${lang}/vente`}>{t.nav.sale}</Link>
             <Link href={`/${lang}/services`}>{t.nav.services}</Link>
             <Link href={`/${lang}/agence`}>{t.nav.agency}</Link>
@@ -55,7 +54,6 @@ export function Header({ lang, t }) {
           </div>
 
           <nav className="mt-4 flex gap-4 overflow-x-auto pb-1 text-sm text-zinc-800">
-            <Link href={`/${lang}`} className="whitespace-nowrap">{t.nav.home}</Link>
             <Link href={`/${lang}/vente`} className="whitespace-nowrap">{t.nav.sale}</Link>
             <Link href={`/${lang}/services`} className="whitespace-nowrap">{t.nav.services}</Link>
             <Link href={`/${lang}/agence`} className="whitespace-nowrap">{t.nav.agency}</Link>

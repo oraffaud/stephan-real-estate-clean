@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { isLang } from '@/lib/i18n';
 import { buildPageMetadata } from '@/lib/seo';
@@ -16,18 +17,26 @@ export async function generateMetadata({ params }) {
 
 const items = {
   fr: [
-    'Notaires et conseils juridiques',
-    'Architectes et décorateurs',
-    'Experts techniques et diagnostics',
-    'Photographes et valorisation des biens',
-    'Artisans et entreprises de confiance'
+    { label: 'Notaires et conseils juridiques' },
+    { label: 'Architectes et décorateurs' },
+    { label: 'Experts techniques et diagnostics' },
+    { label: 'Photographes et valorisation des biens' },
+    { label: 'Artisans et entreprises de confiance' },
+    {
+      label: 'Transfert d’argent international',
+      href: '/agence/partenaires/transfert-argent-international'
+    }
   ],
   en: [
-    'Notaries and legal advisors',
-    'Architects and interior designers',
-    'Technical experts and diagnostics',
-    'Property photographers and marketing support',
-    'Trusted contractors and craftsmen'
+    { label: 'Notaries and legal advisors' },
+    { label: 'Architects and interior designers' },
+    { label: 'Technical experts and diagnostics' },
+    { label: 'Property photographers and marketing support' },
+    { label: 'Trusted contractors and craftsmen' },
+    {
+      label: 'International money transfer',
+      href: '/agence/partenaires/transfert-argent-international'
+    }
   ]
 };
 
@@ -49,11 +58,21 @@ export default async function PartnersPage({ params }) {
         </p>
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {list.map((item) => (
-            <div key={item} className="rounded-2xl border border-zinc-200 bg-white p-5 text-zinc-800">
-              {item}
-            </div>
-          ))}
+          {list.map((item) =>
+            item.href ? (
+              <Link
+                key={item.label}
+                href={`/${lang}${item.href}`}
+                className="rounded-2xl border border-zinc-200 bg-white p-5 text-zinc-800 transition hover:border-zinc-900"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <div key={item.label} className="rounded-2xl border border-zinc-200 bg-white p-5 text-zinc-800">
+                {item.label}
+              </div>
+            )
+          )}
         </div>
       </div>
     </main>
