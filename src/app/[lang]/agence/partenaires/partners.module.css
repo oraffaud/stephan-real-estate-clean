@@ -1,0 +1,264 @@
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 24px 96px;
+}
+
+.hero {
+  max-width: 840px;
+  margin-bottom: 42px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9a7a45;
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.98;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  color: #151515;
+}
+
+.hero p:last-child {
+  max-width: 760px;
+  margin: 26px 0 0;
+  font-size: 20px;
+  line-height: 1.65;
+  color: #59575f;
+}
+
+.partnerSection {
+  margin-top: 36px;
+}
+
+.partnerCard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(151, 128, 91, 0.28);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(194, 166, 108, 0.14), transparent 32%),
+    linear-gradient(135deg, #fbfaf7 0%, #f4f0ea 100%);
+  box-shadow:
+    0 28px 70px rgba(27, 24, 20, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.partnerCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.16)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent);
+}
+
+.partnerCard::after {
+  content: "";
+  position: absolute;
+  right: 42px;
+  top: 42px;
+  bottom: 42px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(151, 128, 91, 0.28),
+    transparent
+  );
+  opacity: 0.55;
+}
+
+.cardTop,
+.cardBody {
+  position: relative;
+  z-index: 1;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 34px 42px 0;
+}
+
+.partnerLabel {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 8px 14px;
+  border: 1px solid rgba(154, 122, 69, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.52);
+  color: #8a6a38;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.logoBox {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 230px;
+  padding: 14px 18px;
+  border: 1px solid rgba(151, 128, 91, 0.14);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.54);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.logo {
+  display: block;
+  width: 210px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.cardBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: end;
+  padding: 34px 42px 42px;
+}
+
+.copy {
+  max-width: 760px;
+}
+
+.copy h2 {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  color: #161616;
+}
+
+.description {
+  max-width: 760px;
+  margin: 22px 0 0;
+  font-size: 24px;
+  line-height: 1.48;
+  color: #4e4c54;
+}
+
+.note {
+  max-width: 760px;
+  margin: 18px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #77716b;
+}
+
+.actionArea {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.partnerButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 286px;
+  padding: 17px 28px;
+  border: 1.8px solid #171717;
+  border-radius: 999px;
+  color: #171717;
+  background: rgba(255, 255, 255, 0.26);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 15px;
+  font-weight: 650;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.partnerButton:hover {
+  color: #ffffff;
+  background: #171717;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 56px 20px 80px;
+  }
+
+  .cardTop {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 30px 28px 0;
+  }
+
+  .logoBox {
+    min-width: 0;
+  }
+
+  .logo {
+    width: 190px;
+  }
+
+  .cardBody {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 28px 28px 34px;
+  }
+
+  .actionArea {
+    justify-content: flex-start;
+  }
+
+  .partnerButton {
+    min-width: 0;
+  }
+
+  .partnerCard::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p:last-child {
+    font-size: 18px;
+  }
+
+  .copy h2 {
+    font-size: 38px;
+  }
+
+  .description {
+    font-size: 19px;
+  }
+
+  .partnerButton {
+    width: 100%;
+    padding: 16px 22px;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+  }
+}
