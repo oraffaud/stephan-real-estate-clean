@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./partners.module.css";
 
-const partnerUrl = "https://www.currenciesdirect.com/";
+const partnerUrl = "https://www.currenciesdirect.com/partner/0201110000931505";
 const logoSrc = "/partners/currencies-direct-logo.png";
 
 const content = {
