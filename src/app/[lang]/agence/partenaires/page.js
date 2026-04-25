@@ -17,6 +17,7 @@ const content = {
     note:
       "Service externe opéré directement par le partenaire. Côte d’Azur Agency facilite l’accès au partenaire sans intervenir dans les opérations de change.",
     cta: "Visiter le partenaire",
+    logoAlt: "Logo Currencies Direct",
   },
   en: {
     eyebrow: "Partners",
@@ -30,6 +31,7 @@ const content = {
     note:
       "External service operated directly by the partner. Côte d’Azur Agency facilitates access to the partner without taking part in foreign exchange transactions.",
     cta: "Visit partner",
+    logoAlt: "Currencies Direct logo",
   },
 };
 
@@ -54,27 +56,14 @@ export default async function PartnersPage({ params }) {
 
       <section className={styles.partnerSection} aria-label={t.title}>
         <article className={styles.partnerCard}>
-          <div className={styles.cardTop}>
+          <div className={styles.contentCol}>
             <span className={styles.partnerLabel}>{t.partnerLabel}</span>
 
-            <div className={styles.logoBox} aria-hidden="true">
-              <Image
-                src={logoSrc}
-                alt=""
-                width={260}
-                height={90}
-                className={styles.logo}
-                priority
-              />
-            </div>
-          </div>
+            <h2>{t.partnerTitle}</h2>
 
-          <div className={styles.cardBody}>
-            <div className={styles.copy}>
-              <h2>{t.partnerTitle}</h2>
-              <p className={styles.description}>{t.partnerDescription}</p>
-              <p className={styles.note}>{t.note}</p>
-            </div>
+            <p className={styles.description}>{t.partnerDescription}</p>
+
+            <p className={styles.note}>{t.note}</p>
 
             <div className={styles.actionArea}>
               <a
@@ -86,6 +75,19 @@ export default async function PartnersPage({ params }) {
               >
                 {t.cta}
               </a>
+            </div>
+          </div>
+
+          <div className={styles.visualCol}>
+            <div className={styles.logoPanel}>
+              <Image
+                src={logoSrc}
+                alt={t.logoAlt}
+                width={420}
+                height={140}
+                className={styles.logo}
+                priority
+              />
             </div>
           </div>
         </article>
