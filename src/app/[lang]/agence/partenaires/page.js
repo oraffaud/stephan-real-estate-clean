@@ -1,148 +1,168 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import { isLang } from '@/lib/i18n';
-import { buildPageMetadata } from '@/lib/seo';
 
-const partnerUrl = 'https://www.currenciesdirect.com/partner/0201110000931505';
+const CONTENT = {
+  fr: {
+    title: 'Partenaires',
+    intro: 'Une sélection de partenaires utiles et complémentaires.',
+    partnerCta: 'Visiter le partenaire',
+    partnerUrl: 'https://www.currenciesdirect.com/partner/0201110000931505',
+    cards: [
+      {
+        title: 'Notaires et conseils juridiques',
+        description: 'Sécurisation juridique et accompagnement des transactions.',
+      },
+      {
+        title: 'Architectes et décorateurs',
+        description: 'Conception, rénovation et valorisation des espaces.',
+      },
+      {
+        title: 'Experts techniques et diagnostics',
+        description: 'Évaluation, contrôle et expertise technique des biens.',
+      },
+      {
+        title: 'Photographes et valorisation des biens',
+        description: 'Mise en image premium et présentation soignée des propriétés.',
+      },
+      {
+        title: 'Artisans et entreprises de confiance',
+        description: 'Intervenants sélectionnés pour des réalisations de qualité.',
+      },
+    ],
+    currency: {
+      title: 'Currencies Direct',
+      description: "Transfert d'argent international",
+    },
+  },
+  en: {
+    title: 'Partners',
+    intro: 'A selection of useful and complementary partners.',
+    partnerCta: 'Visit partner',
+    partnerUrl: 'https://www.currenciesdirect.com/partner/0201110000931505',
+    cards: [
+      {
+        title: 'Notaries and legal advisors',
+        description: 'Legal support and transaction security.',
+      },
+      {
+        title: 'Architects and interior designers',
+        description: 'Design, renovation and enhancement of living spaces.',
+      },
+      {
+        title: 'Technical experts and diagnostics',
+        description: 'Assessment, inspection and technical expertise for properties.',
+      },
+      {
+        title: 'Photographers and property presentation',
+        description: 'Premium visuals and refined property presentation.',
+      },
+      {
+        title: 'Trusted craftsmen and companies',
+        description: 'Carefully selected professionals for quality work.',
+      },
+    ],
+    currency: {
+      title: 'Currencies Direct',
+      description: 'International money transfer',
+    },
+  },
+};
 
-export async function generateMetadata({ params }) {
-  const { lang } = await params;
-  return buildPageMetadata({
-    title: lang === 'fr' ? 'Partenaires | Côte d’Azur Agency' : 'Partners | Côte d’Azur Agency',
-    description:
-      lang === 'fr'
-        ? 'Une sélection de partenaires utiles et complémentaires.'
-        : 'A selection of useful and complementary partners.',
-    lang,
-    pathname: `/${lang}/agence/partenaires`,
-  });
-}
-
-function PartnerCard({ title, description, children }) {
+function StandardCard({ title, description }) {
   return (
-    <div className="rounded-[28px] bg-white p-8 md:p-10 shadow-soft ring-1 ring-[var(--gold-light)] flex flex-col">
-      <div className="flex-1">
-        <h2 className="font-luxe text-[34px] leading-tight text-zinc-900 md:text-[42px]">
+    <article className="h-full rounded-[28px] bg-white p-8 md:p-9 shadow-soft ring-1 ring-black/5 flex flex-col justify-between">
+      <div>
+        <h2 className="font-serif text-[30px] leading-[1.05] tracking-[-0.03em] text-black md:text-[34px]">
           {title}
         </h2>
-        {description ? (
-          <p className="mt-5 text-lg leading-relaxed text-zinc-700 md:text-[20px]">
-            {description}
-          </p>
-        ) : null}
+        <p className="mt-5 text-[17px] leading-[1.6] text-black/75">
+          {description}
+        </p>
       </div>
-
-      {children ? <div className="mt-8">{children}</div> : null}
-    </div>
+    </article>
   );
 }
 
-function CurrenciesDirectCard({ lang }) {
-  const isFr = lang === 'fr';
-
+function CurrenciesDirectCard({ data, cta, url }) {
   return (
-    <PartnerCard
-      title="Currencies Direct"
-      description={isFr ? "Transfert d'argent international" : 'International money transfer'}
-    >
-      <div className="mb-8">
-        <div className="relative h-[120px] w-[360px] max-w-full md:h-[150px] md:w-[460px]">
+    <article className="h-full rounded-[28px] bg-white p-8 md:p-9 shadow-soft ring-1 ring-black/5 flex flex-col">
+      <div>
+        <h2 className="font-serif text-[30px] leading-[1.05] tracking-[-0.03em] text-black md:text-[34px]">
+          {data.title}
+        </h2>
+        <p className="mt-5 text-[17px] leading-[1.6] text-black/75">
+          {data.description}
+        </p>
+      </div>
+
+      <div className="mt-8">
+        <div className="relative h-[72px] w-[240px] md:h-[84px] md:w-[280px]">
           <Image
-            src="/partners/currencies-direct-logo.png"
+            src="/partners/currencies-direct-logo-display.png"
             alt="Currencies Direct"
             fill
-            priority
             className="object-contain object-left"
+            sizes="280px"
+            unoptimized
           />
         </div>
       </div>
 
-      <Link
-        href={partnerUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex min-h-[64px] items-center justify-center rounded-full border-2 border-zinc-900 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-900 transition hover:bg-zinc-900 hover:text-white"
-      >
-        {isFr ? 'Visiter le partenaire' : 'Visit partner'}
-      </Link>
-    </PartnerCard>
+      <div className="mt-8">
+        <a
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex min-h-[58px] items-center justify-center rounded-full border border-black px-8 text-[14px] font-medium uppercase tracking-[0.22em] text-black transition hover:bg-black hover:text-white"
+        >
+          {cta}
+        </a>
+      </div>
+    </article>
   );
 }
 
-export default async function PartnersPage({ params }) {
-  const { lang } = await params;
-  if (!isLang(lang)) notFound();
-
-  const cards = lang === 'fr'
-    ? [
-        {
-          title: 'Notaires et conseils juridiques',
-          description: 'Sécurisation juridique et accompagnement des transactions.',
-        },
-        {
-          title: 'Architectes et décorateurs',
-          description: 'Conception, rénovation et valorisation des espaces.',
-        },
-        {
-          title: 'Experts techniques et diagnostics',
-          description: 'Évaluation, contrôle et expertise technique des biens.',
-        },
-        {
-          title: 'Photographes et valorisation des biens',
-          description: 'Mise en image premium et présentation soignée des propriétés.',
-        },
-        {
-          title: 'Artisans et entreprises de confiance',
-          description: 'Intervenants sélectionnés pour des réalisations de qualité.',
-        },
-      ]
-    : [
-        {
-          title: 'Notaries and legal advisors',
-          description: 'Legal structuring and secure support for property transactions.',
-        },
-        {
-          title: 'Architects and interior designers',
-          description: 'Design, renovation and enhancement of living spaces.',
-        },
-        {
-          title: 'Technical experts and diagnostics',
-          description: 'Property assessment, inspections and technical expertise.',
-        },
-        {
-          title: 'Photographers and property presentation',
-          description: 'Premium imagery and refined property presentation.',
-        },
-        {
-          title: 'Trusted craftsmen and contractors',
-          description: 'Selected professionals for high-quality work and follow-up.',
-        },
-      ];
+export default async function PartenairesPage({ params }) {
+  const resolvedParams = await params;
+  const lang = resolvedParams?.lang === 'en' ? 'en' : 'fr';
+  const t = CONTENT[lang];
 
   return (
-    <main className="container py-8 md:py-10">
-      <section className="rounded-[32px] bg-[#e9e4dc] px-10 py-10 md:px-14 md:py-14">
-        <h1 className="font-luxe text-5xl leading-none text-zinc-900 md:text-7xl">
-          {lang === 'fr' ? 'Partenaires' : 'Partners'}
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-zinc-700 md:text-[20px]">
-          {lang === 'fr'
-            ? 'Une sélection de partenaires utiles et complémentaires.'
-            : 'A selection of useful and complementary partners.'}
-        </p>
-      </section>
+    <main className="bg-[var(--background)]">
+      <section className="mx-auto w-full max-w-[1180px] px-6 pb-16 pt-8 md:px-8 md:pb-24 md:pt-10">
+        <div className="rounded-[36px] bg-[#dfdbd3] px-8 py-10 md:px-12 md:py-14">
+          <h1 className="font-serif text-[58px] leading-[0.95] tracking-[-0.04em] text-black md:text-[76px]">
+            {t.title}
+          </h1>
+          <p className="mt-6 max-w-[760px] text-[18px] leading-[1.6] text-black/75">
+            {t.intro}
+          </p>
+        </div>
 
-      <section className="mt-10 grid gap-6 md:grid-cols-2 md:items-start">
-        {cards.map((card) => (
-          <PartnerCard
-            key={card.title}
-            title={card.title}
-            description={card.description}
-          />
-        ))}
+        <div className="mt-9 grid gap-6 md:grid-cols-2">
+          {t.cards.slice(0, 2).map((card) => (
+            <div key={card.title} className="min-h-[220px]">
+              <StandardCard {...card} />
+            </div>
+          ))}
 
-        <CurrenciesDirectCard lang={lang} />
+          {t.cards.slice(2, 4).map((card) => (
+            <div key={card.title} className="min-h-[220px]">
+              <StandardCard {...card} />
+            </div>
+          ))}
+
+          <div className="min-h-[220px]">
+            <StandardCard {...t.cards[4]} />
+          </div>
+
+          <div className="min-h-[220px]">
+            <CurrenciesDirectCard
+              data={t.currency}
+              cta={t.partnerCta}
+              url={t.partnerUrl}
+            />
+          </div>
+        </div>
       </section>
     </main>
   );
