@@ -1,93 +1,117 @@
-import Image from "next/image";
-import styles from "./partners.module.css";
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { isLang } from '@/lib/i18n';
+import { buildPageMetadata } from '@/lib/seo';
 
-const partnerUrl = "https://www.currenciesdirect.com/partner/0201110000931505";
-const logoSrc = "/partners/currencies-direct-logo-clean.png";
+const partnerUrl = 'https://www.currenciesdirect.com/partner/0201110000931505';
 
-const content = {
-  fr: {
-    eyebrow: "Partenaires",
-    title: "Nos partenaires",
-    intro:
-      "Des partenaires sélectionnés pour accompagner les projets immobiliers internationaux sur la Côte d’Azur.",
-    partnerLabel: "Partenaire sélectionné",
-    partnerTitle: "Currencies Direct",
-    partnerDescription:
-      "Une solution de transfert d’argent international pour accompagner les acquisitions immobilières transfrontalières.",
-    note:
-      "Service externe opéré directement par le partenaire. Côte d’Azur Agency facilite l’accès au partenaire sans intervenir dans les opérations de change.",
-    cta: "Visiter le partenaire",
-    logoAlt: "Logo Currencies Direct",
-  },
-  en: {
-    eyebrow: "Partners",
-    title: "Our partners",
-    intro:
-      "Selected partners supporting international real estate projects on the French Riviera.",
-    partnerLabel: "Selected partner",
-    partnerTitle: "Currencies Direct",
-    partnerDescription:
-      "An international money transfer solution supporting cross-border real estate acquisitions.",
-    note:
-      "External service operated directly by the partner. Côte d’Azur Agency facilitates access to the partner without taking part in foreign exchange transactions.",
-    cta: "Visit partner",
-    logoAlt: "Currencies Direct logo",
-  },
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  return buildPageMetadata({
+    title: lang === 'fr' ? 'Partenaires | Côte d’Azur Agency' : 'Partners | Côte d’Azur Agency',
+    description: lang === 'fr'
+      ? 'Un réseau de partenaires de confiance pour accompagner chaque projet immobilier.'
+      : 'A trusted network of partners to support each real estate project.',
+    lang,
+    pathname: `/${lang}/agence/partenaires`
+  });
+}
+
+const items = {
+  fr: [
+    { label: 'Notaires et conseils juridiques' },
+    { label: 'Architectes et décorateurs' },
+    { label: 'Experts techniques et diagnostics' },
+    { label: 'Photographes et valorisation des biens' },
+    { label: 'Artisans et entreprises de confiance' },
+    {
+      label: 'Currencies Direct',
+      subtitle: 'Transfert d’argent international',
+      href: partnerUrl,
+      external: true
+    }
+  ],
+  en: [
+    { label: 'Notaries and legal advisors' },
+    { label: 'Architects and interior designers' },
+    { label: 'Technical experts and diagnostics' },
+    { label: 'Property photographers and marketing support' },
+    { label: 'Trusted contractors and craftsmen' },
+    {
+      label: 'Currencies Direct',
+      subtitle: 'International money transfer',
+      href: partnerUrl,
+      external: true
+    }
+  ]
 };
 
-export const metadata = {
-  title: "Partenaires | Côte d’Azur Agency",
-  description:
-    "Partenaires sélectionnés par Côte d’Azur Agency pour accompagner les projets immobiliers internationaux.",
-};
+function PartnerCard({ item, lang }) {
+  const content = (
+    <div className="rounded-[24px] border border-zinc-200 bg-white p-6 shadow-soft transition hover:border-zinc-900">
+      <div className="font-luxe text-2xl leading-tight text-zinc-900">
+        {item.label}
+      </div>
+
+      {item.subtitle ? (
+        <div className="mt-3 text-base leading-relaxed text-zinc-700">
+          {item.subtitle}
+        </div>
+      ) : null}
+
+      {item.external ? (
+        <div className="mt-6 inline-flex rounded-full border border-zinc-900 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.16em] text-zinc-900">
+          {lang === 'fr' ? 'Visiter le partenaire' : 'Visit partner'}
+        </div>
+      ) : null}
+    </div>
+  );
+
+  if (item.external) {
+    return (
+      <Link
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
+}
 
 export default async function PartnersPage({ params }) {
-  const resolvedParams = await params;
-  const lang = resolvedParams?.lang === "en" ? "en" : "fr";
-  const t = content[lang];
+  const { lang } = await params;
+  if (!isLang(lang)) notFound();
+
+  const list = items[lang] || items.fr;
 
   return (
-    <main className={styles.page}>
-      <section className={styles.hero}>
-        <p className={styles.eyebrow}>{t.eyebrow}</p>
-        <h1>{t.title}</h1>
-        <p>{t.intro}</p>
-      </section>
+    <main className="container py-16">
+      <div className="max-w-4xl">
+        <div className="text-xs font-semibold uppercase tracking-[0.28em] text-[#C6A46C]">
+          {lang === 'fr' ? 'L’agence' : 'The Agency'}
+        </div>
 
-      <section className={styles.partnerSection} aria-label={t.title}>
-        <article className={styles.partnerCard}>
-          <div className={styles.cardHeader}>
-            <span className={styles.partnerLabel}>{t.partnerLabel}</span>
+        <h1 className="mt-4 font-luxe text-4xl leading-tight text-zinc-900 md:text-6xl">
+          {lang === 'fr' ? 'Partenaires' : 'Partners'}
+        </h1>
 
-            <Image
-              src={logoSrc}
-              alt={t.logoAlt}
-              width={300}
-              height={95}
-              className={styles.partnerLogo}
-              priority
-            />
-          </div>
+        <p className="mt-6 text-lg leading-relaxed text-zinc-700">
+          {lang === 'fr'
+            ? 'Chaque projet immobilier d’exception repose aussi sur un réseau fiable, réactif et exigeant. Côte d’Azur Agency s’appuie sur des partenaires sélectionnés avec soin pour offrir un accompagnement cohérent et qualitatif à chaque étape.'
+            : 'Every exceptional real estate project also relies on a trusted, responsive and demanding network. Côte d’Azur Agency works with carefully selected partners to provide consistent, high-quality support at every stage.'}
+        </p>
+      </div>
 
-          <div className={styles.cardBody}>
-            <div className={styles.copy}>
-              <h2>{t.partnerTitle}</h2>
-              <p className={styles.description}>{t.partnerDescription}</p>
-              <p className={styles.note}>{t.note}</p>
-            </div>
-
-            <a
-              href={partnerUrl}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              className={styles.partnerButton}
-              aria-label={t.cta + " - " + t.partnerTitle}
-            >
-              {t.cta}
-            </a>
-          </div>
-        </article>
-      </section>
+      <div className="mt-10 grid gap-5 md:grid-cols-2">
+        {list.map((item) => (
+          <PartnerCard key={item.label} item={item} lang={lang} />
+        ))}
+      </div>
     </main>
   );
 }
