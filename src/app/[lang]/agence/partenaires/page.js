@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
 
 function PartnerCard({ title, description, children }) {
   return (
-    <div className="h-full min-h-[320px] rounded-[28px] bg-white p-8 md:p-10 shadow-soft ring-1 ring-[var(--gold-light)] flex flex-col">
+    <div className="rounded-[28px] bg-white p-8 md:p-10 shadow-soft ring-1 ring-[var(--gold-light)] flex flex-col">
       <div className="flex-1">
         <h2 className="font-luxe text-[34px] leading-tight text-zinc-900 md:text-[42px]">
           {title}
@@ -47,7 +47,7 @@ function CurrenciesDirectCard({ lang }) {
       description={isFr ? "Transfert d'argent international" : 'International money transfer'}
     >
       <div className="mb-8">
-        <div className="relative h-[160px] w-[520px] max-w-full md:h-[190px] md:w-[680px]">
+        <div className="relative h-[120px] w-[360px] max-w-full md:h-[150px] md:w-[460px]">
           <Image
             src="/partners/currencies-direct-logo.png"
             alt="Currencies Direct"
@@ -133,7 +133,7 @@ export default async function PartnersPage({ params }) {
         </p>
       </section>
 
-      <section className="mt-10 grid auto-rows-fr gap-6 md:grid-cols-2">
+      <section className="mt-10 grid gap-6 md:grid-cols-2 md:items-start">
         {cards.map((card) => (
           <PartnerCard
             key={card.title}
