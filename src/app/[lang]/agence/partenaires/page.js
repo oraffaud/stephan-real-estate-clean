@@ -47,7 +47,7 @@ function CurrenciesDirectCard({ lang }) {
       description={isFr ? "Transfert d'argent international" : 'International money transfer'}
     >
       <div className="mb-8">
-        <div className="relative h-[72px] w-[280px] max-w-full md:h-[92px] md:w-[360px]">
+        <div className="relative h-[160px] w-[520px] max-w-full md:h-[190px] md:w-[680px]">
           <Image
             src="/partners/currencies-direct-logo.png"
             alt="Currencies Direct"
