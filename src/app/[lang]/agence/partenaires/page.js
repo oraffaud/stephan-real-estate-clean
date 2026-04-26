@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./partners.module.css";
 
 const partnerUrl = "https://www.currenciesdirect.com/partner/0201110000931505";
-const logoSrc = "/partners/currencies-direct-logo.png";
+const logoSrc = "/partners/currencies-direct-logo-clean.png";
 
 const content = {
   fr: {
@@ -56,39 +56,35 @@ export default async function PartnersPage({ params }) {
 
       <section className={styles.partnerSection} aria-label={t.title}>
         <article className={styles.partnerCard}>
-          <div className={styles.contentCol}>
+          <div className={styles.cardHeader}>
             <span className={styles.partnerLabel}>{t.partnerLabel}</span>
 
-            <h2>{t.partnerTitle}</h2>
-
-            <p className={styles.description}>{t.partnerDescription}</p>
-
-            <p className={styles.note}>{t.note}</p>
-
-            <div className={styles.actionArea}>
-              <a
-                href={partnerUrl}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                className={styles.partnerButton}
-                aria-label={t.cta + " - " + t.partnerTitle}
-              >
-                {t.cta}
-              </a>
-            </div>
+            <Image
+              src={logoSrc}
+              alt={t.logoAlt}
+              width={300}
+              height={95}
+              className={styles.partnerLogo}
+              priority
+            />
           </div>
 
-          <div className={styles.visualCol}>
-            <div className={styles.logoPanel}>
-              <Image
-                src={logoSrc}
-                alt={t.logoAlt}
-                width={420}
-                height={140}
-                className={styles.logo}
-                priority
-              />
+          <div className={styles.cardBody}>
+            <div className={styles.copy}>
+              <h2>{t.partnerTitle}</h2>
+              <p className={styles.description}>{t.partnerDescription}</p>
+              <p className={styles.note}>{t.note}</p>
             </div>
+
+            <a
+              href={partnerUrl}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              className={styles.partnerButton}
+              aria-label={t.cta + " - " + t.partnerTitle}
+            >
+              {t.cta}
+            </a>
           </div>
         </article>
       </section>
