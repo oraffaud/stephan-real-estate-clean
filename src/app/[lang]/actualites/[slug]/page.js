@@ -3,13 +3,15 @@ import { notFound } from 'next/navigation';
 import { isLang } from '@/lib/i18n';
 import { buildPageMetadata, truncateText } from '@/lib/seo';
 import { getAllNewsSlugs, getNewsBySlug } from '@/lib/news';
+import { headers } from 'next/headers';
 
 export async function generateStaticParams() {
   const slugs = await getAllNewsSlugs();
   return slugs.flatMap((slug) => [{ lang: 'fr', slug }, { lang: 'en', slug }]);
 }
 
-function NewsJsonLd({ article, lang }) {
+async function NewsJsonLd({ article, lang }) {
+  const nonce = (await headers()).get('x-nonce') || undefined;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
   const url = `${baseUrl}/${lang}/actualites/${article.slug}`;
 
@@ -37,6 +39,7 @@ function NewsJsonLd({ article, lang }) {
 
   return (
     <script
+      nonce={nonce}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />

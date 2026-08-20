@@ -2,8 +2,10 @@ import { notFound } from 'next/navigation';
 import { isLang, getDict } from '@/lib/i18n';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { headers } from 'next/headers';
 
-function AgencySchema() {
+async function AgencySchema() {
+  const nonce = (await headers()).get('x-nonce') || undefined;
   const baseUrl = 'https://www.cotedazuragency.com';
 
   const realEstateAgentJsonLd = {
@@ -36,10 +38,12 @@ function AgencySchema() {
   return (
     <>
       <script
+        nonce={nonce}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentJsonLd) }}
       />
       <script
+        nonce={nonce}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
       />

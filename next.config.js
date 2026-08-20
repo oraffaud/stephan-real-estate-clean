@@ -8,23 +8,7 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=(), usb=()',
   },
   { key: 'X-Frame-Options', value: 'DENY' },
-  {
-    key: 'Content-Security-Policy',
-    value: [
-      "default-src 'self'",
-      "base-uri 'self'",
-      "object-src 'none'",
-      "frame-ancestors 'none'",
-      "form-action 'self'",
-      "img-src 'self' data: blob: https:",
-      "font-src 'self' data: https:",
-      "style-src 'self' 'unsafe-inline' https:",
-      "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
-      "connect-src 'self' https:",
-      "worker-src 'self' blob:",
-      "upgrade-insecure-requests",
-    ].join('; '),
-  },
+
 ];
 
 const nextConfig = {
