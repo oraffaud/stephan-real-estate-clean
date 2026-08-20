@@ -4,6 +4,7 @@ import { isLang } from '@/lib/i18n';
 import { buildPageMetadata, truncateText } from '@/lib/seo';
 import { getAllNewsSlugs, getNewsBySlug } from '@/lib/news';
 import { getMandatBySlug } from '@/lib/apimo';
+import { headers } from 'next/headers';
 
 function formatPrice(value, lang) {
   if (!value) return '';
@@ -33,7 +34,8 @@ function LocationLine({ label }) {
   );
 }
 
-function SaleJsonLd({ mandat, lang }) {
+async function SaleJsonLd({ mandat, lang }) {
+  const nonce = (await headers()).get('x-nonce') || undefined;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
   const url = `${baseUrl}/${lang}/vente/${mandat.slug}`;
 
@@ -69,6 +71,7 @@ function SaleJsonLd({ mandat, lang }) {
 
   return (
     <script
+      nonce={nonce}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
