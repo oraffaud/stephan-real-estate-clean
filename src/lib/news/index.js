@@ -1,4 +1,5 @@
 import { getKeystaticNewsReader } from '@/lib/keystatic-reader';
+import { generatedNews, generatedNewsSlugs } from './generated';
 
 function normalizePost({ slug, entry }, lang = 'fr') {
   const localized = entry[lang] || entry.fr || {};
@@ -17,33 +18,49 @@ function normalizePost({ slug, entry }, lang = 'fr') {
   };
 }
 
-export async function getAllNews(lang = 'fr') {
+async function getDraftNews(lang) {
   const { reader, isDraft } = await getKeystaticNewsReader();
+  if (!isDraft) return null;
+
   const items = await reader.collections.news.all();
 
   return items
     .map((item) => normalizePost(item, lang))
-    .filter((post) => isDraft || post.status === 'published')
+    .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
+}
+
+export async function getAllNews(lang = 'fr') {
+  const draftItems = await getDraftNews(lang);
+  if (draftItems) return draftItems;
+
+  return generatedNews
+    .map((item) => normalizePost(item, lang))
+    .filter((post) => post.status === 'published')
     .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
 }
 
 export async function getNewsBySlug(slug, lang = 'fr') {
   const { reader, isDraft } = await getKeystaticNewsReader();
-  const entry = await reader.collections.news.read(slug);
 
-  if (!entry) return null;
+  if (isDraft) {
+    const entry = await reader.collections.news.read(slug);
+    if (!entry) return null;
+    return normalizePost({ slug, entry }, lang);
+  }
 
-  const post = normalizePost({ slug, entry }, lang);
-  if (!isDraft && post.status !== 'published') return null;
+  const item = generatedNews.find((candidate) => candidate.slug === slug);
+  if (!item) return null;
+
+  const post = normalizePost(item, lang);
+  if (post.status !== 'published') return null;
 
   return post;
 }
 
 export async function getAllNewsSlugs() {
-  const { reader } = await getKeystaticNewsReader();
-  const items = await reader.collections.news.all();
-
-  return items
+  return generatedNews
     .filter((item) => (item.entry.status || 'published') === 'published')
     .map((item) => item.slug);
 }
+
+export { generatedNewsSlugs };

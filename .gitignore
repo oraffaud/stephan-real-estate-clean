@@ -13,3 +13,6 @@ src/**/.DS_Store
 .backup-*/
 .vercel
 .env*
+
+# Generated news index
+src/lib/news/generated.js
