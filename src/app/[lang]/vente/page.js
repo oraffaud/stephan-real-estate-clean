@@ -29,49 +29,16 @@ function getMainPicture(mandat) {
   return '';
 }
 
-function getSurfaceLabel(mandat) {
-  const surface = mandat?.surface || mandat?.area || mandat?.livingArea;
-  if (!surface) return '';
-
-  return `${surface} m²`;
-}
-
-function getRoomsLabel(mandat, lang) {
-  const rooms = mandat?.rooms || mandat?.pieces || mandat?.nbRooms;
-  if (!rooms) return '';
-
-  return lang === 'fr' ? `${rooms} pièces` : `${rooms} rooms`;
-}
-
-function getBedroomsLabel(mandat, lang) {
-  const bedrooms = mandat?.bedrooms || mandat?.chambres || mandat?.nbBedrooms;
-  if (!bedrooms) return '';
-
-  return lang === 'fr' ? `${bedrooms} chambres` : `${bedrooms} bedrooms`;
+function getCityLabel(mandat) {
+  return mandat?.locationLabel || mandat?.city || mandat?.location || '';
 }
 
 function getGridClass(count) {
-  if (count <= 1) {
-    return 'mx-auto max-w-md grid-cols-1';
-  }
-
-  if (count === 2) {
-    return 'mx-auto max-w-3xl grid-cols-2';
-  }
-
-  if (count === 3) {
-    return 'mx-auto max-w-5xl grid-cols-3';
-  }
-
-  if (count === 4) {
-    return 'grid-cols-4';
-  }
-
-  if (count <= 6) {
-    return 'grid-cols-3';
-  }
-
-  return 'grid-cols-4';
+  if (count <= 1) return 'grid-cols-1 mx-auto w-full max-w-md';
+  if (count === 2) return 'grid-cols-2 mx-auto w-full max-w-3xl';
+  if (count <= 4) return 'grid-cols-2 lg:grid-cols-4';
+  if (count <= 6) return 'grid-cols-2 lg:grid-cols-3';
+  return 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
 }
 
 export async function generateMetadata({ params }) {
@@ -118,9 +85,9 @@ export default async function VentePage({ params }) {
   const gridClass = getGridClass(visibleMandats.length);
 
   return (
-    <main className="container flex h-[calc(100vh-166px)] min-h-[560px] flex-col overflow-hidden py-5">
-      <header className="mx-auto mb-4 max-w-4xl shrink-0 text-center">
-        <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#C6A46C]">
+    <main className="container flex min-h-[calc(100vh-166px)] flex-col px-4 py-5 md:h-[calc(100vh-166px)] md:min-h-[560px] md:overflow-hidden md:py-5">
+      <header className="mx-auto mb-4 max-w-4xl shrink-0 text-center md:mb-4">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#C6A46C] md:text-[11px]">
           {lang === 'fr' ? 'Catalogue des biens' : 'Property catalogue'}
         </p>
 
@@ -138,22 +105,20 @@ export default async function VentePage({ params }) {
           {t.sale.empty}
         </div>
       ) : (
-        <section className={`grid flex-1 auto-rows-fr gap-3 overflow-hidden ${gridClass}`}>
+        <section className={`grid flex-1 auto-rows-auto gap-3 overflow-visible md:auto-rows-fr md:gap-3 md:overflow-hidden ${gridClass}`}>
           {visibleMandats.map((m) => {
             const href = `/${lang}/vente/${m.slug}`;
             const picture = getMainPicture(m);
+            const city = getCityLabel(m);
             const title = m.title || m.name || '';
-            const surfaceLabel = getSurfaceLabel(m);
-            const roomsLabel = getRoomsLabel(m, lang);
-            const bedroomsLabel = getBedroomsLabel(m, lang);
 
             return (
               <Link
                 key={m.slug}
                 href={href}
-                className="group flex min-h-0 flex-col overflow-hidden rounded-[20px] bg-white shadow-soft ring-1 ring-[var(--gold-light)] transition duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:ring-[#C6A46C]"
+                className="group flex min-h-0 flex-col overflow-hidden rounded-[18px] bg-white shadow-soft ring-1 ring-[var(--gold-light)] transition duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:ring-[#C6A46C]"
               >
-                <div className="relative h-[44%] min-h-[92px] overflow-hidden bg-zinc-100">
+                <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100 md:aspect-auto md:h-[62%] md:min-h-[132px]">
                   {picture ? (
                     <img
                       src={picture}
@@ -162,57 +127,28 @@ export default async function VentePage({ params }) {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center text-sm text-zinc-500">
+                    <div className="flex h-full w-full items-center justify-center text-xs text-zinc-500">
                       {lang === 'fr' ? 'Photo à venir' : 'Photo coming soon'}
                     </div>
                   )}
-
-                  <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/50 to-transparent" />
-
-                  {m.price ? (
-                    <div className="absolute bottom-2 left-2 rounded-full bg-white/95 px-3 py-1 text-[12px] font-semibold leading-none text-zinc-900">
-                      {formatPrice(m.price, lang)}
-                    </div>
-                  ) : null}
                 </div>
 
-                <div className="flex flex-1 flex-col p-3">
-                  {m.locationLabel ? (
-                    <p className="mb-1 truncate text-[10px] font-semibold uppercase tracking-[0.18em] text-[#C6A46C]">
-                      {m.locationLabel}
+                <div className="flex flex-1 flex-col p-3 md:p-3">
+                  {city ? (
+                    <p className="mb-1 truncate text-[9px] font-semibold uppercase tracking-[0.18em] text-[#C6A46C] md:text-[10px]">
+                      {city}
                     </p>
                   ) : null}
 
-                  <h2 className="line-clamp-2 min-h-[38px] text-[15px] font-semibold leading-tight text-zinc-900">
+                  <h2 className="line-clamp-3 text-[14px] font-semibold leading-tight text-zinc-900 md:text-[15px]">
                     {title}
                   </h2>
 
-                  <div className="mt-2 flex min-h-[24px] flex-wrap gap-1.5 overflow-hidden text-[11px] text-zinc-700">
-                    {surfaceLabel ? (
-                      <span className="rounded-full bg-zinc-100 px-2 py-1 leading-none">
-                        {surfaceLabel}
-                      </span>
-                    ) : null}
-
-                    {roomsLabel ? (
-                      <span className="rounded-full bg-zinc-100 px-2 py-1 leading-none">
-                        {roomsLabel}
-                      </span>
-                    ) : null}
-
-                    {bedroomsLabel ? (
-                      <span className="rounded-full bg-zinc-100 px-2 py-1 leading-none">
-                        {bedroomsLabel}
-                      </span>
-                    ) : null}
-                  </div>
-
-                  <div className="mt-auto pt-2">
-                    <span className="inline-flex items-center text-[11px] font-semibold uppercase tracking-[0.15em] text-zinc-900">
-                      {lang === 'fr' ? 'Voir le bien' : 'View listing'}
-                      <span className="ml-2 transition group-hover:translate-x-1">→</span>
-                    </span>
-                  </div>
+                  {m.price ? (
+                    <div className="mt-2 text-[11px] font-medium leading-none text-zinc-700 md:text-[11px]">
+                      {formatPrice(m.price, lang)}
+                    </div>
+                  ) : null}
                 </div>
               </Link>
             );

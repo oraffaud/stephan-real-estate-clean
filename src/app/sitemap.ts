@@ -1,15 +1,20 @@
 import type { MetadataRoute } from 'next'
+import { getSeoPages } from '@/lib/seo-pages'
 
 const LANGS = ['fr', 'en'] as const
+const SITE_URL = 'https://www.cotedazuragency.com'
 
-async function getSaleUrls(baseUrl: string) {
+async function getSaleUrls(baseUrl: string): Promise<MetadataRoute.Sitemap> {
   try {
     const { getMandats } = await import('@/lib/apimo')
-    const entries = []
+    const entries: MetadataRoute.Sitemap = []
 
     for (const lang of LANGS) {
       const items = await getMandats(lang)
-      for (const item of items) {
+
+      for (const item of items || []) {
+        if (!item?.slug) continue
+
         entries.push({
           url: `${baseUrl}/${lang}/vente/${item.slug}`,
           lastModified: new Date(),
@@ -20,14 +25,13 @@ async function getSaleUrls(baseUrl: string) {
     }
 
     return entries
-  } catch {
+  } catch (error) {
+    console.error('SITEMAP_SALE_URLS_ERROR', error)
     return []
   }
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.cotedazuragency.com'
-
   const staticUrls = [
     '',
     '/vente',
@@ -46,7 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const lang of LANGS) {
     for (const path of staticUrls) {
       entries.push({
-        url: `${baseUrl}/${lang}${path}`,
+        url: `${SITE_URL}/${lang}${path}`,
         lastModified: new Date(),
         changeFrequency: path === '' ? 'weekly' : 'monthly',
         priority:
@@ -64,6 +68,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  const saleUrls = await getSaleUrls(baseUrl)
-  return [...entries, ...saleUrls]
+  const seoEntries: MetadataRoute.Sitemap = getSeoPages().map((page) => ({
+    url: `${SITE_URL}/${page.lang}/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: page.lang === 'fr' ? 0.85 : 0.8,
+  }))
+
+  const saleUrls = await getSaleUrls(SITE_URL)
+
+  return [...entries, ...seoEntries, ...saleUrls]
 }

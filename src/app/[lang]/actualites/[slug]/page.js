@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 
 async function NewsJsonLd({ article, lang }) {
   const nonce = (await headers()).get('x-nonce') || undefined;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.cotedazuragency.com';
+  const baseUrl = 'https://www.cotedazuragency.com';
   const url = `${baseUrl}/${lang}/actualites/${article.slug}`;
 
   const jsonLd = {

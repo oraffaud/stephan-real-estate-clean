@@ -1,0 +1,5 @@
+Contact: mailto:contact@cotedazuragency.com
+Preferred-Languages: fr, en
+Canonical: https://www.cotedazuragency.com/.well-known/security.txt
+Policy: https://www.cotedazuragency.com/
+Expires: 2027-09-12T09:59:37Z
