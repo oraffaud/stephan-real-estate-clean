@@ -8,11 +8,15 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=(), usb=()',
   },
   { key: 'X-Frame-Options', value: 'DENY' },
-
 ];
 
 const nextConfig = {
   poweredByHeader: false,
+
+  outputFileTracingIncludes: {
+    '/[lang]/actualites': ['./content/news/**/*'],
+    '/[lang]/actualites/[slug]': ['./content/news/**/*'],
+  },
 
   async headers() {
     return [
