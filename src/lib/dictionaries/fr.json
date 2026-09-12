@@ -11,12 +11,13 @@
     "partners": "Partenaires"
   },
   "home": {
-    "heroTitle": "Démarrer votre projet d’exception",
-    "heroLead": "Real Estate on the French Riviera",
+    "heroTitle": "Côte d’Azur Agency",
+    "heroLead": "Immobilier de prestige sur la Côte d’Azur",
     "ctaPrimary": "Prendre contact",
     "ctaSecondary": "Biens à la vente",
-    "introTitle": "L’excellence commence par une rencontre",
-    "introText": "Sur la Côte d’Azur, chaque projet mérite une attention unique."
+    "introTitle": "Votre projet immobilier sur la Côte d’Azur",
+    "introText": "Côte d’Azur Agency est une agence immobilière indépendante spécialisée dans l’immobilier de prestige sur la Côte d’Azur. Nous accompagnons une clientèle française et internationale dans la vente et l’acquisition de villas, appartements et propriétés d’exception, avec une approche sur mesure fondée sur la connaissance du marché, la discrétion et la qualité du conseil.",
+    "introText2": "De Valbonne à Cannes, en passant par Mougins, Biot, Antibes, Théoule-sur-Mer et les secteurs recherchés des Alpes-Maritimes, chaque projet fait l’objet d’un accompagnement personnalisé. Notre objectif est de relier des acquéreurs qualifiés à des biens soigneusement sélectionnés, tout en apportant aux propriétaires une stratégie de commercialisation adaptée au positionnement de leur propriété."
   },
   "sale": {
     "title": "Vente",

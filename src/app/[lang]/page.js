@@ -5,10 +5,12 @@ import { buildPageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-  const title = lang === 'en' ? 'Home | Côte d’Azur Agency' : 'Accueil | Côte d’Azur Agency';
+  const title = lang === 'en'
+    ? 'Côte d’Azur Agency | Luxury Real Estate on the French Riviera'
+    : 'Côte d’Azur Agency | Immobilier de prestige sur la Côte d’Azur';
   const description = lang === 'en'
-    ? 'Luxury real estate on the French Riviera.'
-    : 'Immobilier de prestige sur la Côte d’Azur.';
+    ? 'Côte d’Azur Agency advises French and international clients on luxury property sales and acquisitions across the French Riviera.'
+    : 'Côte d’Azur Agency accompagne vendeurs et acquéreurs dans leurs projets immobiliers de prestige à Valbonne, Cannes, Mougins, Biot, Antibes et sur la Côte d’Azur.';
   return buildPageMetadata({ title, description, lang, pathname: `/${lang}` });
 }
 
@@ -28,6 +30,9 @@ export default async function HomePage({ params }) {
             <h1 className="font-luxe text-4xl leading-tight md:text-6xl lg:text-[64px]">
               {t.home.heroTitle}
             </h1>
+            <p className="mt-4 max-w-2xl text-lg text-white/90 md:text-xl">
+              {t.home.heroLead}
+            </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href={`/${lang}/contact`} className="btn-gold">{t.home.ctaPrimary}</Link>
@@ -41,6 +46,7 @@ export default async function HomePage({ params }) {
         <div className="card-luxe p-8">
           <h2 className="font-luxe text-3xl">{t.home.introTitle}</h2>
           <p className="mt-4 text-zinc-700">{t.home.introText}</p>
+          <p className="mt-4 text-zinc-700">{t.home.introText2}</p>
         </div>
       </section>
     </main>

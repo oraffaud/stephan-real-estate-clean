@@ -7,11 +7,11 @@ export async function generateMetadata({ params }) {
   const { lang } = await params;
   return buildPageMetadata({
     title: lang === 'fr'
-      ? 'L’agence | Côte d’Azur Agency'
-      : 'The Agency | Côte d’Azur Agency',
+      ? 'Côte d’Azur Agency | Agence immobilière de prestige'
+      : 'Côte d’Azur Agency | Luxury Real Estate Agency',
     description: lang === 'fr'
-      ? 'Découvrez l’univers, la vision et les partenaires de Côte d’Azur Agency.'
-      : 'Discover the vision, founder and partners of Côte d’Azur Agency.',
+      ? 'Découvrez Côte d’Azur Agency, agence immobilière indépendante spécialisée dans l’immobilier de prestige sur la Côte d’Azur.'
+      : 'Discover Côte d’Azur Agency, an independent luxury real estate agency specialising in the French Riviera.',
     lang,
     pathname: `/${lang}/agence`
   });
@@ -69,12 +69,12 @@ export default async function AgencePage({ params }) {
   return (
     <main className="container py-16">
       <h1 className="font-luxe text-4xl">
-        {lang === 'fr' ? 'L’agence' : 'The Agency'}
+        Côte d’Azur Agency
       </h1>
       <p className="mt-3 max-w-3xl text-zinc-700">
         {lang === 'fr'
-          ? 'Une structure indépendante pensée pour une clientèle exigeante, en quête de discrétion, de précision et d’un accompagnement irréprochable.'
-          : 'An independent structure designed for a demanding clientele seeking discretion, precision and impeccable support.'}
+          ? 'Agence immobilière indépendante spécialisée dans l’immobilier de prestige sur la Côte d’Azur, nous accompagnons vendeurs et acquéreurs avec une approche personnalisée, discrète et exigeante.'
+          : 'An independent agency specialising in luxury real estate on the French Riviera, we support sellers and buyers through a personalised, discreet and exacting approach.'}
       </p>
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">

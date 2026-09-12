@@ -23,8 +23,21 @@ async function AgencySchema() {
       addressLocality: 'Valbonne',
       addressCountry: 'FR'
     },
-    areaServed: ['Valbonne', 'Vence', 'Tourrettes-sur-Loup', 'French Riviera'],
-    sameAs: [baseUrl]
+    areaServed: [
+      'French Riviera',
+      'Côte d’Azur',
+      'Valbonne',
+      'Mougins',
+      'Biot',
+      'Cannes',
+      'Antibes',
+      'Théoule-sur-Mer',
+      'Vence',
+      'Tourrettes-sur-Loup'
+    ],
+    sameAs: [
+      'https://fr.linkedin.com/company/c%C3%B4tedazuragency'
+    ]
   };
 
   const webSiteJsonLd = {
@@ -32,7 +45,7 @@ async function AgencySchema() {
     '@type': 'WebSite',
     url: `${baseUrl}/`,
     name: "Côte d'Azur Agency",
-    alternateName: 'Stephan Real Estate'
+    alternateName: ["Cote d'Azur Agency", 'Côte d’Azur Agency']
   };
 
   return (

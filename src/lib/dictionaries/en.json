@@ -11,12 +11,13 @@
     "partners": "Partners"
   },
   "home": {
-    "heroTitle": "Start your exceptional property journey",
-    "heroLead": "Real Estate on the French Riviera",
+    "heroTitle": "Côte d’Azur Agency",
+    "heroLead": "Luxury Real Estate on the French Riviera",
     "ctaPrimary": "Get in touch",
     "ctaSecondary": "View listings",
-    "introTitle": "Excellence starts with a meeting",
-    "introText": "On the French Riviera, every property tells a story. Yours deserves singular attention."
+    "introTitle": "Your real estate project on the French Riviera",
+    "introText": "Côte d’Azur Agency is an independent real estate agency specialising in luxury property on the French Riviera. We advise French and international clients on the sale and acquisition of exceptional villas, apartments and residences through a tailored approach combining local market knowledge, discretion and high-quality advice.",
+    "introText2": "From Valbonne to Cannes, including Mougins, Biot, Antibes, Théoule-sur-Mer and the most sought-after areas of the Alpes-Maritimes, every project receives personalised attention. Our aim is to connect qualified buyers with carefully selected properties while giving owners a marketing strategy aligned with the positioning of their property."
   },
   "sale": {
     "title": "Sale",
